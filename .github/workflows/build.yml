@@ -23,6 +23,7 @@ jobs:
         cache: true
         cache-key: flutter # optional, change this to force refresh cache
         cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
+    - run: flutter config --no-analytics
     - run: flutter pub get
     - run: flutter test
     - run: flutter build apk
@@ -38,6 +39,7 @@ jobs:
         cache: true
         cache-key: flutter
         cache-path: ${{ runner.tool_cache }}/flutter
+    - run: flutter config --no-analytics
     - run: flutter pub get
     - run: flutter test
     - run: flutter build ios --release --no-codesign
@@ -52,6 +54,7 @@ jobs:
         cache: true
         cache-key: flutter
         cache-path: ${{ runner.tool_cache }}/flutter
+    - run: flutter config --no-analytics
     - run: flutter pub get
     - run: flutter test
     - run: flutter build web
