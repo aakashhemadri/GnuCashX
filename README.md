@@ -1,0 +1,2 @@
+# GnuCashX
+GnuCash Mobile
