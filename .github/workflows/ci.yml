@@ -151,9 +151,9 @@ jobs:
     steps:
 
     - name: Get tag name
-        run: |
-          set -x
-          echo "VERSION_TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+      run: |
+        set -x
+        echo "VERSION_TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
 
     - name: Create artifact directory
       run: mkdir -p /artifacts
