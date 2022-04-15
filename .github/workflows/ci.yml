@@ -183,27 +183,27 @@ jobs:
         echo "WEB_TAR_SHA=$sha" >> $GITHUB_ENV
 
     - name: Create Release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ env.VERSION_TAG }}
-          name: GnuCashX ${{ env.VERSION_TAG }}
-          body: |
-            ---
+      uses: softprops/action-gh-release@v1
+      with:
+        tag_name: ${{ env.VERSION_TAG }}
+        name: GnuCashX ${{ env.VERSION_TAG }}
+        body: |
+          ---
 
-            ### Checksums
+          ### Checksums
 
-            | Variant | SHA-256 |
-            | ------- | ------- |
-            | Android APK | ${{ env.APK_SHA }} |
-            | Android Bundle | ${{ env.AAB_SHA }} |
-            | iOS | ${{ env.IOS_SHA }} |
-            | Web | ${{ env.WEB_TAR_SHA }} |
-          files: |
-            gnucashx-${{ env.VERSION_TAG }}.apk
-            gnucashx-${{ env.VERSION_TAG }}.aab
-            gnucashx-${{ env.VERSION_TAG }}.app
-            gnucashx-web-${{ env.VERSION_TAG }}.tar
-          draft: true
-          prerelease: false
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          | Variant | SHA-256 |
+          | ------- | ------- |
+          | Android APK | ${{ env.APK_SHA }} |
+          | Android Bundle | ${{ env.AAB_SHA }} |
+          | iOS | ${{ env.IOS_SHA }} |
+          | Web | ${{ env.WEB_TAR_SHA }} |
+        files: |
+          gnucashx-${{ env.VERSION_TAG }}.apk
+          gnucashx-${{ env.VERSION_TAG }}.aab
+          gnucashx-${{ env.VERSION_TAG }}.app
+          gnucashx-web-${{ env.VERSION_TAG }}.tar
+        draft: true
+        prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
