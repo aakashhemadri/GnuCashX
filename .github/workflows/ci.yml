@@ -97,12 +97,15 @@ jobs:
 
     - name: Build iOS target
       run: flutter build ios --release --no-codesign
+    
+    - name: Tar files
+      run: tar -cvf gnucashx-ios.tar /Users/runner/work/GnuCashX/GnuCashX/build/ios/iphoneos/Runner.app
 
     - name: Upload artifacts
       uses: actions/upload-artifact@v3
       with:
         name: iOS
-        path: /Users/runner/work/GnuCashX/GnuCashX/build/ios/iphoneos/Runner.app
+        path: gnucashx-ios.tar
 
   build-web:
     name: Build for Web
@@ -166,15 +169,15 @@ jobs:
     - name: Clean up artifacts
       run: |
         set -e
-        mv /artifacts/Android/app-release.apk gnucashx-${{ env.VERSION_TAG }}.apk
+        mv /artifacts/Android/flutter-apk/app-release.apk gnucashx-${{ env.VERSION_TAG }}.apk
         sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.apk | awk '{ print $1 }'`
         echo "APK_SHA=$sha" >> $GITHUB_ENV
 
-        mv /artifacts/Android/app-release.aab gnucashx-${{ env.VERSION_TAG }}.aab
+        mv /artifacts/Android/bundle/release/app-release.aab gnucashx-${{ env.VERSION_TAG }}.aab
         sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.aab | awk '{ print $1 }'`
         echo "AAB_SHA=$sha" >> $GITHUB_ENV
 
-        mv /artifacts/iOS/Runner.app gnucashx-${{ env.VERSION_TAG }}.app
+        mv /artifacts/iOS/gnucash-ios.tar gnucashx-ios-${{ env.VERSION_TAG }}.tar
         sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.app | awk '{ print $1 }'`
         echo "IOS_SHA=$sha" >> $GITHUB_ENV
 
