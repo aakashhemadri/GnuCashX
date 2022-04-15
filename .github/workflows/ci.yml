@@ -18,10 +18,38 @@ jobs:
       with:
         access_token: ${{ secrets.GITHUB_TOKEN }}
         all_but_latest: true
+  test:
+    name: Run flutter tests
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Clone repo
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+    
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '2.10.3'
+        channel: 'stable'
+        cache: true
+        cache-key: flutter # optional, change this to force refresh cache
+        cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
+
+    - name: Disable analytics
+      run: flutter config --no-analytics
+
+    - name: Retrieve dependencies
+      run: flutter pub get
+
+    - name: Run tests
+      run: flutter test
 
   build:
     name: Build for Android
     runs-on: ubuntu-latest
+    needs: [test]
     steps:
 
     - name: Clone repo
@@ -50,9 +78,6 @@ jobs:
     - name: Retrieve dependencies
       run: flutter pub get
 
-    - name: Run tests
-      run: flutter test
-
     - name: Build apk
       run: flutter build apk
 
@@ -70,6 +95,7 @@ jobs:
   build-ios:
     name: Build for iOS
     runs-on: macos-latest
+    needs: [test]
     steps:
 
     - name: Clone repo
@@ -91,9 +117,6 @@ jobs:
 
     - name: Retrieve dependencies
       run: flutter pub get
-
-    - name: Run tests
-      run: flutter test
 
     - name: Build iOS target
       run: flutter build ios --release --no-codesign
@@ -110,6 +133,7 @@ jobs:
   build-web:
     name: Build for Web
     runs-on: ubuntu-latest
+    needs: [test]
     steps:
 
     - name: Clone repo
@@ -131,9 +155,6 @@ jobs:
 
     - name: Retrieve dependencies
       run: flutter pub get
-
-    - name: Run tests
-      run: flutter test
 
     - name: Build for target
       run: flutter build web
@@ -178,7 +199,7 @@ jobs:
         sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.aab | awk '{ print $1 }'`
         echo "AAB_SHA=$sha" >> $GITHUB_ENV
 
-        mv artifacts/iOS/gnucash-ios.tar gnucashx-ios-${{ env.VERSION_TAG }}.tar
+        mv artifacts/iOS/gnucashx-ios.tar gnucashx-ios-${{ env.VERSION_TAG }}.tar
         sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.app | awk '{ print $1 }'`
         echo "IOS_SHA=$sha" >> $GITHUB_ENV
 
