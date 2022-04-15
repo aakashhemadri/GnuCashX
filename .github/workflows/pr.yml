@@ -1,0 +1,111 @@
+name: Continuous Integration
+
+on:
+  pull_request:
+    paths-ignore:
+      - '**.md'
+      - 'app/src/main/res/**/strings.xml'
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build for Android
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Clone repo
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - name: Setup up JDK 11
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'zulu'
+        java-version: '11'
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '2.10.3'
+        channel: 'stable'
+        cache: true
+        cache-key: flutter # optional, change this to force refresh cache
+        cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
+
+    - name: Disable analytics
+      run: flutter config --no-analytics
+
+    - name: Retrieve dependencies
+      run: flutter pub get
+
+    - name: Run tests
+      run: flutter test
+
+    - name: Build apk
+      run: flutter build apk
+
+    - name: Build appbundle
+      run: flutter build appbundle
+
+  build-ios:
+    name: Build for iOS
+    runs-on: macos-latest
+    steps:
+
+    - name: Clone repo
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '2.10.3'
+        channel: 'stable'
+        cache: true
+        cache-key: flutter
+        cache-path: ${{ runner.tool_cache }}/flutter
+
+    - name: Disable analytics
+      run: flutter config --no-analytics
+
+    - name: Retrieve dependencies
+      run: flutter pub get
+
+    - name: Run tests
+      run: flutter test
+
+    - name: Build iOS target
+      run: flutter build ios --release --no-codesign
+
+  build-web:
+    name: Build for Web
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Clone repo
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 1
+
+    - name: Setup Flutter
+      uses: subosito/flutter-action@v2
+      with:
+        flutter-version: '2.10.3'
+        channel: 'stable'
+        cache: true
+        cache-key: flutter
+        cache-path: ${{ runner.tool_cache }}/flutter
+
+    - name: Disable analytics
+      run: flutter config --no-analytics
+
+    - name: Retrieve dependencies
+      run: flutter pub get
+
+    - name: Run tests
+      run: flutter test
+
+    - name: Build for Web
+      run: flutter build web
