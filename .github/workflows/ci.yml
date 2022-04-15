@@ -3,7 +3,8 @@ name: Continuous Integration
 on:
   push:
     branches:
-      - $default-branch
+      - master
+      - ci
     tags:
       - v*
   workflow_dispatch:
@@ -18,6 +19,11 @@ jobs:
       with:
         access_token: ${{ secrets.GITHUB_TOKEN }}
         all_but_latest: true
+  linter:
+    name: Super Linter
+    runs-on: ubuntu-latest
+    steps:
+
   test:
     name: Run flutter tests
     runs-on: ubuntu-latest
