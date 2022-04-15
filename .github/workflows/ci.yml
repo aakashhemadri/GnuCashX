@@ -200,7 +200,7 @@ jobs:
         echo "AAB_SHA=$sha" >> $GITHUB_ENV
 
         mv artifacts/iOS/gnucashx-ios.tar gnucashx-ios-${{ env.VERSION_TAG }}.tar
-        sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.app | awk '{ print $1 }'`
+        sha=`sha256sum gnucashx-ios-${{ env.VERSION_TAG }}.tar | awk '{ print $1 }'`
         echo "IOS_SHA=$sha" >> $GITHUB_ENV
 
         mv artifacts/Web/gnucashx-web.tar gnucashx-web-${{ env.VERSION_TAG }}.tar
@@ -226,7 +226,7 @@ jobs:
         files: |
           gnucashx-${{ env.VERSION_TAG }}.apk
           gnucashx-${{ env.VERSION_TAG }}.aab
-          gnucashx-${{ env.VERSION_TAG }}.app
+          gnucashx-ios-${{ env.VERSION_TAG }}.tar
           gnucashx-web-${{ env.VERSION_TAG }}.tar
         draft: true
         prerelease: false
