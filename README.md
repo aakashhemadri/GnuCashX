@@ -48,4 +48,4 @@ flutter build ios --release --no-codesign
 
 ## Contributors
 
-[Aakash Hemadri](https://portal.aakashhemadri.com)]
+[Aakash Hemadri](https://portal.aakashhemadri.com)
