@@ -36,4 +36,4 @@ jobs:
 
           LINTER_RULES_PATH: /.github/linters
           VALIDATE_JSCPD: false
-          # VALIDATE_GITHUB_ACTIONS: false
+          VALIDATE_GITHUB_ACTIONS: false
