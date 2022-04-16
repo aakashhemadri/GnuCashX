@@ -19,10 +19,6 @@ jobs:
       with:
         access_token: ${{ secrets.GITHUB_TOKEN }}
         all_but_latest: true
-  linter:
-    name: Super Linter
-    runs-on: ubuntu-latest
-    steps:
 
   test:
     name: Run flutter tests
