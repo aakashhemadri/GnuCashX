@@ -1,6 +1,6 @@
 enabled: true
 titleAndCommits: true
-allowMergeCommits: true
+allowMergeCommits: false
 allowRevertCommits: true
 types:
   - feat

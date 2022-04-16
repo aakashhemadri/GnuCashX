@@ -1,9 +1,10 @@
+---
 name: Continuous Integration
 
 on:
   push:
     branches:
-      - $default-branch
+      - master
     tags:
       - v*
   workflow_dispatch:
@@ -13,222 +14,206 @@ jobs:
     name: Cancel previous runs
     runs-on: ubuntu-latest
     steps:
-    - name: Cancel previous runs
-      uses: styfle/cancel-workflow-action@0.9.1
-      with:
-        access_token: ${{ secrets.GITHUB_TOKEN }}
-        all_but_latest: true
+      - name: Cancel previous runs
+        uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ secrets.GITHUB_TOKEN }}
+          all_but_latest: true
+
   test:
     name: Run flutter tests
     runs-on: ubuntu-latest
     steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '2.10.3'
+          channel: 'stable'
+          cache: true
+          cache-key: flutter
+          cache-path: ${{ runner.tool_cache }}/flutter
 
-    - name: Clone repo
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-    
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '2.10.3'
-        channel: 'stable'
-        cache: true
-        cache-key: flutter # optional, change this to force refresh cache
-        cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
+      - name: Disable analytics
+        run: flutter config --no-analytics
+        shell: bash
 
-    - name: Disable analytics
-      run: flutter config --no-analytics
+      - name: Retrieve dependencies
+        run: flutter pub get
+        shell: bash
 
-    - name: Retrieve dependencies
-      run: flutter pub get
-
-    - name: Run tests
-      run: flutter test
+      - name: Run tests
+        run: flutter test
+        shell: bash
 
   build:
-    name: Build for Android
+    name: Build for Android & Web
     runs-on: ubuntu-latest
     needs: [test]
     steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
 
-    - name: Clone repo
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
+      - name: Setup up JDK 11
+        uses: actions/setup-java@v2
+        with:
+          distribution: 'zulu'
+          java-version: '11'
 
-    - name: Setup up JDK 11
-      uses: actions/setup-java@v2
-      with:
-        distribution: 'zulu'
-        java-version: '11'
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '2.10.3'
+          channel: 'stable'
+          cache: true
+          cache-key: flutter
+          cache-path: ${{ runner.tool_cache }}/flutter
 
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '2.10.3'
-        channel: 'stable'
-        cache: true
-        cache-key: flutter # optional, change this to force refresh cache
-        cache-path: ${{ runner.tool_cache }}/flutter # optional, change this to specify the cache path
+      - name: Disable analytics
+        run: flutter config --no-analytics
+        shell: bash
 
-    - name: Disable analytics
-      run: flutter config --no-analytics
+      - name: Retrieve dependencies
+        run: flutter pub get
+        shell: bash
 
-    - name: Retrieve dependencies
-      run: flutter pub get
+      - name: Build apk
+        run: flutter build apk
+        shell: bash
 
-    - name: Build apk
-      run: flutter build apk
+      - name: Build for target appbundle
+        run: flutter build appbundle
+        shell: bash
 
-    - name: Build appbundle
-      run: flutter build appbundle
+      - name: Build for target Web
+        run: flutter build web
+        shell: bash
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: Android
-        path: |
-          build/app/outputs/flutter-apk/app-release.apk
-          build/app/outputs/bundle/release/app-release.aab
+      - name: Tar files
+        run: tar -cvf gnucashx-web.tar build/web/
+        shell: bash
+
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: Android_Web
+          path: |
+            build/app/outputs/flutter-apk/app-release.apk
+            build/app/outputs/bundle/release/app-release.aab
+            gnucashx-web.tar
 
   build-ios:
     name: Build for iOS
     runs-on: macos-latest
     needs: [test]
     steps:
+      - name: Clone repo
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
 
-    - name: Clone repo
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '2.10.3'
+          channel: 'stable'
+          cache: true
+          cache-key: flutter
+          cache-path: ${{ runner.tool_cache }}/flutter
 
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '2.10.3'
-        channel: 'stable'
-        cache: true
-        cache-key: flutter
-        cache-path: ${{ runner.tool_cache }}/flutter
+      - name: Disable analytics
+        run: flutter config --no-analytics
+        shell: bash
 
-    - name: Disable analytics
-      run: flutter config --no-analytics
+      - name: Retrieve dependencies
+        run: flutter pub get
+        shell: bash
 
-    - name: Retrieve dependencies
-      run: flutter pub get
+      - name: Build iOS target
+        run: flutter build ios --release --no-codesign
+        shell: bash
 
-    - name: Build iOS target
-      run: flutter build ios --release --no-codesign
-    
-    - name: Tar files
-      run: tar -cvf gnucashx-ios.tar /Users/runner/work/GnuCashX/GnuCashX/build/ios/iphoneos/Runner.app
+      - name: Tar files
+        run: |
+          cd /Users/runner/work/GnuCashX/GnuCashX/
+          tar -cvf gnucashx-ios.tar build/ios/iphoneos/Runner.app
+        shell: bash
 
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: iOS
-        path: gnucashx-ios.tar
-
-  build-web:
-    name: Build for Web
-    runs-on: ubuntu-latest
-    needs: [test]
-    steps:
-
-    - name: Clone repo
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 1
-
-    - name: Setup Flutter
-      uses: subosito/flutter-action@v2
-      with:
-        flutter-version: '2.10.3'
-        channel: 'stable'
-        cache: true
-        cache-key: flutter
-        cache-path: ${{ runner.tool_cache }}/flutter
-
-    - name: Disable analytics
-      run: flutter config --no-analytics
-
-    - name: Retrieve dependencies
-      run: flutter pub get
-
-    - name: Build for target
-      run: flutter build web
-
-    - name: Tar files
-      run: tar -cvf gnucashx-web.tar build/web/
-
-    - name: Upload artifacts
-      uses: actions/upload-artifact@v3
-      with:
-        name: Web
-        path: gnucashx-web.tar
+      - name: Upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: iOS
+          path: gnucashx-ios.tar
 
   release:
     name: Create Release
     runs-on: ubuntu-latest
-    needs: [build, build-ios, build-web]
+    needs: [build, build-ios]
     if: startsWith(github.ref, 'refs/tags/') && github.repository == 'aakashhemadri/GnuCashX'
     steps:
+      - name: Get tag name
+        run: |
+          set -x
+          echo "VERSION_TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+        shell: bash
 
-    - name: Get tag name
-      run: |
-        set -x
-        echo "VERSION_TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+      - name: Create artifact directory
+        run: mkdir -p artifacts
+        shell: bash
 
-    - name: Create artifact directory
-      run: mkdir -p artifacts
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
 
-    - name: Download Artifacts
-      uses: actions/download-artifact@v3
-      with:
-        path: artifacts
+      - name: Clean up artifacts
+        run: |
+          set -e
+          mv artifacts/Android_Web/flutter-apk/app-release.apk gnucashx-${{ env.VERSION_TAG }}.apk
+          sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.apk | awk '{ print $1 }'`
+          echo "APK_SHA=$sha" >> $GITHUB_ENV
 
-    - name: Clean up artifacts
-      run: |
-        set -e
-        mv artifacts/Android/flutter-apk/app-release.apk gnucashx-${{ env.VERSION_TAG }}.apk
-        sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.apk | awk '{ print $1 }'`
-        echo "APK_SHA=$sha" >> $GITHUB_ENV
+          mv artifacts/Android_Web/bundle/release/app-release.aab gnucashx-${{ env.VERSION_TAG }}.aab
+          sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.aab | awk '{ print $1 }'`
+          echo "AAB_SHA=$sha" >> $GITHUB_ENV
 
-        mv artifacts/Android/bundle/release/app-release.aab gnucashx-${{ env.VERSION_TAG }}.aab
-        sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.aab | awk '{ print $1 }'`
-        echo "AAB_SHA=$sha" >> $GITHUB_ENV
+          mv artifacts/iOS/gnucashx-ios.tar gnucashx-ios-${{ env.VERSION_TAG }}.tar
+          sha=`sha256sum gnucashx-ios-${{ env.VERSION_TAG }}.tar | awk '{ print $1 }'`
+          echo "IOS_SHA=$sha" >> $GITHUB_ENV
 
-        mv artifacts/iOS/gnucashx-ios.tar gnucashx-ios-${{ env.VERSION_TAG }}.tar
-        sha=`sha256sum gnucashx-ios-${{ env.VERSION_TAG }}.tar | awk '{ print $1 }'`
-        echo "IOS_SHA=$sha" >> $GITHUB_ENV
+          mv artifacts/Android_Web/gnucashx-web.tar gnucashx-web-${{ env.VERSION_TAG }}.tar
+          sha=`sha256sum gnucashx-web-${{ env.VERSION55_TAG }}.tar | awk '{ print $1 }'`
+          echo "WEB_TAR_SHA=$sha" >> $GITHUB_ENV
+        shell: bash
+          
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ env.VERSION_TAG }}
+          name: GnuCashX ${{ env.VERSION_TAG }}
+          body: |
+            ---
 
-        mv artifacts/Web/gnucashx-web.tar gnucashx-web-${{ env.VERSION_TAG }}.tar
-        sha=`sha256sum gnucashx-web-${{ env.VERSION_TAG }}.tar | awk '{ print $1 }'`
-        echo "WEB_TAR_SHA=$sha" >> $GITHUB_ENV
+            ### Checksums
 
-    - name: Create Release
-      uses: softprops/action-gh-release@v1
-      with:
-        tag_name: ${{ env.VERSION_TAG }}
-        name: GnuCashX ${{ env.VERSION_TAG }}
-        body: |
-          ---
-
-          ### Checksums
-
-          | Variant | SHA-256 |
-          | ------- | ------- |
-          | Android APK | ${{ env.APK_SHA }} |
-          | Android Bundle | ${{ env.AAB_SHA }} |
-          | iOS | ${{ env.IOS_SHA }} |
-          | Web | ${{ env.WEB_TAR_SHA }} |
-        files: |
-          gnucashx-${{ env.VERSION_TAG }}.apk
-          gnucashx-${{ env.VERSION_TAG }}.aab
-          gnucashx-ios-${{ env.VERSION_TAG }}.tar
-          gnucashx-web-${{ env.VERSION_TAG }}.tar
-        draft: true
-        prerelease: false
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            | Variant | SHA-256 |
+            | ------- | ------- |
+            | Android APK | ${{ env.APK_SHA }} |
+            | Android Bundle | ${{ env.AAB_SHA }} |
+            | iOS | ${{ env.IOS_SHA }} |
+            | Web | ${{ env.WEB_TAR_SHA }} |
+          files: |
+            gnucashx-${{ env.VERSION_TAG }}.apk
+            gnucashx-${{ env.VERSION_TAG }}.aab
+            gnucashx-ios-${{ env.VERSION_TAG }}.tar
+            gnucashx-web-${{ env.VERSION_TAG }}.tar
+          draft: true
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

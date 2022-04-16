@@ -1,0 +1,39 @@
+---
+name: Lint Code Base
+
+#
+# Documentation:
+# https://docs.github.com/en/actions/learn-github-actions/workflow-syntax-for-github-actions
+#
+
+on:
+  pull_request:
+    branches: [master, main]
+  workflow_dispatch:
+    inputs:
+      vac:
+        description: 'set VALIDATE_ALL_CODEBASE'
+        required: false
+        default: 'false'
+    
+jobs:
+  linter:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+  
+      - name: Lint Code Base
+        uses: github/super-linter/slim@v4
+        env:
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: master
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+          LINTER_RULES_PATH: /.github/linters
+          VALIDATE_JSCPD: false
+          VALIDATE_GITHUB_ACTIONS: false
