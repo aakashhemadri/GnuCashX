@@ -188,7 +188,7 @@ jobs:
           echo "IOS_SHA=$sha" >> $GITHUB_ENV
 
           mv artifacts/Android_Web/gnucashx-web.tar gnucashx-web-${{ env.VERSION_TAG }}.tar
-          sha=`sha256sum gnucashx-web-${{ env.VERSION55_TAG }}.tar | awk '{ print $1 }'`
+          sha=`sha256sum gnucashx-web-${{ env.VERSION_TAG }}.tar | awk '{ print $1 }'`
           echo "WEB_TAR_SHA=$sha" >> $GITHUB_ENV
         shell: bash
           
