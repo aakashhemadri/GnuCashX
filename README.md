@@ -21,6 +21,7 @@
   - [Run all tests](#run-all-tests)
   - [Build the application](#build-the-application)
 - [Contributors](#contributors)
+- [License](#license)
 
 ## Introduction
 
@@ -74,3 +75,7 @@ flutter build ios --release --no-codesign
 ## Contributors
 
 [Aakash Hemadri](https://portal.aakashhemadri.com)
+
+## License
+
+GnuCash is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
