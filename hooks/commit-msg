@@ -1,0 +1,39 @@
+#!/bin/sh
+
+if [ -z "$1" ]; then
+	echo "Missing argument (commit message). Did you try to run this manually?"
+	exit 1
+fi
+
+# This adds the Author Identity like commit -s
+SOB=$(git var GIT_AUTHOR_IDENT | sed -n 's/^\(.*>\).*$/Signed-off-by: \1/p')
+grep -qs "^$SOB" "$1" || echo "$SOB" >> "$1"
+
+# This example catches duplicate Signed-off-by lines.
+
+test "" = "$(grep '^Signed-off-by: ' "$1" |
+	 sort | uniq -c | sed -e '/^[ 	]*1[ 	]/d')" || {
+	echo >&2 Duplicate Signed-off-by lines.
+	exit 1
+}
+
+commit_title="$(cat $1 | head -n1)"
+
+if [[ $commit_title == "" ]]; then
+	exit 0
+fi
+
+# ignore merge requests
+if echo "$commit_title" | grep -qE "^Merge branch \'"; then
+	echo "commit-msg hook: ignoring branch merge"
+	exit 0
+fi
+
+# check semantic versioning scheme
+if ! echo "$commit_title" | grep -qP '^(?:feat|fix|docs|style|refactor|perf|test|chore)\(?(?:\w+|\s|\-|_)?\)?:\s(?:\s|\w+|\W*)+'; then
+	echo "commit-msg hook: Your commit title did not follow semantic versioning: $commit_title"
+	echo "commit-msg hook: Please see https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commit-message-format"
+	exit 1
+fi
+
+
