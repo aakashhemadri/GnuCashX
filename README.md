@@ -1,6 +1,6 @@
 # GnuCashX
-[![ci](https://github.com/aakashhemadri/GnuCashX/actions/workflows/Continuous%20Integration/badge.svg?branch=master&event=push)](https://github.com/aakashhemadri/GnuCashX/actions/workflows/ci.yml)
-[![linter](https://github.com/aakashhemadri/GnuCashX/actions/workflows/Lint%20Code%20Base/badge.svg?branch=master&event=push)](https://github.com/aakashhemadri/GnuCashX/actions/workflows/linter.yml)
+[![ci](https://github.com/aakashhemadri/GnuCashX/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/aakashhemadri/GnuCashX/actions/workflows/ci.yml)
+[![linter](https://github.com/aakashhemadri/GnuCashX/workflows/Linter/badge.svg)](https://github.com/aakashhemadri/GnuCashX/actions/workflows/linter.yml)
 
 ## Download latest release
 
