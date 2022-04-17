@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -z "$1" ]; then
 	echo "Missing argument (commit message). Did you try to run this manually?"
@@ -17,7 +17,7 @@ test "" = "$(grep '^Signed-off-by: ' "$1" |
 	exit 1
 }
 
-commit_title="$(cat $1 | head -n1)"
+commit_title=$(head -n1 < "$1")
 
 if [[ $commit_title == "" ]]; then
 	exit 0
