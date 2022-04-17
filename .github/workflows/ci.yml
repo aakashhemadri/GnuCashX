@@ -1,5 +1,5 @@
 ---
-name: Continuous Integration
+name: CI
 
 on:
   push:
@@ -175,11 +175,11 @@ jobs:
       - name: Clean up artifacts
         run: |
           set -e
-          mv artifacts/Android_Web/flutter-apk/app-release.apk gnucashx-${{ env.VERSION_TAG }}.apk
+          mv artifacts/Android_Web/build/app/outputs/flutter-apk/app-release.apk gnucashx-${{ env.VERSION_TAG }}.apk
           sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.apk | awk '{ print $1 }'`
           echo "APK_SHA=$sha" >> $GITHUB_ENV
 
-          mv artifacts/Android_Web/bundle/release/app-release.aab gnucashx-${{ env.VERSION_TAG }}.aab
+          mv artifacts/Android_Web/build/app/outputs/bundle/release/app-release.aab gnucashx-${{ env.VERSION_TAG }}.aab
           sha=`sha256sum gnucashx-${{ env.VERSION_TAG }}.aab | awk '{ print $1 }'`
           echo "AAB_SHA=$sha" >> $GITHUB_ENV
 
@@ -188,7 +188,7 @@ jobs:
           echo "IOS_SHA=$sha" >> $GITHUB_ENV
 
           mv artifacts/Android_Web/gnucashx-web.tar gnucashx-web-${{ env.VERSION_TAG }}.tar
-          sha=`sha256sum gnucashx-web-${{ env.VERSION55_TAG }}.tar | awk '{ print $1 }'`
+          sha=`sha256sum gnucashx-web-${{ env.VERSION_TAG }}.tar | awk '{ print $1 }'`
           echo "WEB_TAR_SHA=$sha" >> $GITHUB_ENV
         shell: bash
           
