@@ -76,6 +76,7 @@ flutter build ios --release --no-codesign
 
 - [Aakash Hemadri](https://portal.aakashhemadri.com)
 - [Niteshkumar S](https://niteshkumar2000.github.io/portfolio)
+- [Jeivardan Venkatesulu](https://jeivardan.tech)
 
 ## License
 
