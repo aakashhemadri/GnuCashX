@@ -24,7 +24,7 @@ if [[ $commit_title == "" ]]; then
 fi
 
 # ignore merge requests
-if echo "$commit_title" | grep -qE "^Merge branch \'"; then
+if echo "$commit_title" | grep -qP "^Merge branch \'"; then
 	echo "commit-msg hook: ignoring branch merge"
 	exit 0
 fi
