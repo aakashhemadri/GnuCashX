@@ -1,5 +1,7 @@
 name: "Lint PR"
 
+# Documentation: https://github.com/amannn/action-semantic-pull-request
+
 on:
   pull_request_target:
     types:
