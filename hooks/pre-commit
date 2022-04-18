@@ -1,3 +1,6 @@
 #!/bin/sh
 
+echo "pre-commit hook: running `dart analyze`..."
+dart analyze
+echo "pre-commit hook: running `flutter test`..."
 flutter test
