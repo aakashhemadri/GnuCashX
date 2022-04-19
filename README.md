@@ -40,6 +40,11 @@ You may open this project on your favourite IDE that supports Flutter through a 
 If you are confused you can pick using VSCode with the flutter extension or use Android Studio with Flutter plugin installed. If you have the flutter-sdk and dart-sdk you can directly run the below commands to build this app.
 
 ```bash
+# Setup git hooks
+git config core.hooksPath hooks/
+```
+
+```bash
 # Disable analytics
 flutter config --no-analytics
 ```
@@ -76,6 +81,7 @@ flutter build ios --release --no-codesign
 
 - [Aakash Hemadri](https://portal.aakashhemadri.com)
 - [Niteshkumar S](https://niteshkumar2000.github.io/portfolio)
+- [Jeivardan Venkatesulu](https://jeivardan.tech)
 
 ## License
 
