@@ -10,7 +10,7 @@ on:
 
 jobs:
   clean-logs:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, linux]
     steps:
       - uses: igorjs/gh-actions-clean-workflow@v1
         with:
