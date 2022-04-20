@@ -19,7 +19,7 @@ on:
 jobs:
   linter:
     name: Lint Code Base
-    runs-on: [self-hosted, linux]
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Code

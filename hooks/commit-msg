@@ -35,5 +35,3 @@ if ! echo "$commit_title" | grep -qP '^(?:feat|fix|docs|style|refactor|perf|test
 	echo "commit-msg hook: Please see https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#commit-message-format"
 	exit 1
 fi
-
-
