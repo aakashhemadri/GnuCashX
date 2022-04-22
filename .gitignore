@@ -1,3 +1,5 @@
+user.gnucash
+user.xml
 
 # Created by https://www.toptal.com/developers/gitignore/api/AndroidStudio,Flutter,Android,iOS,macOS,Windows,Linux,VisualStudioCode
 # Edit at https://www.toptal.com/developers/gitignore?templates=AndroidStudio,Flutter,Android,iOS,macOS,Windows,Linux,VisualStudioCode
@@ -130,7 +132,8 @@ lib/generated_plugin_registrant.dart
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*
