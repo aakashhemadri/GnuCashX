@@ -7,4 +7,4 @@ flutter analyze --fatal-infos --fatal-warnings
 echo "pre-commit hook: running 'flutter test'..."
 flutter test
 echo "pre-commit hook: running 'dart format'..."
-dart format .
+flutter format .
