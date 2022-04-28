@@ -1,5 +1,7 @@
 user.gnucash
+user.sqlite.gnucash
 user.xml
+*.LCK
 
 # Created by https://www.toptal.com/developers/gitignore/api/AndroidStudio,Flutter,Android,iOS,macOS,Windows,Linux,VisualStudioCode
 # Edit at https://www.toptal.com/developers/gitignore?templates=AndroidStudio,Flutter,Android,iOS,macOS,Windows,Linux,VisualStudioCode
