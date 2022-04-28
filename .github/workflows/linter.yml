@@ -7,18 +7,17 @@ name: Linter
 #
 
 on:
-  pull_request:
+  push:
+    branches:
+      - master
+    tags:
+      - v* 
+  pull_request_target:
     branches: [master, main]
-  workflow_dispatch:
-    inputs:
-      vac:
-        description: 'set VALIDATE_ALL_CODEBASE'
-        required: false
-        default: 'false'
-    
+
 jobs:
   linter:
-    name: Lint Code Base
+    name: Lint Code Base 
     runs-on: ubuntu-latest
 
     steps:
@@ -27,13 +26,17 @@ jobs:
         with:
           fetch-depth: 0
   
-      - name: Lint Code Base
-        uses: github/super-linter/slim@v4
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: master
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '2.10.3'
+          channel: 'stable'
+          cache: true
+          cache-key: flutter
+          cache-path: ${{ runner.tool_cache }}/flutter
 
-          LINTER_RULES_PATH: /.github/linters
-          VALIDATE_JSCPD: false
-          VALIDATE_GITHUB_ACTIONS: false
+      - name: Disable analytics
+        run: flutter config --no-analytics
+
+      - name: Flutter Analyze
+        run: flutter analyze --fatal-infos --fatal-warnings
