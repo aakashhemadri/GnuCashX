@@ -14,7 +14,7 @@ format:
 # Run flutter tests
 .PHONY: test
 test:
-	@flutter test
+	@flutter test --reporter expanded
 
 # Lint flutter code
 .PHONY: lint
@@ -44,5 +44,11 @@ web: build
 	@python -m http.server --directory build/web --bind localhost 10000 2> /dev/null
 
 # Make dartdoc available as a global package, flutter needs this.
+.PHONY: activate-docs
 activate-docs:
 	@flutter pub global activate dartdoc
+
+# Decode .gnucash gzipped xml to plaintext xml 
+.PHONY: decode-gzip
+decode-gzip:
+	@dart run lib/utils/decode_gzip.dart
