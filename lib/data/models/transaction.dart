@@ -1,6 +1,6 @@
 import 'package:gnucashx/data/models/models.dart';
 
-class Transaction extends Node {
+class Transaction extends Base {
   final GUID guid;
   final GUID currencyGuid;
   late DateTime postDate;

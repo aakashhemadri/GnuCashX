@@ -3,7 +3,7 @@ import 'package:gnucashx/data/models/models.dart';
 enum CommodityNamespace { currency, single, multi, unknown }
 enum QuoteSource { currency }
 
-class Commodity extends Node {
+class Commodity extends Base {
   /// Namespace like Curriences/Stocks/Mutual Funds
   final CommodityNamespace namespace;
 

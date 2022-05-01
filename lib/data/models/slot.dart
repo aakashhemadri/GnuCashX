@@ -24,7 +24,7 @@ const SlotType kGDateSlot = SlotType(name: 'gdate', value: 10);
 /// [objGuid] refers to an instance of another unique object whose data is attached
 /// [name] is key path of slot.
 ///
-class Slot extends Node {
+class Slot extends Base {
   GUID objGuid;
   String name;
   dynamic value;
