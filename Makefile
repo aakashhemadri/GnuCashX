@@ -52,3 +52,21 @@ activate-docs:
 .PHONY: decode-gzip
 decode-gzip:
 	@dart run lib/utils/decode_gzip.dart
+
+# Generate serialization code
+# https://docs.flutter.dev/development/data-and-backend/json
+.PHONY: generate-code
+generate-code:
+	@flutter pub run build_runner build 
+
+.PHONY: watch-code
+watch-code:
+	@flutter pub run build_runner watch
+
+.PHONY: activate-dcdg
+activate-dcdg:
+	@dart pub global activate dcdg
+
+.PHONY: build-dcdg
+build-plantuml:
+	@dart pub global run dcdg -o resources/design/uml.plantuml
