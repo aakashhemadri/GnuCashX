@@ -3,6 +3,9 @@ user.sqlite.gnucash
 user.xml
 *.LCK
 
+*.g.dart
+pubspec.lock
+
 # Created by https://www.toptal.com/developers/gitignore/api/AndroidStudio,Flutter,Android,iOS,macOS,Windows,Linux,VisualStudioCode
 # Edit at https://www.toptal.com/developers/gitignore?templates=AndroidStudio,Flutter,Android,iOS,macOS,Windows,Linux,VisualStudioCode
 
