@@ -83,6 +83,9 @@ jobs:
         run: flutter pub get
         shell: bash
 
+      - name: Generate code
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
+
       - name: Build apk
         run: flutter build apk
         shell: bash
@@ -134,6 +137,9 @@ jobs:
       - name: Retrieve dependencies
         run: flutter pub get
         shell: bash
+
+      - name: Generate code
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
 
       - name: Build iOS target
         run: flutter build ios --release --no-codesign
