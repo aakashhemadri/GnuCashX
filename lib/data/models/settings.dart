@@ -1,17 +1,34 @@
-import 'dart:io';
+import 'package:gnucashx/data/models/models.dart';
+import 'package:gnucashx/utils/constants.dart';
+import 'package:json_annotation/json_annotation.dart';
+import 'package:gnucashx/utils/theme.dart';
 
-enum PersistenceType { xml, sqlite, local }
+part 'settings.g.dart';
 
-class Settings {
-  String theme;
-  String locale;
-  List<File> books;
+@JsonSerializable()
+class Settings extends Base {
+  late GUID guid;
+  static const fileName = 'gnucashx.config';
+  late Theme theme;
+  late String locale;
+  late List<Persistence> source;
+  late Persistence? recent;
 
-  PersistenceType persist;
+  Settings.new(this.theme, this.locale, this.source, this.recent) {
+    guid = GUID.generate();
+  }
 
-  Settings(
-      {required this.theme,
-      required this.locale,
-      required this.persist,
-      required this.books});
+  Settings.local() {
+    guid = GUID.generate();
+    theme = Theme.light;
+    locale = 'en_US';
+    source = List<Persistence>.empty();
+    source.add(Persistence(PersistenceType.local, kSettingsJsonKey));
+    recent = source[0];
+  }
+
+  factory Settings.fromJson(Map<String, dynamic> json) =>
+      _$SettingsFromJson(json);
+
+  Map<String, dynamic> toJson() => _$SettingsToJson(this);
 }
