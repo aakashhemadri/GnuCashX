@@ -23,11 +23,11 @@ lint: format
 
 # Build target web
 .PHONY: build-web
-build-web: test
+build-web: generate-code test
 	@flutter build web
 
 # Build api docs @ docs/api
-.PHONY: build-docs
+.PHONY: generate-code build-docs
 build-docs: lint
 	@flutter pub global run dartdoc .
 
@@ -40,7 +40,7 @@ docs: lint build-docs
 # Build and serve web target @ http://localhost:10000
 # Requires python
 .PHONY: web
-web: build
+web: build-web
 	@python -m http.server --directory build/web --bind localhost 10000 2> /dev/null
 
 # Make dartdoc available as a global package, flutter needs this.
