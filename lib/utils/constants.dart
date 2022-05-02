@@ -36,3 +36,7 @@ const kNamespace = {
 /// GUID
 ///
 const int kGUIDEncodingLength = 32;
+
+/// Settings
+///
+const String kSettingsJsonKey = 'settings';

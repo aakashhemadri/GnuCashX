@@ -10,7 +10,7 @@ enum AccountType {
   bank,
 }
 
-class Account extends Node {
+class Account extends Base {
   final GUID guid;
   final AccountType type;
   String name;

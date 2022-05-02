@@ -1,6 +1,6 @@
 import 'package:gnucashx/data/models/models.dart';
 
-class Book extends Node {
+class Book extends Base {
   final GUID guid;
   final GUID rootAccountGuid;
   final GUID templateAccountGuid;

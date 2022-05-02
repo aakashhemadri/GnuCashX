@@ -1,6 +1,6 @@
 import 'package:gnucashx/data/models/models.dart';
 
-class ScheduledTransaction extends Node {
+class ScheduledTransaction extends Base {
   GUID guid;
   String name;
   bool enabled;
