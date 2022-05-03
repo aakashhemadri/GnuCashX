@@ -46,6 +46,9 @@ jobs:
         run: flutter pub get
         shell: bash
 
+      - name: Generate code
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
+
       - name: Run tests
         run: flutter test
         shell: bash

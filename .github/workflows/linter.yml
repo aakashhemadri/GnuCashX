@@ -37,6 +37,9 @@ jobs:
 
       - name: Disable analytics
         run: flutter config --no-analytics
+      
+      - name: Generate code
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
 
       - name: Flutter Analyze
         run: flutter analyze --fatal-infos --fatal-warnings
