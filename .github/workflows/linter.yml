@@ -12,8 +12,20 @@ on:
       - master
     tags:
       - v* 
+    paths-ignore:
+      - '**.md'
+      - 'resources/**'
+      - 'hooks/**'
+      - 'doc/**'
+      - 'Makefile'
   pull_request_target:
     branches: [master, main]
+    paths-ignore:
+      - '**.md'
+      - 'resources/**'
+      - 'hooks/**'
+      - 'doc/**'
+      - 'Makefile'
 
 jobs:
   linter:

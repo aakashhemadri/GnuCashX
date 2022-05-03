@@ -7,6 +7,12 @@ on:
       - master
     tags:
       - v*
+    paths-ignore:
+      - '**.md'
+      - 'resources/**'
+      - 'hooks/**'
+      - 'doc/**'
+      - 'Makefile'
   workflow_dispatch:
 
 jobs:

@@ -5,7 +5,10 @@ on:
   pull_request_target:
     paths-ignore:
       - '**.md'
-      - 'app/src/main/res/**/strings.xml'
+      - 'resources/**'
+      - 'hooks/**'
+      - 'doc/**'
+      - 'Makefile'
   workflow_dispatch:
 
 jobs:
