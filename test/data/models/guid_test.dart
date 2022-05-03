@@ -1,4 +1,4 @@
-import 'package:test/test.dart';
+import 'package:flutter_test/flutter_test.dart';
 import 'package:gnucashx/utils/utils.dart';
 import 'package:gnucashx/data/models/guid.dart';
 
