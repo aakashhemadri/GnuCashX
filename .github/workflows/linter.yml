@@ -52,6 +52,9 @@ jobs:
       - name: Disable analytics
         run: flutter config --no-analytics
       
+      - name: Retrieve dependencies
+        run: flutter pub get
+      
       - name: Generate code
         run: flutter packages pub run build_runner build --delete-conflicting-outputs
 
