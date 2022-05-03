@@ -12,8 +12,22 @@ on:
       - master
     tags:
       - v* 
+    paths-ignore:
+      - '**.md'
+      - 'resources/**'
+      - 'hooks/**'
+      - 'doc/**'
+      - 'Makefile'
+      - '.github/**'
   pull_request_target:
     branches: [master, main]
+    paths-ignore:
+      - '**.md'
+      - 'resources/**'
+      - 'hooks/**'
+      - 'doc/**'
+      - 'Makefile'
+      - '.github/**'
 
 jobs:
   linter:
@@ -37,6 +51,9 @@ jobs:
 
       - name: Disable analytics
         run: flutter config --no-analytics
+      
+      - name: Generate code
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
 
       - name: Flutter Analyze
         run: flutter analyze --fatal-infos --fatal-warnings

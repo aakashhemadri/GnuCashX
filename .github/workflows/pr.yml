@@ -5,7 +5,11 @@ on:
   pull_request_target:
     paths-ignore:
       - '**.md'
-      - 'app/src/main/res/**/strings.xml'
+      - 'resources/**'
+      - 'hooks/**'
+      - 'doc/**'
+      - 'Makefile'
+      - '.github/**'
   workflow_dispatch:
 
 jobs:
@@ -32,6 +36,9 @@ jobs:
 
       - name: Retrieve dependencies
         run: flutter pub get
+
+      - name: Generate code
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
 
       - name: Run tests
         run: flutter test

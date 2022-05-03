@@ -7,6 +7,13 @@ on:
       - master
     tags:
       - v*
+    paths-ignore:
+      - '**.md'
+      - 'resources/**'
+      - 'hooks/**'
+      - 'doc/**'
+      - 'Makefile'
+      - './github/**'
   workflow_dispatch:
 
 jobs:
@@ -45,6 +52,9 @@ jobs:
       - name: Retrieve dependencies
         run: flutter pub get
         shell: bash
+
+      - name: Generate code
+        run: flutter packages pub run build_runner build --delete-conflicting-outputs
 
       - name: Run tests
         run: flutter test
