@@ -37,15 +37,15 @@ dependencies:
   uuid: ^3.0.6
   shared_preferences: ^2.0.13
   json_annotation: ^4.5.0
+  freezed_annotation: ^2.0.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  
-  json_serializable: ^6.2.0
-  build_runner: ^2.1.10
 
   flutter_lints: ^1.0.0
+  freezed: ^2.0.2
+  json_serializable: ^6.2.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
