@@ -9,6 +9,7 @@ on:
       - 'hooks/**'
       - 'doc/**'
       - 'Makefile'
+      - '.github/**'
   workflow_dispatch:
 
 jobs:

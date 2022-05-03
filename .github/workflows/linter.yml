@@ -18,6 +18,7 @@ on:
       - 'hooks/**'
       - 'doc/**'
       - 'Makefile'
+      - '.github/**'
   pull_request_target:
     branches: [master, main]
     paths-ignore:
@@ -26,6 +27,7 @@ on:
       - 'hooks/**'
       - 'doc/**'
       - 'Makefile'
+      - '.github/**'
 
 jobs:
   linter:
