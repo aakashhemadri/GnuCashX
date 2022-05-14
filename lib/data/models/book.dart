@@ -1,13 +1,16 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gnucashx/data/models/models.dart';
 
-class Book extends Base {
-  final GUID guid;
-  final GUID rootAccountGuid;
-  final GUID templateAccountGuid;
+part 'book.freezed.dart';
+part 'book.g.dart';
 
-  Book({
-    required this.guid,
-    required this.rootAccountGuid,
-    required this.templateAccountGuid,
-  });
+@Freezed()
+class Book extends Base with _$Book {
+  const factory Book({
+    required GUID guid,
+    required GUID rootAccountGuid,
+    required GUID templateAccountGuid,
+  }) = _Book;
+
+  factory Book.fromJson(Map<String, dynamic> json) => _$BookFromJson(json);
 }

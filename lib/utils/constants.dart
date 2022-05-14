@@ -37,6 +37,11 @@ const kNamespace = {
 ///
 const int kGUIDEncodingLength = 32;
 
+/// Local Storeage Keys
+///
+const String kSettingsLocalKey = 'settings';
+const String kSettingsPersistenceType = 'local';
+
 /// Settings
 ///
-const String kSettingsJsonKey = 'settings';
+const String kSettingsFileName = 'gnucashx.config';

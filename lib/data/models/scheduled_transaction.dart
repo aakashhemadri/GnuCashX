@@ -1,34 +1,27 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gnucashx/data/models/models.dart';
 
-class ScheduledTransaction extends Base {
-  GUID guid;
-  String name;
-  bool enabled;
-  DateTime startDate;
-  DateTime endDate;
-  DateTime lastOccur;
-  int numOccur;
-  int remOccur;
-  bool autoCreate;
-  bool autoNotify;
-  bool advCreation;
-  bool advNotify;
-  int instanceCount;
-  GUID templateAccountGUID;
+part 'scheduled_transaction.freezed.dart';
+part 'scheduled_transaction.g.dart';
 
-  ScheduledTransaction(
-      {required this.guid,
-      required this.name,
-      required this.enabled,
-      required this.startDate,
-      required this.endDate,
-      required this.lastOccur,
-      required this.numOccur,
-      required this.remOccur,
-      required this.autoCreate,
-      required this.autoNotify,
-      required this.advCreation,
-      required this.advNotify,
-      required this.instanceCount,
-      required this.templateAccountGUID});
+@Freezed()
+class ScheduledTransaction extends Base with _$ScheduledTransaction {
+  const factory ScheduledTransaction(
+      {required GUID guid,
+      required String name,
+      required bool enabled,
+      required DateTime startDate,
+      required DateTime endDate,
+      required DateTime lastOccur,
+      required int numOccur,
+      required int remOccur,
+      required bool autoCreate,
+      required bool autoNotify,
+      required bool advCreation,
+      required bool advNotify,
+      required int instanceCount,
+      required GUID templateAccountGUID}) = _ScheduledTransaction;
+
+  factory ScheduledTransaction.fromJson(Map<String, dynamic> json) =>
+      _$ScheduledTransactionFromJson(json);
 }

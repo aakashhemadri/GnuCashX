@@ -1,91 +1,108 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gnucashx/data/models/models.dart';
 
-class SlotType {
-  final String name;
-  final int value;
+part 'slot.freezed.dart';
+part 'slot.g.dart';
 
-  const SlotType({required this.name, required this.value});
+@Freezed()
+class SlotType with _$SlotType {
+  const factory SlotType({required String name, required int value}) =
+      _SlotType;
+
+  factory SlotType.invalid() => const SlotType(name: 'invalid', value: -1);
+  factory SlotType.integer() => const SlotType(name: 'integer', value: 1);
+  factory SlotType.double() => const SlotType(name: 'double', value: 2);
+  factory SlotType.numeric() => const SlotType(name: 'numeric', value: 3);
+  factory SlotType.string() => const SlotType(name: 'string', value: 4);
+  factory SlotType.guid() => const SlotType(name: 'guid', value: 5);
+  factory SlotType.timespec() => const SlotType(name: 'timespec', value: 6);
+  factory SlotType.placeholder() =>
+      const SlotType(name: 'placeholder', value: 7);
+  factory SlotType.glist() => const SlotType(name: 'glist', value: 8);
+  factory SlotType.frame() => const SlotType(name: 'frame', value: 9);
+  factory SlotType.gdate() => const SlotType(name: 'gdate', value: 10);
+
+  factory SlotType.fromJson(Map<String, dynamic> json) =>
+      _$SlotTypeFromJson(json);
 }
-
-const SlotType kInvalidSlot = SlotType(name: 'invalid', value: -1);
-const SlotType kIntegerSlot = SlotType(name: 'integer', value: 1);
-const SlotType kDoubleSlot = SlotType(name: 'double', value: 2);
-const SlotType kNumericSlot = SlotType(name: 'numeric', value: 3);
-const SlotType kStringSlot = SlotType(name: 'string', value: 4);
-const SlotType kGuidSlot = SlotType(name: 'guid', value: 5);
-const SlotType kTimespecSlot = SlotType(name: 'timespec', value: 6);
-const SlotType kPlaceholderSlot = SlotType(name: 'placeholder', value: 7);
-const SlotType kGListSlot = SlotType(name: 'glist', value: 8);
-const SlotType kFrameSlot = SlotType(name: 'frame', value: 9);
-const SlotType kGDateSlot = SlotType(name: 'gdate', value: 10);
 
 /// A [Slot] holds data lacking any particular table
 ///
 /// [objGuid] refers to an instance of another unique object whose data is attached
 /// [name] is key path of slot.
-///
-class Slot extends Base {
-  GUID objGuid;
-  String name;
-  dynamic value;
-  late SlotType type;
+@Freezed()
+class Slot extends Base with _$Slot {
+  const factory Slot(
+      {required GUID objGuid,
+      required String name,
+      required dynamic value,
+      required SlotType type}) = _Slot;
 
   /// TODO: Will have to convert type to BigInt and handle as unsigned integer
-  Slot.integer({required this.objGuid, required this.name, required this.value})
-      : assert(value is int) {
-    type = kIntegerSlot;
-  }
+  factory Slot.integer(
+          {required GUID objGuid, required String name, required int value}) =>
+      Slot(
+          objGuid: objGuid, name: name, value: value, type: SlotType.integer());
 
-  Slot.double({required this.objGuid, required this.name, required this.value})
-      : assert(value is double) {
-    type = kDoubleSlot;
-  }
+  factory Slot.double(
+          {required GUID objGuid,
+          required String name,
+          required double value}) =>
+      Slot(objGuid: objGuid, name: name, value: value, type: SlotType.double());
 
-  Slot.numeric({required this.objGuid, required this.name, required this.value})
-      : assert(value is int) {
-    type = kNumericSlot;
-  }
+  factory Slot.numeric(
+          {required GUID objGuid, required String name, required int value}) =>
+      Slot(
+          objGuid: objGuid, name: name, value: value, type: SlotType.numeric());
 
-  Slot.numericDenom(
-      {required this.objGuid, required this.name, required this.value})
-      : assert(value is int) {
-    type = kNumericSlot;
-  }
+  factory Slot.numericDenom(
+          {required GUID objGuid, required String name, required int value}) =>
+      Slot(
+          objGuid: objGuid, name: name, value: value, type: SlotType.numeric());
 
-  Slot.string({required this.objGuid, required this.name, required this.value})
-      : assert(value is String) {
-    type = kStringSlot;
-  }
+  factory Slot.string(
+          {required GUID objGuid,
+          required String name,
+          required String value}) =>
+      Slot(objGuid: objGuid, name: name, value: value, type: SlotType.string());
 
-  Slot.guid({required this.objGuid, required this.name, required this.value})
-      : assert(value is GUID) {
-    type = kGuidSlot;
-  }
+  factory Slot.guid(
+          {required GUID objGuid, required String name, required GUID value}) =>
+      Slot(objGuid: objGuid, name: name, value: value, type: SlotType.guid());
 
-  Slot.timespec(
-      {required this.objGuid, required this.name, required this.value})
-      : assert(value is DateTime) {
-    type = kTimespecSlot;
-  }
+  factory Slot.timespec(
+          {required GUID objGuid,
+          required String name,
+          required DateTime value}) =>
+      Slot(
+          objGuid: objGuid,
+          name: name,
+          value: value,
+          type: SlotType.timespec());
 
-  Slot.placeholder(
-      {required this.objGuid, required this.name, required this.value})
-      : assert(value is bool) {
-    type = kPlaceholderSlot;
-  }
+  factory Slot.placeholder(
+          {required GUID objGuid, required String name, required bool value}) =>
+      Slot(
+          objGuid: objGuid,
+          name: name,
+          value: value,
+          type: SlotType.placeholder());
 
-  Slot.glist({required this.objGuid, required this.name, required this.value})
-      : assert(value is String) {
-    kGListSlot;
-  }
+  factory Slot.glist(
+          {required GUID objGuid,
+          required String name,
+          required String value}) =>
+      Slot(objGuid: objGuid, name: name, value: value, type: SlotType.glist());
 
-  Slot.frame({required this.objGuid, required this.name, required this.value})
-      : assert(value is String) {
-    type = kFrameSlot;
-  }
+  factory Slot.frame(
+          {required GUID objGuid,
+          required String name,
+          required String value}) =>
+      Slot(objGuid: objGuid, name: name, value: value, type: SlotType.frame());
 
-  Slot.gdate({required this.objGuid, required this.name, required this.value})
-      : assert(value is DateTime) {
-    type = kGDateSlot;
-  }
+  factory Slot.gdate(
+          {required GUID objGuid,
+          required String name,
+          required DateTime value}) =>
+      Slot(objGuid: objGuid, name: name, value: value, type: SlotType.gdate());
 }

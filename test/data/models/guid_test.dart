@@ -7,7 +7,7 @@ void main() {
     test('.from(String): Check GUID value', () {
       /// Replace with XML retrieved guid.
       String testUid = 'eb9dd351a71c493e842ad3d990fcff9d';
-      GUID guid = GUID.from(testUid);
+      GUID guid = GUID(value: testUid);
       expect(guid.value, testUid);
     });
 

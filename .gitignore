@@ -4,6 +4,8 @@ user.xml
 *.LCK
 
 *.g.dart
+*.freezed.dart
+
 pubspec.lock
 
 # Created by https://www.toptal.com/developers/gitignore/api/AndroidStudio,Flutter,Android,iOS,macOS,Windows,Linux,VisualStudioCode

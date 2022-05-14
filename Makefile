@@ -57,11 +57,11 @@ decode-gzip:
 # https://docs.flutter.dev/development/data-and-backend/json
 .PHONY: generate-code
 generate-code:
-	@flutter pub run build_runner build 
+	@flutter pub run build_runner build --delete-conflicting-outputs 
 
 .PHONY: watch-code
 watch-code:
-	@flutter pub run build_runner watch
+	@flutter pub run build_runner watch --delete-conflicting-outputs
 
 .PHONY: activate-dcdg
 activate-dcdg:

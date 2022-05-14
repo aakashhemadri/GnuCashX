@@ -1,25 +1,15 @@
-import 'package:json_annotation/json_annotation.dart';
+import 'package:flutter/foundation.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
 
-import 'package:gnucashx/utils/utils.dart';
-
+part 'guid.freezed.dart';
 part 'guid.g.dart';
 
-@JsonSerializable()
-class GUID {
-  late final String value;
-
-  GUID() {
-    GUID.generate();
-  }
-
-  GUID.from(this.value) : assert(value.length == kGUIDEncodingLength);
-
-  GUID.generate() {
-    value = const Uuid().v4().split('-').join('');
-  }
-
+@Freezed()
+class GUID with _$GUID {
+  const factory GUID({required String value}) = _GUID;
+  factory GUID.generate() => GUID(value: GUID._generate());
   factory GUID.fromJson(Map<String, dynamic> json) => _$GUIDFromJson(json);
 
-  Map<String, dynamic> toJson() => _$GUIDToJson(this);
+  static String _generate() => const Uuid().v4().split('-').join('');
 }
