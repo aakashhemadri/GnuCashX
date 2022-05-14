@@ -14,7 +14,7 @@ format:
 # Run flutter tests
 .PHONY: test
 test:
-	@flutter test --reporter expanded
+	@flutter test
 
 # Lint flutter code
 .PHONY: lint
