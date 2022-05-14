@@ -10,6 +10,7 @@ enum QuoteSource { currency }
 @Freezed()
 class Commodity extends Base with _$Commodity {
   const factory Commodity({
+    required GUID guid,
     required CommodityNamespace
         namespace, // Namespace like Curriences/Stocks/MutualFunds
     required String mnemonic, // Ticket Symbol/National Currencies ISO 4217
@@ -21,7 +22,8 @@ class Commodity extends Base with _$Commodity {
   }) = _Commodity;
 
   /// Creates commodity as currency
-  /// TODO: Create a Locale Data type?
+  /// TODO: Set from Localization?
+  /// factory Commodity.currencyFromLocale()?
   factory Commodity.asCurrency({
     required String mnemonic,
     required String fullname,
@@ -29,6 +31,7 @@ class Commodity extends Base with _$Commodity {
     required String cusip,
   }) {
     return Commodity(
+      guid: GUID.generate(),
       namespace: CommodityNamespace.currency,
       mnemonic: mnemonic,
       fullname: fullname,
