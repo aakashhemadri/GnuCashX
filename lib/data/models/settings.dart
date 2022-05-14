@@ -2,6 +2,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gnucashx/data/models/models.dart';
 import 'package:gnucashx/utils/constants.dart';
 import 'package:gnucashx/utils/theme.dart';
+import 'package:intl/intl.dart';
 
 part 'settings.freezed.dart';
 part 'settings.g.dart';
@@ -22,7 +23,7 @@ class Settings extends Base with _$Settings {
   factory Settings.local() => Settings._instance ??= Settings._(
       guid: GUID.generate(),
       theme: Theme.light,
-      locale: 'en_US',
+      locale: Intl.systemLocale,
       source: List<Persistence>.filled(
           1,
           Persistence.local(
