@@ -1,24 +1,29 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gnucashx/data/models/models.dart';
 
-class Transaction extends Base {
-  final GUID guid;
-  final GUID currencyGuid;
-  late DateTime postDate;
-  late DateTime enterDate;
-  String description;
+part 'transaction.freezed.dart';
+part 'transaction.g.dart';
 
-  Transaction(
-      {required this.guid,
-      required this.currencyGuid,
-      required this.postDate,
-      required this.enterDate,
-      required this.description});
+@Freezed()
+class Transaction extends Base with _$Transaction {
+  const factory Transaction(
+      {required GUID guid,
+      required GUID currencyGuid,
+      required DateTime postDate,
+      required DateTime enterDate,
+      required String description}) = _Transaction;
 
-  Transaction.now(
-      {required this.guid,
-      required this.currencyGuid,
-      required this.description}) {
-    postDate = DateTime.now();
-    enterDate = DateTime.now();
-  }
+  factory Transaction.now(
+          {required GUID guid,
+          required GUID currencyGuid,
+          required String description}) =>
+      Transaction(
+          guid: guid,
+          currencyGuid: currencyGuid,
+          postDate: DateTime.now(),
+          enterDate: DateTime.now(),
+          description: description);
+
+  factory Transaction.fromJson(Map<String, dynamic> json) =>
+      _$TransactionFromJson(json);
 }

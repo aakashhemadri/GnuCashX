@@ -14,20 +14,20 @@ class LocalSettingsRepo implements SettingsRepo {
   Future<bool> reset() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String settings = jsonEncode(Settings.local());
-    return pref.setString(kSettingsJsonKey, settings);
+    return pref.setString(kSettingsLocalKey, settings);
   }
 
   @override
   Future<bool> write(Settings settings) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String settingsJson = jsonEncode(settings.toJson());
-    return pref.setString(kSettingsJsonKey, settingsJson);
+    return pref.setString(kSettingsLocalKey, settingsJson);
   }
 
   @override
   Future<Settings> read() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    String? settingsJson = pref.getString(kSettingsJsonKey);
+    String? settingsJson = pref.getString(kSettingsLocalKey);
     if (settingsJson == null) {
       await reset();
       return Settings.local();

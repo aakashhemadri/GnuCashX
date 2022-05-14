@@ -1,4 +1,9 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:flutter/foundation.dart';
 import 'package:gnucashx/data/models/models.dart';
+
+part 'account.freezed.dart';
+part 'account.g.dart';
 
 enum AccountType {
   root,
@@ -10,29 +15,21 @@ enum AccountType {
   bank,
 }
 
-class Account extends Base {
-  final GUID guid;
-  final AccountType type;
-  String name;
-  GUID commodityGuid;
-  int commodityScu;
-  int nonStdScu;
-  GUID parentGuid;
-  String code;
-  String description;
-  bool hidden;
-  bool placeholder;
+@Freezed()
+class Account extends Base with _$Account {
+  const factory Account(
+      {required String guid,
+      required AccountType type,
+      required String name,
+      required GUID commodityGuid,
+      @Default(100) int commodityScu,
+      @Default(0) int nonStdScu,
+      required GUID parentGuid,
+      @Default('') String code,
+      @Default('') String description,
+      @Default(false) bool hidden,
+      @Default(false) bool placeholder}) = _Account;
 
-  Account(
-      {required this.guid,
-      required this.name,
-      required this.type,
-      required this.commodityGuid,
-      this.commodityScu = 100,
-      this.nonStdScu = 0,
-      required this.parentGuid,
-      this.code = '',
-      this.description = '',
-      this.hidden = false,
-      this.placeholder = false});
+  factory Account.fromJson(Map<String, dynamic> json) =>
+      _$AccountFromJson(json);
 }

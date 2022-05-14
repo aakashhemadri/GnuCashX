@@ -1,34 +1,38 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:gnucashx/data/models/models.dart';
 import 'package:gnucashx/utils/constants.dart';
-import 'package:json_annotation/json_annotation.dart';
 import 'package:gnucashx/utils/theme.dart';
 
+part 'settings.freezed.dart';
 part 'settings.g.dart';
 
-@JsonSerializable()
-class Settings extends Base {
-  late GUID guid;
-  static const fileName = 'gnucashx.config';
-  late Theme theme;
-  late String locale;
-  late List<Persistence> source;
-  late Persistence? recent;
+@Freezed()
+class Settings extends Base with _$Settings {
+  static const fileName = kSettingsFileName;
+  static Settings? _instance;
 
-  Settings.new(this.theme, this.locale, this.source, this.recent) {
-    guid = GUID.generate();
-  }
+  // Private Constructor
+  const factory Settings._(
+      {required GUID guid,
+      required Theme theme,
+      required String locale,
+      required List<Persistence> source,
+      required Persistence? recent}) = _Settings;
 
-  Settings.local() {
-    guid = GUID.generate();
-    theme = Theme.light;
-    locale = 'en_US';
-    source = List<Persistence>.empty();
-    source.add(Persistence(PersistenceType.local, kSettingsJsonKey));
-    recent = source[0];
-  }
+  factory Settings.local() => Settings._instance ??= Settings._(
+      guid: GUID.generate(),
+      theme: Theme.light,
+      locale: 'en_US',
+      source: List<Persistence>.filled(
+          1,
+          Persistence.local(
+              key: kSettingsLocalKey,
+              favourite: true,
+              hidden: false,
+              created: DateTime.now(),
+              modified: DateTime.now())),
+      recent: null);
 
   factory Settings.fromJson(Map<String, dynamic> json) =>
       _$SettingsFromJson(json);
-
-  Map<String, dynamic> toJson() => _$SettingsToJson(this);
 }
