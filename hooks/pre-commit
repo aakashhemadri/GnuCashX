@@ -5,6 +5,6 @@ set -eo pipefail
 echo "pre-commit hook: running 'flutter analyze'..."
 flutter analyze --fatal-infos --fatal-warnings
 echo "pre-commit hook: running 'flutter test'..."
-flutter test --reporter expanded
+flutter test --reporter compact 
 echo "pre-commit hook: running 'flutter format'..."
 flutter format .
