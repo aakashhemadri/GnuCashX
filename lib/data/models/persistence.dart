@@ -1,4 +1,5 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:gnucashx/data/data.dart';
 
 part 'persistence.freezed.dart';
 part 'persistence.g.dart';
@@ -21,6 +22,7 @@ class Persistence with _$Persistence {
       @Default(false) bool favourite,
       @Default(false) bool hidden,
       required String key,
+      required GUID guid,
       required DateTime created,
       required DateTime modified}) = Local;
 
@@ -30,6 +32,7 @@ class Persistence with _$Persistence {
       @Default(false) bool favourite,
       @Default(false) bool hidden,
       required Uri uri,
+      required GUID guid,
       required DateTime created,
       required DateTime modified}) = XML;
 
@@ -39,6 +42,7 @@ class Persistence with _$Persistence {
       @Default(false) bool favourite,
       @Default(false) bool hidden,
       required Uri uri,
+      required GUID guid,
       required DateTime created,
       required DateTime modified}) = SQLite;
 

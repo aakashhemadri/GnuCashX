@@ -5,6 +5,7 @@ part 'commodity.freezed.dart';
 part 'commodity.g.dart';
 
 enum CommodityNamespace { currency, single, multi, unknown }
+
 enum QuoteSource { currency }
 
 @Freezed()

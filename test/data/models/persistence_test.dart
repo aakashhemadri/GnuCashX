@@ -6,7 +6,10 @@ void main() {
     test('.local(): Check key', () {
       const String kSomeKey = 'SomeKey';
       Persistence persist = Persistence.local(
-          key: kSomeKey, created: DateTime.now(), modified: DateTime.now());
+          key: kSomeKey,
+          guid: GUID.generate(),
+          created: DateTime.now(),
+          modified: DateTime.now());
 
       persist.maybeMap(
           local: (Local value) => expect(value.key, kSomeKey),
