@@ -1,0 +1,3654 @@
+@startuml
+set namespaceSeparator ::
+
+class "gnucashx::exceptions::data::repositories::shared_preferences.dart::SharedPreferencesException" {
+}
+
+"gnucashx::exceptions::gnucashx_exception.dart::GnuCashXException" <|-- "gnucashx::exceptions::data::repositories::shared_preferences.dart::SharedPreferencesException"
+
+class "gnucashx::exceptions::data::repositories::shared_preferences.dart::IncorrectGUIDException" {
+}
+
+"gnucashx::exceptions::data::repositories::shared_preferences.dart::SharedPreferencesException" <|-- "gnucashx::exceptions::data::repositories::shared_preferences.dart::IncorrectGUIDException"
+
+class "gnucashx::exceptions::gnucashx_exception.dart::GnuCashXException" {
+  +String? message
+  +String toString()
+}
+
+"dart::core::Exception" <|-- "gnucashx::exceptions::gnucashx_exception.dart::GnuCashXException"
+
+class "gnucashx::exceptions::gnucashx_exception.dart::GnuCashXException" {
+  +String? message
+  +String toString()
+}
+
+"dart::core::Exception" <|-- "gnucashx::exceptions::gnucashx_exception.dart::GnuCashXException"
+
+class "gnucashx::exceptions::data::repositories::shared_preferences.dart::SharedPreferencesException" {
+}
+
+"gnucashx::exceptions::gnucashx_exception.dart::GnuCashXException" <|-- "gnucashx::exceptions::data::repositories::shared_preferences.dart::SharedPreferencesException"
+
+class "gnucashx::exceptions::data::repositories::shared_preferences.dart::IncorrectGUIDException" {
+}
+
+"gnucashx::exceptions::data::repositories::shared_preferences.dart::SharedPreferencesException" <|-- "gnucashx::exceptions::data::repositories::shared_preferences.dart::IncorrectGUIDException"
+
+class "gnucashx::main.dart::MyApp" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "gnucashx::main.dart::MyApp"
+
+class "gnucashx::main.dart::MyHomePage" {
+  +String title
+  +State<MyHomePage> createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "gnucashx::main.dart::MyHomePage"
+
+class "gnucashx::main.dart::_MyHomePageState" {
+  -int _counter
+  -void _incrementCounter()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "gnucashx::main.dart::_MyHomePageState"
+
+class "gnucashx::utils::theme.dart::Theme" {
+  +int index
+  {static} +List<Theme> values
+  {static} +Theme light
+  {static} +Theme dark
+}
+
+"gnucashx::utils::theme.dart::Theme" o-- "gnucashx::utils::theme.dart::Theme"
+"dart::core::Enum" <|-- "gnucashx::utils::theme.dart::Theme"
+
+class "gnucashx::utils::theme.dart::Theme" {
+  +int index
+  {static} +List<Theme> values
+  {static} +Theme light
+  {static} +Theme dark
+}
+
+"gnucashx::utils::theme.dart::Theme" o-- "gnucashx::utils::theme.dart::Theme"
+"dart::core::Enum" <|-- "gnucashx::utils::theme.dart::Theme"
+
+abstract class "gnucashx::data::repositories::interface_repo.dart::Repository" {
+  +Persistence source
+}
+
+"gnucashx::data::repositories::interface_repo.dart::Repository" o-- "gnucashx::data::models::persistence.dart::Persistence"
+
+abstract class "gnucashx::data::repositories::settings_repo.dart::SettingsRepo" {
+  +Future<Settings> read()
+  +Future<bool> write()
+  +Future<bool> backup()
+  +Future<bool> restore()
+  +Future<bool> reset()
+  +Future<bool> sync()
+}
+
+"gnucashx::data::repositories::interface_repo.dart::Repository" <|-- "gnucashx::data::repositories::settings_repo.dart::SettingsRepo"
+
+abstract class "gnucashx::data::repositories::interface_repo.dart::Repository" {
+  +Persistence source
+}
+
+"gnucashx::data::repositories::interface_repo.dart::Repository" o-- "gnucashx::data::models::persistence.dart::Persistence"
+
+abstract class "gnucashx::data::repositories::settings_repo.dart::SettingsRepo" {
+  +Future<Settings> read()
+  +Future<bool> write()
+  +Future<bool> backup()
+  +Future<bool> restore()
+  +Future<bool> reset()
+  +Future<bool> sync()
+}
+
+"gnucashx::data::repositories::interface_repo.dart::Repository" <|-- "gnucashx::data::repositories::settings_repo.dart::SettingsRepo"
+
+class "gnucashx::data::repositories::local::local_settings.dart::LocalSettingsRepo" {
+  +Persistence source
+  +Future<bool> reset()
+  +Future<bool> write()
+  +Future<Settings> read()
+  +Future<bool> backup()
+  +Future<bool> restore()
+  +Future<bool> sync()
+}
+
+"gnucashx::data::repositories::local::local_settings.dart::LocalSettingsRepo" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::repositories::settings_repo.dart::SettingsRepo" <|-- "gnucashx::data::repositories::local::local_settings.dart::LocalSettingsRepo"
+
+class "gnucashx::data::repositories::local::local_settings.dart::LocalSettingsRepo" {
+  +Persistence source
+  +Future<bool> reset()
+  +Future<bool> write()
+  +Future<Settings> read()
+  +Future<bool> backup()
+  +Future<bool> restore()
+  +Future<bool> sync()
+}
+
+"gnucashx::data::repositories::local::local_settings.dart::LocalSettingsRepo" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::repositories::settings_repo.dart::SettingsRepo" <|-- "gnucashx::data::repositories::local::local_settings.dart::LocalSettingsRepo"
+
+class "gnucashx::data::models::persistence.dart::Persistence" {
+}
+
+"gnucashx::data::models::persistence.dart::_$Persistence" <|-- "gnucashx::data::models::persistence.dart::Persistence"
+
+class "gnucashx::data::models::persistence.dart::PersistenceType" {
+  +int index
+  {static} +List<PersistenceType> values
+  {static} +PersistenceType xml
+  {static} +PersistenceType sqlite
+  {static} +PersistenceType local
+}
+
+"gnucashx::data::models::persistence.dart::PersistenceType" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"dart::core::Enum" <|-- "gnucashx::data::models::persistence.dart::PersistenceType"
+
+abstract class "gnucashx::data::models::persistence.dart::$PersistenceCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" {
+  -Persistence _value
+  -$Res Function(Persistence) _then
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" o-- "null::$Res Function(Persistence)"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl"
+
+abstract class "gnucashx::data::models::persistence.dart::$LocalCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$LocalCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::$LocalCopyWith"
+
+class "gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl" {
+  -Local _value
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::Local"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" <|-- "gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl"
+"gnucashx::data::models::persistence.dart::$LocalCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl"
+
+class "gnucashx::data::models::persistence.dart::_$Local" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +String key
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +String $type
+  +int hashCode
+  +$LocalCopyWith<Local> copyWith
+  +String toString()
+  +bool ==()
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$Local" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$Local" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$Local" o-- "gnucashx::data::models::persistence.dart::$LocalCopyWith<Local>"
+"gnucashx::data::models::persistence.dart::Local" <|-- "gnucashx::data::models::persistence.dart::_$Local"
+
+abstract class "gnucashx::data::models::persistence.dart::Local" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +String key
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$LocalCopyWith<Local> copyWith
+}
+
+"gnucashx::data::models::persistence.dart::Local" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::Local" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::Local" o-- "gnucashx::data::models::persistence.dart::$LocalCopyWith<Local>"
+"gnucashx::data::models::persistence.dart::Persistence" <|-- "gnucashx::data::models::persistence.dart::Local"
+
+abstract class "gnucashx::data::models::persistence.dart::$XMLCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$XMLCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::$XMLCopyWith"
+
+class "gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl" {
+  -XML _value
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::XML"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" <|-- "gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl"
+"gnucashx::data::models::persistence.dart::$XMLCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl"
+
+class "gnucashx::data::models::persistence.dart::_$XML" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +String $type
+  +int hashCode
+  +$XMLCopyWith<XML> copyWith
+  +String toString()
+  +bool ==()
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$XML" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$XML" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$XML" o-- "gnucashx::data::models::persistence.dart::$XMLCopyWith<XML>"
+"gnucashx::data::models::persistence.dart::XML" <|-- "gnucashx::data::models::persistence.dart::_$XML"
+
+abstract class "gnucashx::data::models::persistence.dart::XML" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$XMLCopyWith<XML> copyWith
+}
+
+"gnucashx::data::models::persistence.dart::XML" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::XML" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::XML" o-- "gnucashx::data::models::persistence.dart::$XMLCopyWith<XML>"
+"gnucashx::data::models::persistence.dart::Persistence" <|-- "gnucashx::data::models::persistence.dart::XML"
+
+abstract class "gnucashx::data::models::persistence.dart::$SQLiteCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$SQLiteCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::$SQLiteCopyWith"
+
+class "gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl" {
+  -SQLite _value
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::SQLite"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" <|-- "gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl"
+"gnucashx::data::models::persistence.dart::$SQLiteCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl"
+
+class "gnucashx::data::models::persistence.dart::_$SQLite" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +String $type
+  +int hashCode
+  +$SQLiteCopyWith<SQLite> copyWith
+  +String toString()
+  +bool ==()
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$SQLite" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$SQLite" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$SQLite" o-- "gnucashx::data::models::persistence.dart::$SQLiteCopyWith<SQLite>"
+"gnucashx::data::models::persistence.dart::SQLite" <|-- "gnucashx::data::models::persistence.dart::_$SQLite"
+
+abstract class "gnucashx::data::models::persistence.dart::SQLite" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$SQLiteCopyWith<SQLite> copyWith
+}
+
+"gnucashx::data::models::persistence.dart::SQLite" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::SQLite" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::SQLite" o-- "gnucashx::data::models::persistence.dart::$SQLiteCopyWith<SQLite>"
+"gnucashx::data::models::persistence.dart::Persistence" <|-- "gnucashx::data::models::persistence.dart::SQLite"
+
+abstract class "gnucashx::data::models::persistence.dart::_$Persistence" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$PersistenceCopyWith<Persistence> copyWith
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$Persistence" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$Persistence" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$Persistence" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<Persistence>"
+
+class "gnucashx::data::models::account.dart::AccountType" {
+}
+
+"gnucashx::data::models::account.dart::_$AccountType" <|-- "gnucashx::data::models::account.dart::AccountType"
+
+class "gnucashx::data::models::account.dart::Account" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::account.dart::Account"
+"gnucashx::data::models::account.dart::_$Account" <|-- "gnucashx::data::models::account.dart::Account"
+
+abstract class "gnucashx::data::models::account.dart::$AccountTypeCopyWith" {
+  +$Res call()
+}
+
+class "gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" {
+  -AccountType _value
+  -$Res Function(AccountType) _then
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" o-- "null::$Res Function(AccountType)"
+"gnucashx::data::models::account.dart::$AccountTypeCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl"
+
+abstract class "gnucashx::data::models::account.dart::_$AccountTypeCopyWith" {
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::$AccountTypeCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWith"
+
+class "gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl" {
+  -_AccountType _value
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl" o-- "gnucashx::data::models::account.dart::_AccountType"
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" <|-- "gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl"
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWith" <|-- "gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl"
+
+class "gnucashx::data::models::account.dart::_$_AccountType" {
+  +String name
+  +String type
+  +int hashCode
+  +_$AccountTypeCopyWith<_AccountType> copyWith
+  +String toString()
+  +void debugFillProperties()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$_AccountType" o-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWith<_AccountType>"
+"flutter::src::foundation::diagnostics.dart::DiagnosticableTreeMixin" <|-- "gnucashx::data::models::account.dart::_$_AccountType"
+"gnucashx::data::models::account.dart::_AccountType" <|-- "gnucashx::data::models::account.dart::_$_AccountType"
+
+abstract class "gnucashx::data::models::account.dart::_AccountType" {
+  +String name
+  +String type
+  +_$AccountTypeCopyWith<_AccountType> copyWith
+}
+
+"gnucashx::data::models::account.dart::_AccountType" o-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWith<_AccountType>"
+"gnucashx::data::models::account.dart::AccountType" <|-- "gnucashx::data::models::account.dart::_AccountType"
+
+abstract class "gnucashx::data::models::account.dart::$AccountCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$AccountTypeCopyWith<$Res> type
+  +$GUIDCopyWith<$Res> commodityGuid
+  +$GUIDCopyWith<$Res>? parentGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::$AccountCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::account.dart::$AccountCopyWith" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<$Res>"
+
+class "gnucashx::data::models::account.dart::_$AccountCopyWithImpl" {
+  -Account _value
+  -$Res Function(Account) _then
+  +$GUIDCopyWith<$Res> guid
+  +$AccountTypeCopyWith<$Res> type
+  +$GUIDCopyWith<$Res> commodityGuid
+  +$GUIDCopyWith<$Res>? parentGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "gnucashx::data::models::account.dart::Account"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "null::$Res Function(Account)"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<$Res>"
+"gnucashx::data::models::account.dart::$AccountCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountCopyWithImpl"
+
+abstract class "gnucashx::data::models::account.dart::_$AccountCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$AccountTypeCopyWith<$Res> type
+  +$GUIDCopyWith<$Res> commodityGuid
+  +$GUIDCopyWith<$Res>? parentGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::_$AccountCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::account.dart::_$AccountCopyWith" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<$Res>"
+"gnucashx::data::models::account.dart::$AccountCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountCopyWith"
+
+class "gnucashx::data::models::account.dart::__$AccountCopyWithImpl" {
+  -_Account _value
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::__$AccountCopyWithImpl" o-- "gnucashx::data::models::account.dart::_Account"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" <|-- "gnucashx::data::models::account.dart::__$AccountCopyWithImpl"
+"gnucashx::data::models::account.dart::_$AccountCopyWith" <|-- "gnucashx::data::models::account.dart::__$AccountCopyWithImpl"
+
+class "gnucashx::data::models::account.dart::_$_Account" {
+  +GUID guid
+  +AccountType type
+  +String name
+  +GUID commodityGuid
+  +GUID? parentGuid
+  +int commodityScu
+  +int nonStdScu
+  +String code
+  +String description
+  +bool hidden
+  +bool placeholder
+  +int hashCode
+  +_$AccountCopyWith<_Account> copyWith
+  +String toString()
+  +void debugFillProperties()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$_Account" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::account.dart::_$_Account" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_$_Account" o-- "gnucashx::data::models::account.dart::_$AccountCopyWith<_Account>"
+"flutter::src::foundation::diagnostics.dart::DiagnosticableTreeMixin" <|-- "gnucashx::data::models::account.dart::_$_Account"
+"gnucashx::data::models::account.dart::_Account" <|-- "gnucashx::data::models::account.dart::_$_Account"
+
+abstract class "gnucashx::data::models::account.dart::_Account" {
+  +GUID guid
+  +AccountType type
+  +String name
+  +GUID commodityGuid
+  +GUID? parentGuid
+  +int commodityScu
+  +int nonStdScu
+  +String code
+  +String description
+  +bool hidden
+  +bool placeholder
+  +_$AccountCopyWith<_Account> copyWith
+}
+
+"gnucashx::data::models::account.dart::_Account" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::account.dart::_Account" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_Account" o-- "gnucashx::data::models::account.dart::_$AccountCopyWith<_Account>"
+"gnucashx::data::models::account.dart::Account" <|-- "gnucashx::data::models::account.dart::_Account"
+
+abstract class "gnucashx::data::models::account.dart::_$AccountType" {
+  +String name
+  +String type
+  +$AccountTypeCopyWith<AccountType> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$AccountType" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<AccountType>"
+
+abstract class "gnucashx::data::models::account.dart::_$Account" {
+  +GUID guid
+  +AccountType type
+  +String name
+  +GUID commodityGuid
+  +GUID? parentGuid
+  +int commodityScu
+  +int nonStdScu
+  +String code
+  +String description
+  +bool hidden
+  +bool placeholder
+  +$AccountCopyWith<Account> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$Account" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::account.dart::_$Account" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_$Account" o-- "gnucashx::data::models::account.dart::$AccountCopyWith<Account>"
+
+class "gnucashx::data::models::book.dart::Book" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::book.dart::Book"
+"gnucashx::data::models::book.dart::_$Book" <|-- "gnucashx::data::models::book.dart::Book"
+
+abstract class "gnucashx::data::models::book.dart::$BookCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> rootAccountGuid
+  +$GUIDCopyWith<$Res> templateAccountGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::$BookCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::book.dart::_$BookCopyWithImpl" {
+  -Book _value
+  -$Res Function(Book) _then
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> rootAccountGuid
+  +$GUIDCopyWith<$Res> templateAccountGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" o-- "gnucashx::data::models::book.dart::Book"
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" o-- "null::$Res Function(Book)"
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::book.dart::$BookCopyWith" <|-- "gnucashx::data::models::book.dart::_$BookCopyWithImpl"
+
+abstract class "gnucashx::data::models::book.dart::_$BookCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> rootAccountGuid
+  +$GUIDCopyWith<$Res> templateAccountGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::_$BookCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::book.dart::$BookCopyWith" <|-- "gnucashx::data::models::book.dart::_$BookCopyWith"
+
+class "gnucashx::data::models::book.dart::__$BookCopyWithImpl" {
+  -_Book _value
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::__$BookCopyWithImpl" o-- "gnucashx::data::models::book.dart::_Book"
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" <|-- "gnucashx::data::models::book.dart::__$BookCopyWithImpl"
+"gnucashx::data::models::book.dart::_$BookCopyWith" <|-- "gnucashx::data::models::book.dart::__$BookCopyWithImpl"
+
+class "gnucashx::data::models::book.dart::_$_Book" {
+  +GUID guid
+  +GUID rootAccountGuid
+  +GUID templateAccountGuid
+  +int hashCode
+  +_$BookCopyWith<_Book> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::book.dart::_$_Book" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::book.dart::_$_Book" o-- "gnucashx::data::models::book.dart::_$BookCopyWith<_Book>"
+"gnucashx::data::models::book.dart::_Book" <|-- "gnucashx::data::models::book.dart::_$_Book"
+
+abstract class "gnucashx::data::models::book.dart::_Book" {
+  +GUID guid
+  +GUID rootAccountGuid
+  +GUID templateAccountGuid
+  +_$BookCopyWith<_Book> copyWith
+}
+
+"gnucashx::data::models::book.dart::_Book" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::book.dart::_Book" o-- "gnucashx::data::models::book.dart::_$BookCopyWith<_Book>"
+"gnucashx::data::models::book.dart::Book" <|-- "gnucashx::data::models::book.dart::_Book"
+
+abstract class "gnucashx::data::models::book.dart::_$Book" {
+  +GUID guid
+  +GUID rootAccountGuid
+  +GUID templateAccountGuid
+  +$BookCopyWith<Book> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::book.dart::_$Book" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::book.dart::_$Book" o-- "gnucashx::data::models::book.dart::$BookCopyWith<Book>"
+
+class "gnucashx::data::models::commodity.dart::Commodity" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::commodity.dart::Commodity"
+"gnucashx::data::models::commodity.dart::_$Commodity" <|-- "gnucashx::data::models::commodity.dart::Commodity"
+
+class "gnucashx::data::models::commodity.dart::CommodityNamespace" {
+  +int index
+  {static} +List<CommodityNamespace> values
+  {static} +CommodityNamespace currency
+  {static} +CommodityNamespace single
+  {static} +CommodityNamespace multi
+  {static} +CommodityNamespace unknown
+}
+
+"gnucashx::data::models::commodity.dart::CommodityNamespace" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"dart::core::Enum" <|-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+
+class "gnucashx::data::models::commodity.dart::QuoteSource" {
+  +int index
+  {static} +List<QuoteSource> values
+  {static} +QuoteSource currency
+}
+
+"gnucashx::data::models::commodity.dart::QuoteSource" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"dart::core::Enum" <|-- "gnucashx::data::models::commodity.dart::QuoteSource"
+
+abstract class "gnucashx::data::models::commodity.dart::$CommodityCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::$CommodityCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" {
+  -Commodity _value
+  -$Res Function(Commodity) _then
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" o-- "gnucashx::data::models::commodity.dart::Commodity"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" o-- "null::$Res Function(Commodity)"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::commodity.dart::$CommodityCopyWith" <|-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl"
+
+abstract class "gnucashx::data::models::commodity.dart::_$CommodityCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::commodity.dart::$CommodityCopyWith" <|-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWith"
+
+class "gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl" {
+  -_Commodity _value
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl" o-- "gnucashx::data::models::commodity.dart::_Commodity"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" <|-- "gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWith" <|-- "gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl"
+
+class "gnucashx::data::models::commodity.dart::_$_Commodity" {
+  +GUID guid
+  +CommodityNamespace namespace
+  +String mnemonic
+  +String fullname
+  +int fraction
+  +String cusip
+  +bool quoteFlag
+  +QuoteSource quoteSource
+  +int hashCode
+  +_$CommodityCopyWith<_Commodity> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWith<_Commodity>"
+"gnucashx::data::models::commodity.dart::_Commodity" <|-- "gnucashx::data::models::commodity.dart::_$_Commodity"
+
+abstract class "gnucashx::data::models::commodity.dart::_Commodity" {
+  +GUID guid
+  +CommodityNamespace namespace
+  +String mnemonic
+  +String fullname
+  +int fraction
+  +String cusip
+  +bool quoteFlag
+  +QuoteSource quoteSource
+  +_$CommodityCopyWith<_Commodity> copyWith
+}
+
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWith<_Commodity>"
+"gnucashx::data::models::commodity.dart::Commodity" <|-- "gnucashx::data::models::commodity.dart::_Commodity"
+
+abstract class "gnucashx::data::models::commodity.dart::_$Commodity" {
+  +GUID guid
+  +CommodityNamespace namespace
+  +String mnemonic
+  +String fullname
+  +int fraction
+  +String cusip
+  +bool quoteFlag
+  +QuoteSource quoteSource
+  +$CommodityCopyWith<Commodity> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::commodity.dart::$CommodityCopyWith<Commodity>"
+
+class "gnucashx::data::models::guid.dart::GUID" {
+  {static} -String _generate()
+}
+
+"gnucashx::data::models::guid.dart::_$GUID" <|-- "gnucashx::data::models::guid.dart::GUID"
+
+abstract class "gnucashx::data::models::guid.dart::$GUIDCopyWith" {
+  +$Res call()
+}
+
+class "gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" {
+  -GUID _value
+  -$Res Function(GUID) _then
+  +$Res call()
+}
+
+"gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" o-- "null::$Res Function(GUID)"
+"gnucashx::data::models::guid.dart::$GUIDCopyWith" <|-- "gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl"
+
+abstract class "gnucashx::data::models::guid.dart::_$GUIDCopyWith" {
+  +$Res call()
+}
+
+"gnucashx::data::models::guid.dart::$GUIDCopyWith" <|-- "gnucashx::data::models::guid.dart::_$GUIDCopyWith"
+
+class "gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl" {
+  -_GUID _value
+  +$Res call()
+}
+
+"gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl" o-- "gnucashx::data::models::guid.dart::_GUID"
+"gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" <|-- "gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl"
+"gnucashx::data::models::guid.dart::_$GUIDCopyWith" <|-- "gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl"
+
+class "gnucashx::data::models::guid.dart::_$_GUID" {
+  +String value
+  +int hashCode
+  +_$GUIDCopyWith<_GUID> copyWith
+  +String toString()
+  +void debugFillProperties()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::guid.dart::_$_GUID" o-- "gnucashx::data::models::guid.dart::_$GUIDCopyWith<_GUID>"
+"flutter::src::foundation::diagnostics.dart::DiagnosticableTreeMixin" <|-- "gnucashx::data::models::guid.dart::_$_GUID"
+"gnucashx::data::models::guid.dart::_GUID" <|-- "gnucashx::data::models::guid.dart::_$_GUID"
+
+abstract class "gnucashx::data::models::guid.dart::_GUID" {
+  +String value
+  +_$GUIDCopyWith<_GUID> copyWith
+}
+
+"gnucashx::data::models::guid.dart::_GUID" o-- "gnucashx::data::models::guid.dart::_$GUIDCopyWith<_GUID>"
+"gnucashx::data::models::guid.dart::GUID" <|-- "gnucashx::data::models::guid.dart::_GUID"
+
+abstract class "gnucashx::data::models::guid.dart::_$GUID" {
+  +String value
+  +$GUIDCopyWith<GUID> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::guid.dart::_$GUID" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<GUID>"
+
+abstract class "gnucashx::data::models::base.dart::Base" {
+}
+
+class "gnucashx::data::models::settings.dart::Settings" {
+  {static} +String fileName
+  {static} -Settings? _instance
+}
+
+"gnucashx::data::models::settings.dart::Settings" o-- "gnucashx::data::models::settings.dart::Settings"
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::settings.dart::Settings"
+"gnucashx::data::models::settings.dart::_$Settings" <|-- "gnucashx::data::models::settings.dart::Settings"
+
+abstract class "gnucashx::data::models::settings.dart::$SettingsCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$PersistenceCopyWith<$Res>? recent
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<$Res>"
+
+class "gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" {
+  -Settings _value
+  -$Res Function(Settings) _then
+  +$GUIDCopyWith<$Res> guid
+  +$PersistenceCopyWith<$Res>? recent
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "gnucashx::data::models::settings.dart::Settings"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "null::$Res Function(Settings)"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" <|-- "gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl"
+
+abstract class "gnucashx::data::models::settings.dart::_$SettingsCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$PersistenceCopyWith<$Res>? recent
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::_$SettingsCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWith" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" <|-- "gnucashx::data::models::settings.dart::_$SettingsCopyWith"
+
+class "gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl" {
+  -_Settings _value
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl" o-- "gnucashx::data::models::settings.dart::_Settings"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" <|-- "gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWith" <|-- "gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl"
+
+class "gnucashx::data::models::settings.dart::_$_Settings" {
+  +GUID guid
+  +Theme theme
+  +String locale
+  -List<Persistence> _sources
+  +Persistence? recent
+  +List<Persistence> sources
+  +int hashCode
+  +_$SettingsCopyWith<_Settings> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::utils::theme.dart::Theme"
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::data::models::settings.dart::_$SettingsCopyWith<_Settings>"
+"gnucashx::data::models::settings.dart::_Settings" <|-- "gnucashx::data::models::settings.dart::_$_Settings"
+
+abstract class "gnucashx::data::models::settings.dart::_Settings" {
+  +GUID guid
+  +Theme theme
+  +String locale
+  +List<Persistence> sources
+  +Persistence? recent
+  +_$SettingsCopyWith<_Settings> copyWith
+}
+
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::utils::theme.dart::Theme"
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::data::models::settings.dart::_$SettingsCopyWith<_Settings>"
+"gnucashx::data::models::settings.dart::Settings" <|-- "gnucashx::data::models::settings.dart::_Settings"
+
+abstract class "gnucashx::data::models::settings.dart::_$Settings" {
+  +GUID guid
+  +Theme theme
+  +String locale
+  +List<Persistence> sources
+  +Persistence? recent
+  +$SettingsCopyWith<Settings> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::utils::theme.dart::Theme"
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::data::models::settings.dart::$SettingsCopyWith<Settings>"
+
+class "gnucashx::data::models::slot.dart::SlotType" {
+}
+
+"gnucashx::data::models::slot.dart::_$SlotType" <|-- "gnucashx::data::models::slot.dart::SlotType"
+
+class "gnucashx::data::models::slot.dart::Slot" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::slot.dart::Slot"
+"gnucashx::data::models::slot.dart::_$Slot" <|-- "gnucashx::data::models::slot.dart::Slot"
+
+abstract class "gnucashx::data::models::slot.dart::$SlotTypeCopyWith" {
+  +$Res call()
+}
+
+class "gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" {
+  -SlotType _value
+  -$Res Function(SlotType) _then
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" o-- "null::$Res Function(SlotType)"
+"gnucashx::data::models::slot.dart::$SlotTypeCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl"
+
+abstract class "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith" {
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::$SlotTypeCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith"
+
+class "gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl" {
+  -_SlotType _value
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl" o-- "gnucashx::data::models::slot.dart::_SlotType"
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" <|-- "gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl"
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWith" <|-- "gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl"
+
+class "gnucashx::data::models::slot.dart::_$_SlotType" {
+  +String name
+  +int value
+  +int hashCode
+  +_$SlotTypeCopyWith<_SlotType> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::slot.dart::_$_SlotType" o-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith<_SlotType>"
+"gnucashx::data::models::slot.dart::_SlotType" <|-- "gnucashx::data::models::slot.dart::_$_SlotType"
+
+abstract class "gnucashx::data::models::slot.dart::_SlotType" {
+  +String name
+  +int value
+  +_$SlotTypeCopyWith<_SlotType> copyWith
+}
+
+"gnucashx::data::models::slot.dart::_SlotType" o-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith<_SlotType>"
+"gnucashx::data::models::slot.dart::SlotType" <|-- "gnucashx::data::models::slot.dart::_SlotType"
+
+abstract class "gnucashx::data::models::slot.dart::$SlotCopyWith" {
+  +$GUIDCopyWith<$Res> objGuid
+  +$SlotTypeCopyWith<$Res> type
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::$SlotCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::$SlotCopyWith" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<$Res>"
+
+class "gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" {
+  -Slot _value
+  -$Res Function(Slot) _then
+  +$GUIDCopyWith<$Res> objGuid
+  +$SlotTypeCopyWith<$Res> type
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "gnucashx::data::models::slot.dart::Slot"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "null::$Res Function(Slot)"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::$SlotCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotCopyWithImpl"
+
+abstract class "gnucashx::data::models::slot.dart::_$SlotCopyWith" {
+  +$GUIDCopyWith<$Res> objGuid
+  +$SlotTypeCopyWith<$Res> type
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::_$SlotCopyWith" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::$SlotCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotCopyWith"
+
+class "gnucashx::data::models::slot.dart::__$SlotCopyWithImpl" {
+  -_Slot _value
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::__$SlotCopyWithImpl" o-- "gnucashx::data::models::slot.dart::_Slot"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" <|-- "gnucashx::data::models::slot.dart::__$SlotCopyWithImpl"
+"gnucashx::data::models::slot.dart::_$SlotCopyWith" <|-- "gnucashx::data::models::slot.dart::__$SlotCopyWithImpl"
+
+class "gnucashx::data::models::slot.dart::_$_Slot" {
+  +GUID objGuid
+  +String name
+  +dynamic value
+  +SlotType type
+  +int hashCode
+  +_$SlotCopyWith<_Slot> copyWith
+  +String toString()
+  +bool ==()
+}
+
+"gnucashx::data::models::slot.dart::_$_Slot" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::slot.dart::_$_Slot" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_$_Slot" o-- "gnucashx::data::models::slot.dart::_$SlotCopyWith<_Slot>"
+"gnucashx::data::models::slot.dart::_Slot" <|-- "gnucashx::data::models::slot.dart::_$_Slot"
+
+abstract class "gnucashx::data::models::slot.dart::_Slot" {
+  +GUID objGuid
+  +String name
+  +dynamic value
+  +SlotType type
+  +_$SlotCopyWith<_Slot> copyWith
+}
+
+"gnucashx::data::models::slot.dart::_Slot" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::slot.dart::_Slot" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_Slot" o-- "gnucashx::data::models::slot.dart::_$SlotCopyWith<_Slot>"
+"gnucashx::data::models::slot.dart::Slot" <|-- "gnucashx::data::models::slot.dart::_Slot"
+
+abstract class "gnucashx::data::models::slot.dart::_$SlotType" {
+  +String name
+  +int value
+  +$SlotTypeCopyWith<SlotType> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotType" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<SlotType>"
+
+abstract class "gnucashx::data::models::slot.dart::_$Slot" {
+  +GUID objGuid
+  +String name
+  +dynamic value
+  +SlotType type
+  +$SlotCopyWith<Slot> copyWith
+}
+
+"gnucashx::data::models::slot.dart::_$Slot" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::slot.dart::_$Slot" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_$Slot" o-- "gnucashx::data::models::slot.dart::$SlotCopyWith<Slot>"
+
+class "gnucashx::data::models::persistence.dart::Persistence" {
+}
+
+"gnucashx::data::models::persistence.dart::_$Persistence" <|-- "gnucashx::data::models::persistence.dart::Persistence"
+
+class "gnucashx::data::models::persistence.dart::PersistenceType" {
+  +int index
+  {static} +List<PersistenceType> values
+  {static} +PersistenceType xml
+  {static} +PersistenceType sqlite
+  {static} +PersistenceType local
+}
+
+"gnucashx::data::models::persistence.dart::PersistenceType" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"dart::core::Enum" <|-- "gnucashx::data::models::persistence.dart::PersistenceType"
+
+abstract class "gnucashx::data::models::persistence.dart::$PersistenceCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" {
+  -Persistence _value
+  -$Res Function(Persistence) _then
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" o-- "null::$Res Function(Persistence)"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl"
+
+abstract class "gnucashx::data::models::persistence.dart::$LocalCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$LocalCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::$LocalCopyWith"
+
+class "gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl" {
+  -Local _value
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::Local"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" <|-- "gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl"
+"gnucashx::data::models::persistence.dart::$LocalCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl"
+
+class "gnucashx::data::models::persistence.dart::_$Local" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +String key
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +String $type
+  +int hashCode
+  +$LocalCopyWith<Local> copyWith
+  +String toString()
+  +bool ==()
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$Local" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$Local" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$Local" o-- "gnucashx::data::models::persistence.dart::$LocalCopyWith<Local>"
+"gnucashx::data::models::persistence.dart::Local" <|-- "gnucashx::data::models::persistence.dart::_$Local"
+
+abstract class "gnucashx::data::models::persistence.dart::Local" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +String key
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$LocalCopyWith<Local> copyWith
+}
+
+"gnucashx::data::models::persistence.dart::Local" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::Local" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::Local" o-- "gnucashx::data::models::persistence.dart::$LocalCopyWith<Local>"
+"gnucashx::data::models::persistence.dart::Persistence" <|-- "gnucashx::data::models::persistence.dart::Local"
+
+abstract class "gnucashx::data::models::persistence.dart::$XMLCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$XMLCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::$XMLCopyWith"
+
+class "gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl" {
+  -XML _value
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::XML"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" <|-- "gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl"
+"gnucashx::data::models::persistence.dart::$XMLCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl"
+
+class "gnucashx::data::models::persistence.dart::_$XML" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +String $type
+  +int hashCode
+  +$XMLCopyWith<XML> copyWith
+  +String toString()
+  +bool ==()
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$XML" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$XML" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$XML" o-- "gnucashx::data::models::persistence.dart::$XMLCopyWith<XML>"
+"gnucashx::data::models::persistence.dart::XML" <|-- "gnucashx::data::models::persistence.dart::_$XML"
+
+abstract class "gnucashx::data::models::persistence.dart::XML" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$XMLCopyWith<XML> copyWith
+}
+
+"gnucashx::data::models::persistence.dart::XML" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::XML" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::XML" o-- "gnucashx::data::models::persistence.dart::$XMLCopyWith<XML>"
+"gnucashx::data::models::persistence.dart::Persistence" <|-- "gnucashx::data::models::persistence.dart::XML"
+
+abstract class "gnucashx::data::models::persistence.dart::$SQLiteCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$SQLiteCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::$SQLiteCopyWith"
+
+class "gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl" {
+  -SQLite _value
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::SQLite"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" <|-- "gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl"
+"gnucashx::data::models::persistence.dart::$SQLiteCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl"
+
+class "gnucashx::data::models::persistence.dart::_$SQLite" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +String $type
+  +int hashCode
+  +$SQLiteCopyWith<SQLite> copyWith
+  +String toString()
+  +bool ==()
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$SQLite" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$SQLite" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$SQLite" o-- "gnucashx::data::models::persistence.dart::$SQLiteCopyWith<SQLite>"
+"gnucashx::data::models::persistence.dart::SQLite" <|-- "gnucashx::data::models::persistence.dart::_$SQLite"
+
+abstract class "gnucashx::data::models::persistence.dart::SQLite" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$SQLiteCopyWith<SQLite> copyWith
+}
+
+"gnucashx::data::models::persistence.dart::SQLite" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::SQLite" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::SQLite" o-- "gnucashx::data::models::persistence.dart::$SQLiteCopyWith<SQLite>"
+"gnucashx::data::models::persistence.dart::Persistence" <|-- "gnucashx::data::models::persistence.dart::SQLite"
+
+abstract class "gnucashx::data::models::persistence.dart::_$Persistence" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$PersistenceCopyWith<Persistence> copyWith
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$Persistence" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$Persistence" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$Persistence" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<Persistence>"
+
+class "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" <|-- "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> templateAccountGUID
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" {
+  -ScheduledTransaction _value
+  -$Res Function(ScheduledTransaction) _then
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> templateAccountGUID
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" o-- "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" o-- "null::$Res Function(ScheduledTransaction)"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" <|-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> templateAccountGUID
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" <|-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith"
+
+class "gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl" {
+  -_ScheduledTransaction _value
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl" o-- "gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" <|-- "gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith" <|-- "gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl"
+
+class "gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction" {
+  +GUID guid
+  +String name
+  +bool enabled
+  +DateTime startDate
+  +DateTime endDate
+  +DateTime lastOccur
+  +int numOccur
+  +int remOccur
+  +bool autoCreate
+  +bool autoNotify
+  +bool advCreation
+  +bool advNotify
+  +int instanceCount
+  +GUID templateAccountGUID
+  +int hashCode
+  +_$ScheduledTransactionCopyWith<_ScheduledTransaction> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction" o-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith<_ScheduledTransaction>"
+"gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" <|-- "gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" {
+  +GUID guid
+  +String name
+  +bool enabled
+  +DateTime startDate
+  +DateTime endDate
+  +DateTime lastOccur
+  +int numOccur
+  +int remOccur
+  +bool autoCreate
+  +bool autoNotify
+  +bool advCreation
+  +bool advNotify
+  +int instanceCount
+  +GUID templateAccountGUID
+  +_$ScheduledTransactionCopyWith<_ScheduledTransaction> copyWith
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" o-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith<_ScheduledTransaction>"
+"gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction" <|-- "gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" {
+  +GUID guid
+  +String name
+  +bool enabled
+  +DateTime startDate
+  +DateTime endDate
+  +DateTime lastOccur
+  +int numOccur
+  +int remOccur
+  +bool autoCreate
+  +bool autoNotify
+  +bool advCreation
+  +bool advNotify
+  +int instanceCount
+  +GUID templateAccountGUID
+  +$ScheduledTransactionCopyWith<ScheduledTransaction> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" o-- "gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith<ScheduledTransaction>"
+
+class "gnucashx::data::models::transaction.dart::Transaction" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::transaction.dart::Transaction"
+"gnucashx::data::models::transaction.dart::_$Transaction" <|-- "gnucashx::data::models::transaction.dart::Transaction"
+
+abstract class "gnucashx::data::models::transaction.dart::$TransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> currencyGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::$TransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" {
+  -Transaction _value
+  -$Res Function(Transaction) _then
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> currencyGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" o-- "gnucashx::data::models::transaction.dart::Transaction"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" o-- "null::$Res Function(Transaction)"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::transaction.dart::$TransactionCopyWith" <|-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl"
+
+abstract class "gnucashx::data::models::transaction.dart::_$TransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> currencyGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::transaction.dart::$TransactionCopyWith" <|-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWith"
+
+class "gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl" {
+  -_Transaction _value
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl" o-- "gnucashx::data::models::transaction.dart::_Transaction"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" <|-- "gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWith" <|-- "gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl"
+
+class "gnucashx::data::models::transaction.dart::_$_Transaction" {
+  +GUID guid
+  +GUID currencyGuid
+  +DateTime postDate
+  +DateTime enterDate
+  +String description
+  +int hashCode
+  +_$TransactionCopyWith<_Transaction> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::transaction.dart::_$_Transaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::transaction.dart::_$_Transaction" o-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWith<_Transaction>"
+"gnucashx::data::models::transaction.dart::_Transaction" <|-- "gnucashx::data::models::transaction.dart::_$_Transaction"
+
+abstract class "gnucashx::data::models::transaction.dart::_Transaction" {
+  +GUID guid
+  +GUID currencyGuid
+  +DateTime postDate
+  +DateTime enterDate
+  +String description
+  +_$TransactionCopyWith<_Transaction> copyWith
+}
+
+"gnucashx::data::models::transaction.dart::_Transaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::transaction.dart::_Transaction" o-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWith<_Transaction>"
+"gnucashx::data::models::transaction.dart::Transaction" <|-- "gnucashx::data::models::transaction.dart::_Transaction"
+
+abstract class "gnucashx::data::models::transaction.dart::_$Transaction" {
+  +GUID guid
+  +GUID currencyGuid
+  +DateTime postDate
+  +DateTime enterDate
+  +String description
+  +$TransactionCopyWith<Transaction> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::transaction.dart::_$Transaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::transaction.dart::_$Transaction" o-- "gnucashx::data::models::transaction.dart::$TransactionCopyWith<Transaction>"
+
+class "gnucashx::data::models::book.dart::Book" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::book.dart::Book"
+"gnucashx::data::models::book.dart::_$Book" <|-- "gnucashx::data::models::book.dart::Book"
+
+abstract class "gnucashx::data::models::book.dart::$BookCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> rootAccountGuid
+  +$GUIDCopyWith<$Res> templateAccountGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::$BookCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::book.dart::_$BookCopyWithImpl" {
+  -Book _value
+  -$Res Function(Book) _then
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> rootAccountGuid
+  +$GUIDCopyWith<$Res> templateAccountGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" o-- "gnucashx::data::models::book.dart::Book"
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" o-- "null::$Res Function(Book)"
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::book.dart::$BookCopyWith" <|-- "gnucashx::data::models::book.dart::_$BookCopyWithImpl"
+
+abstract class "gnucashx::data::models::book.dart::_$BookCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> rootAccountGuid
+  +$GUIDCopyWith<$Res> templateAccountGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::_$BookCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::book.dart::$BookCopyWith" <|-- "gnucashx::data::models::book.dart::_$BookCopyWith"
+
+class "gnucashx::data::models::book.dart::__$BookCopyWithImpl" {
+  -_Book _value
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::__$BookCopyWithImpl" o-- "gnucashx::data::models::book.dart::_Book"
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" <|-- "gnucashx::data::models::book.dart::__$BookCopyWithImpl"
+"gnucashx::data::models::book.dart::_$BookCopyWith" <|-- "gnucashx::data::models::book.dart::__$BookCopyWithImpl"
+
+class "gnucashx::data::models::book.dart::_$_Book" {
+  +GUID guid
+  +GUID rootAccountGuid
+  +GUID templateAccountGuid
+  +int hashCode
+  +_$BookCopyWith<_Book> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::book.dart::_$_Book" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::book.dart::_$_Book" o-- "gnucashx::data::models::book.dart::_$BookCopyWith<_Book>"
+"gnucashx::data::models::book.dart::_Book" <|-- "gnucashx::data::models::book.dart::_$_Book"
+
+abstract class "gnucashx::data::models::book.dart::_Book" {
+  +GUID guid
+  +GUID rootAccountGuid
+  +GUID templateAccountGuid
+  +_$BookCopyWith<_Book> copyWith
+}
+
+"gnucashx::data::models::book.dart::_Book" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::book.dart::_Book" o-- "gnucashx::data::models::book.dart::_$BookCopyWith<_Book>"
+"gnucashx::data::models::book.dart::Book" <|-- "gnucashx::data::models::book.dart::_Book"
+
+abstract class "gnucashx::data::models::book.dart::_$Book" {
+  +GUID guid
+  +GUID rootAccountGuid
+  +GUID templateAccountGuid
+  +$BookCopyWith<Book> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::book.dart::_$Book" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::book.dart::_$Book" o-- "gnucashx::data::models::book.dart::$BookCopyWith<Book>"
+
+class "gnucashx::data::models::slot.dart::SlotType" {
+}
+
+"gnucashx::data::models::slot.dart::_$SlotType" <|-- "gnucashx::data::models::slot.dart::SlotType"
+
+class "gnucashx::data::models::slot.dart::Slot" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::slot.dart::Slot"
+"gnucashx::data::models::slot.dart::_$Slot" <|-- "gnucashx::data::models::slot.dart::Slot"
+
+abstract class "gnucashx::data::models::slot.dart::$SlotTypeCopyWith" {
+  +$Res call()
+}
+
+class "gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" {
+  -SlotType _value
+  -$Res Function(SlotType) _then
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" o-- "null::$Res Function(SlotType)"
+"gnucashx::data::models::slot.dart::$SlotTypeCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl"
+
+abstract class "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith" {
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::$SlotTypeCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith"
+
+class "gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl" {
+  -_SlotType _value
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl" o-- "gnucashx::data::models::slot.dart::_SlotType"
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" <|-- "gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl"
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWith" <|-- "gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl"
+
+class "gnucashx::data::models::slot.dart::_$_SlotType" {
+  +String name
+  +int value
+  +int hashCode
+  +_$SlotTypeCopyWith<_SlotType> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::slot.dart::_$_SlotType" o-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith<_SlotType>"
+"gnucashx::data::models::slot.dart::_SlotType" <|-- "gnucashx::data::models::slot.dart::_$_SlotType"
+
+abstract class "gnucashx::data::models::slot.dart::_SlotType" {
+  +String name
+  +int value
+  +_$SlotTypeCopyWith<_SlotType> copyWith
+}
+
+"gnucashx::data::models::slot.dart::_SlotType" o-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith<_SlotType>"
+"gnucashx::data::models::slot.dart::SlotType" <|-- "gnucashx::data::models::slot.dart::_SlotType"
+
+abstract class "gnucashx::data::models::slot.dart::$SlotCopyWith" {
+  +$GUIDCopyWith<$Res> objGuid
+  +$SlotTypeCopyWith<$Res> type
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::$SlotCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::$SlotCopyWith" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<$Res>"
+
+class "gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" {
+  -Slot _value
+  -$Res Function(Slot) _then
+  +$GUIDCopyWith<$Res> objGuid
+  +$SlotTypeCopyWith<$Res> type
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "gnucashx::data::models::slot.dart::Slot"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "null::$Res Function(Slot)"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::$SlotCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotCopyWithImpl"
+
+abstract class "gnucashx::data::models::slot.dart::_$SlotCopyWith" {
+  +$GUIDCopyWith<$Res> objGuid
+  +$SlotTypeCopyWith<$Res> type
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::_$SlotCopyWith" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::$SlotCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotCopyWith"
+
+class "gnucashx::data::models::slot.dart::__$SlotCopyWithImpl" {
+  -_Slot _value
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::__$SlotCopyWithImpl" o-- "gnucashx::data::models::slot.dart::_Slot"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" <|-- "gnucashx::data::models::slot.dart::__$SlotCopyWithImpl"
+"gnucashx::data::models::slot.dart::_$SlotCopyWith" <|-- "gnucashx::data::models::slot.dart::__$SlotCopyWithImpl"
+
+class "gnucashx::data::models::slot.dart::_$_Slot" {
+  +GUID objGuid
+  +String name
+  +dynamic value
+  +SlotType type
+  +int hashCode
+  +_$SlotCopyWith<_Slot> copyWith
+  +String toString()
+  +bool ==()
+}
+
+"gnucashx::data::models::slot.dart::_$_Slot" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::slot.dart::_$_Slot" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_$_Slot" o-- "gnucashx::data::models::slot.dart::_$SlotCopyWith<_Slot>"
+"gnucashx::data::models::slot.dart::_Slot" <|-- "gnucashx::data::models::slot.dart::_$_Slot"
+
+abstract class "gnucashx::data::models::slot.dart::_Slot" {
+  +GUID objGuid
+  +String name
+  +dynamic value
+  +SlotType type
+  +_$SlotCopyWith<_Slot> copyWith
+}
+
+"gnucashx::data::models::slot.dart::_Slot" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::slot.dart::_Slot" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_Slot" o-- "gnucashx::data::models::slot.dart::_$SlotCopyWith<_Slot>"
+"gnucashx::data::models::slot.dart::Slot" <|-- "gnucashx::data::models::slot.dart::_Slot"
+
+abstract class "gnucashx::data::models::slot.dart::_$SlotType" {
+  +String name
+  +int value
+  +$SlotTypeCopyWith<SlotType> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotType" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<SlotType>"
+
+abstract class "gnucashx::data::models::slot.dart::_$Slot" {
+  +GUID objGuid
+  +String name
+  +dynamic value
+  +SlotType type
+  +$SlotCopyWith<Slot> copyWith
+}
+
+"gnucashx::data::models::slot.dart::_$Slot" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::slot.dart::_$Slot" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_$Slot" o-- "gnucashx::data::models::slot.dart::$SlotCopyWith<Slot>"
+
+abstract class "gnucashx::data::models::base.dart::Base" {
+}
+
+class "gnucashx::data::models::transaction.dart::Transaction" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::transaction.dart::Transaction"
+"gnucashx::data::models::transaction.dart::_$Transaction" <|-- "gnucashx::data::models::transaction.dart::Transaction"
+
+abstract class "gnucashx::data::models::transaction.dart::$TransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> currencyGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::$TransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" {
+  -Transaction _value
+  -$Res Function(Transaction) _then
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> currencyGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" o-- "gnucashx::data::models::transaction.dart::Transaction"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" o-- "null::$Res Function(Transaction)"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::transaction.dart::$TransactionCopyWith" <|-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl"
+
+abstract class "gnucashx::data::models::transaction.dart::_$TransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> currencyGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::transaction.dart::$TransactionCopyWith" <|-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWith"
+
+class "gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl" {
+  -_Transaction _value
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl" o-- "gnucashx::data::models::transaction.dart::_Transaction"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" <|-- "gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWith" <|-- "gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl"
+
+class "gnucashx::data::models::transaction.dart::_$_Transaction" {
+  +GUID guid
+  +GUID currencyGuid
+  +DateTime postDate
+  +DateTime enterDate
+  +String description
+  +int hashCode
+  +_$TransactionCopyWith<_Transaction> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::transaction.dart::_$_Transaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::transaction.dart::_$_Transaction" o-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWith<_Transaction>"
+"gnucashx::data::models::transaction.dart::_Transaction" <|-- "gnucashx::data::models::transaction.dart::_$_Transaction"
+
+abstract class "gnucashx::data::models::transaction.dart::_Transaction" {
+  +GUID guid
+  +GUID currencyGuid
+  +DateTime postDate
+  +DateTime enterDate
+  +String description
+  +_$TransactionCopyWith<_Transaction> copyWith
+}
+
+"gnucashx::data::models::transaction.dart::_Transaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::transaction.dart::_Transaction" o-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWith<_Transaction>"
+"gnucashx::data::models::transaction.dart::Transaction" <|-- "gnucashx::data::models::transaction.dart::_Transaction"
+
+abstract class "gnucashx::data::models::transaction.dart::_$Transaction" {
+  +GUID guid
+  +GUID currencyGuid
+  +DateTime postDate
+  +DateTime enterDate
+  +String description
+  +$TransactionCopyWith<Transaction> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::transaction.dart::_$Transaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::transaction.dart::_$Transaction" o-- "gnucashx::data::models::transaction.dart::$TransactionCopyWith<Transaction>"
+
+class "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" <|-- "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> templateAccountGUID
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" {
+  -ScheduledTransaction _value
+  -$Res Function(ScheduledTransaction) _then
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> templateAccountGUID
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" o-- "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" o-- "null::$Res Function(ScheduledTransaction)"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" <|-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> templateAccountGUID
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" <|-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith"
+
+class "gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl" {
+  -_ScheduledTransaction _value
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl" o-- "gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" <|-- "gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith" <|-- "gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl"
+
+class "gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction" {
+  +GUID guid
+  +String name
+  +bool enabled
+  +DateTime startDate
+  +DateTime endDate
+  +DateTime lastOccur
+  +int numOccur
+  +int remOccur
+  +bool autoCreate
+  +bool autoNotify
+  +bool advCreation
+  +bool advNotify
+  +int instanceCount
+  +GUID templateAccountGUID
+  +int hashCode
+  +_$ScheduledTransactionCopyWith<_ScheduledTransaction> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction" o-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith<_ScheduledTransaction>"
+"gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" <|-- "gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" {
+  +GUID guid
+  +String name
+  +bool enabled
+  +DateTime startDate
+  +DateTime endDate
+  +DateTime lastOccur
+  +int numOccur
+  +int remOccur
+  +bool autoCreate
+  +bool autoNotify
+  +bool advCreation
+  +bool advNotify
+  +int instanceCount
+  +GUID templateAccountGUID
+  +_$ScheduledTransactionCopyWith<_ScheduledTransaction> copyWith
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" o-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith<_ScheduledTransaction>"
+"gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction" <|-- "gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" {
+  +GUID guid
+  +String name
+  +bool enabled
+  +DateTime startDate
+  +DateTime endDate
+  +DateTime lastOccur
+  +int numOccur
+  +int remOccur
+  +bool autoCreate
+  +bool autoNotify
+  +bool advCreation
+  +bool advNotify
+  +int instanceCount
+  +GUID templateAccountGUID
+  +$ScheduledTransactionCopyWith<ScheduledTransaction> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" o-- "gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith<ScheduledTransaction>"
+
+class "gnucashx::data::models::commodity.dart::Commodity" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::commodity.dart::Commodity"
+"gnucashx::data::models::commodity.dart::_$Commodity" <|-- "gnucashx::data::models::commodity.dart::Commodity"
+
+class "gnucashx::data::models::commodity.dart::CommodityNamespace" {
+  +int index
+  {static} +List<CommodityNamespace> values
+  {static} +CommodityNamespace currency
+  {static} +CommodityNamespace single
+  {static} +CommodityNamespace multi
+  {static} +CommodityNamespace unknown
+}
+
+"gnucashx::data::models::commodity.dart::CommodityNamespace" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"dart::core::Enum" <|-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+
+class "gnucashx::data::models::commodity.dart::QuoteSource" {
+  +int index
+  {static} +List<QuoteSource> values
+  {static} +QuoteSource currency
+}
+
+"gnucashx::data::models::commodity.dart::QuoteSource" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"dart::core::Enum" <|-- "gnucashx::data::models::commodity.dart::QuoteSource"
+
+abstract class "gnucashx::data::models::commodity.dart::$CommodityCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::$CommodityCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" {
+  -Commodity _value
+  -$Res Function(Commodity) _then
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" o-- "gnucashx::data::models::commodity.dart::Commodity"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" o-- "null::$Res Function(Commodity)"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::commodity.dart::$CommodityCopyWith" <|-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl"
+
+abstract class "gnucashx::data::models::commodity.dart::_$CommodityCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::commodity.dart::$CommodityCopyWith" <|-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWith"
+
+class "gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl" {
+  -_Commodity _value
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl" o-- "gnucashx::data::models::commodity.dart::_Commodity"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" <|-- "gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWith" <|-- "gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl"
+
+class "gnucashx::data::models::commodity.dart::_$_Commodity" {
+  +GUID guid
+  +CommodityNamespace namespace
+  +String mnemonic
+  +String fullname
+  +int fraction
+  +String cusip
+  +bool quoteFlag
+  +QuoteSource quoteSource
+  +int hashCode
+  +_$CommodityCopyWith<_Commodity> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWith<_Commodity>"
+"gnucashx::data::models::commodity.dart::_Commodity" <|-- "gnucashx::data::models::commodity.dart::_$_Commodity"
+
+abstract class "gnucashx::data::models::commodity.dart::_Commodity" {
+  +GUID guid
+  +CommodityNamespace namespace
+  +String mnemonic
+  +String fullname
+  +int fraction
+  +String cusip
+  +bool quoteFlag
+  +QuoteSource quoteSource
+  +_$CommodityCopyWith<_Commodity> copyWith
+}
+
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWith<_Commodity>"
+"gnucashx::data::models::commodity.dart::Commodity" <|-- "gnucashx::data::models::commodity.dart::_Commodity"
+
+abstract class "gnucashx::data::models::commodity.dart::_$Commodity" {
+  +GUID guid
+  +CommodityNamespace namespace
+  +String mnemonic
+  +String fullname
+  +int fraction
+  +String cusip
+  +bool quoteFlag
+  +QuoteSource quoteSource
+  +$CommodityCopyWith<Commodity> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::commodity.dart::$CommodityCopyWith<Commodity>"
+
+class "gnucashx::data::models::settings.dart::Settings" {
+  {static} +String fileName
+  {static} -Settings? _instance
+}
+
+"gnucashx::data::models::settings.dart::Settings" o-- "gnucashx::data::models::settings.dart::Settings"
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::settings.dart::Settings"
+"gnucashx::data::models::settings.dart::_$Settings" <|-- "gnucashx::data::models::settings.dart::Settings"
+
+abstract class "gnucashx::data::models::settings.dart::$SettingsCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$PersistenceCopyWith<$Res>? recent
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<$Res>"
+
+class "gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" {
+  -Settings _value
+  -$Res Function(Settings) _then
+  +$GUIDCopyWith<$Res> guid
+  +$PersistenceCopyWith<$Res>? recent
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "gnucashx::data::models::settings.dart::Settings"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "null::$Res Function(Settings)"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" <|-- "gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl"
+
+abstract class "gnucashx::data::models::settings.dart::_$SettingsCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$PersistenceCopyWith<$Res>? recent
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::_$SettingsCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWith" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" <|-- "gnucashx::data::models::settings.dart::_$SettingsCopyWith"
+
+class "gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl" {
+  -_Settings _value
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl" o-- "gnucashx::data::models::settings.dart::_Settings"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" <|-- "gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWith" <|-- "gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl"
+
+class "gnucashx::data::models::settings.dart::_$_Settings" {
+  +GUID guid
+  +Theme theme
+  +String locale
+  -List<Persistence> _sources
+  +Persistence? recent
+  +List<Persistence> sources
+  +int hashCode
+  +_$SettingsCopyWith<_Settings> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::utils::theme.dart::Theme"
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::data::models::settings.dart::_$SettingsCopyWith<_Settings>"
+"gnucashx::data::models::settings.dart::_Settings" <|-- "gnucashx::data::models::settings.dart::_$_Settings"
+
+abstract class "gnucashx::data::models::settings.dart::_Settings" {
+  +GUID guid
+  +Theme theme
+  +String locale
+  +List<Persistence> sources
+  +Persistence? recent
+  +_$SettingsCopyWith<_Settings> copyWith
+}
+
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::utils::theme.dart::Theme"
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::data::models::settings.dart::_$SettingsCopyWith<_Settings>"
+"gnucashx::data::models::settings.dart::Settings" <|-- "gnucashx::data::models::settings.dart::_Settings"
+
+abstract class "gnucashx::data::models::settings.dart::_$Settings" {
+  +GUID guid
+  +Theme theme
+  +String locale
+  +List<Persistence> sources
+  +Persistence? recent
+  +$SettingsCopyWith<Settings> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::utils::theme.dart::Theme"
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::data::models::settings.dart::$SettingsCopyWith<Settings>"
+
+class "gnucashx::data::models::account.dart::AccountType" {
+}
+
+"gnucashx::data::models::account.dart::_$AccountType" <|-- "gnucashx::data::models::account.dart::AccountType"
+
+class "gnucashx::data::models::account.dart::Account" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::account.dart::Account"
+"gnucashx::data::models::account.dart::_$Account" <|-- "gnucashx::data::models::account.dart::Account"
+
+abstract class "gnucashx::data::models::account.dart::$AccountTypeCopyWith" {
+  +$Res call()
+}
+
+class "gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" {
+  -AccountType _value
+  -$Res Function(AccountType) _then
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" o-- "null::$Res Function(AccountType)"
+"gnucashx::data::models::account.dart::$AccountTypeCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl"
+
+abstract class "gnucashx::data::models::account.dart::_$AccountTypeCopyWith" {
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::$AccountTypeCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWith"
+
+class "gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl" {
+  -_AccountType _value
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl" o-- "gnucashx::data::models::account.dart::_AccountType"
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" <|-- "gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl"
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWith" <|-- "gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl"
+
+class "gnucashx::data::models::account.dart::_$_AccountType" {
+  +String name
+  +String type
+  +int hashCode
+  +_$AccountTypeCopyWith<_AccountType> copyWith
+  +String toString()
+  +void debugFillProperties()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$_AccountType" o-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWith<_AccountType>"
+"flutter::src::foundation::diagnostics.dart::DiagnosticableTreeMixin" <|-- "gnucashx::data::models::account.dart::_$_AccountType"
+"gnucashx::data::models::account.dart::_AccountType" <|-- "gnucashx::data::models::account.dart::_$_AccountType"
+
+abstract class "gnucashx::data::models::account.dart::_AccountType" {
+  +String name
+  +String type
+  +_$AccountTypeCopyWith<_AccountType> copyWith
+}
+
+"gnucashx::data::models::account.dart::_AccountType" o-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWith<_AccountType>"
+"gnucashx::data::models::account.dart::AccountType" <|-- "gnucashx::data::models::account.dart::_AccountType"
+
+abstract class "gnucashx::data::models::account.dart::$AccountCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$AccountTypeCopyWith<$Res> type
+  +$GUIDCopyWith<$Res> commodityGuid
+  +$GUIDCopyWith<$Res>? parentGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::$AccountCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::account.dart::$AccountCopyWith" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<$Res>"
+
+class "gnucashx::data::models::account.dart::_$AccountCopyWithImpl" {
+  -Account _value
+  -$Res Function(Account) _then
+  +$GUIDCopyWith<$Res> guid
+  +$AccountTypeCopyWith<$Res> type
+  +$GUIDCopyWith<$Res> commodityGuid
+  +$GUIDCopyWith<$Res>? parentGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "gnucashx::data::models::account.dart::Account"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "null::$Res Function(Account)"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<$Res>"
+"gnucashx::data::models::account.dart::$AccountCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountCopyWithImpl"
+
+abstract class "gnucashx::data::models::account.dart::_$AccountCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$AccountTypeCopyWith<$Res> type
+  +$GUIDCopyWith<$Res> commodityGuid
+  +$GUIDCopyWith<$Res>? parentGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::_$AccountCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::account.dart::_$AccountCopyWith" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<$Res>"
+"gnucashx::data::models::account.dart::$AccountCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountCopyWith"
+
+class "gnucashx::data::models::account.dart::__$AccountCopyWithImpl" {
+  -_Account _value
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::__$AccountCopyWithImpl" o-- "gnucashx::data::models::account.dart::_Account"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" <|-- "gnucashx::data::models::account.dart::__$AccountCopyWithImpl"
+"gnucashx::data::models::account.dart::_$AccountCopyWith" <|-- "gnucashx::data::models::account.dart::__$AccountCopyWithImpl"
+
+class "gnucashx::data::models::account.dart::_$_Account" {
+  +GUID guid
+  +AccountType type
+  +String name
+  +GUID commodityGuid
+  +GUID? parentGuid
+  +int commodityScu
+  +int nonStdScu
+  +String code
+  +String description
+  +bool hidden
+  +bool placeholder
+  +int hashCode
+  +_$AccountCopyWith<_Account> copyWith
+  +String toString()
+  +void debugFillProperties()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$_Account" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::account.dart::_$_Account" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_$_Account" o-- "gnucashx::data::models::account.dart::_$AccountCopyWith<_Account>"
+"flutter::src::foundation::diagnostics.dart::DiagnosticableTreeMixin" <|-- "gnucashx::data::models::account.dart::_$_Account"
+"gnucashx::data::models::account.dart::_Account" <|-- "gnucashx::data::models::account.dart::_$_Account"
+
+abstract class "gnucashx::data::models::account.dart::_Account" {
+  +GUID guid
+  +AccountType type
+  +String name
+  +GUID commodityGuid
+  +GUID? parentGuid
+  +int commodityScu
+  +int nonStdScu
+  +String code
+  +String description
+  +bool hidden
+  +bool placeholder
+  +_$AccountCopyWith<_Account> copyWith
+}
+
+"gnucashx::data::models::account.dart::_Account" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::account.dart::_Account" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_Account" o-- "gnucashx::data::models::account.dart::_$AccountCopyWith<_Account>"
+"gnucashx::data::models::account.dart::Account" <|-- "gnucashx::data::models::account.dart::_Account"
+
+abstract class "gnucashx::data::models::account.dart::_$AccountType" {
+  +String name
+  +String type
+  +$AccountTypeCopyWith<AccountType> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$AccountType" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<AccountType>"
+
+abstract class "gnucashx::data::models::account.dart::_$Account" {
+  +GUID guid
+  +AccountType type
+  +String name
+  +GUID commodityGuid
+  +GUID? parentGuid
+  +int commodityScu
+  +int nonStdScu
+  +String code
+  +String description
+  +bool hidden
+  +bool placeholder
+  +$AccountCopyWith<Account> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$Account" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::account.dart::_$Account" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_$Account" o-- "gnucashx::data::models::account.dart::$AccountCopyWith<Account>"
+
+class "gnucashx::data::models::guid.dart::GUID" {
+  {static} -String _generate()
+}
+
+"gnucashx::data::models::guid.dart::_$GUID" <|-- "gnucashx::data::models::guid.dart::GUID"
+
+abstract class "gnucashx::data::models::guid.dart::$GUIDCopyWith" {
+  +$Res call()
+}
+
+class "gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" {
+  -GUID _value
+  -$Res Function(GUID) _then
+  +$Res call()
+}
+
+"gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" o-- "null::$Res Function(GUID)"
+"gnucashx::data::models::guid.dart::$GUIDCopyWith" <|-- "gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl"
+
+abstract class "gnucashx::data::models::guid.dart::_$GUIDCopyWith" {
+  +$Res call()
+}
+
+"gnucashx::data::models::guid.dart::$GUIDCopyWith" <|-- "gnucashx::data::models::guid.dart::_$GUIDCopyWith"
+
+class "gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl" {
+  -_GUID _value
+  +$Res call()
+}
+
+"gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl" o-- "gnucashx::data::models::guid.dart::_GUID"
+"gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" <|-- "gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl"
+"gnucashx::data::models::guid.dart::_$GUIDCopyWith" <|-- "gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl"
+
+class "gnucashx::data::models::guid.dart::_$_GUID" {
+  +String value
+  +int hashCode
+  +_$GUIDCopyWith<_GUID> copyWith
+  +String toString()
+  +void debugFillProperties()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::guid.dart::_$_GUID" o-- "gnucashx::data::models::guid.dart::_$GUIDCopyWith<_GUID>"
+"flutter::src::foundation::diagnostics.dart::DiagnosticableTreeMixin" <|-- "gnucashx::data::models::guid.dart::_$_GUID"
+"gnucashx::data::models::guid.dart::_GUID" <|-- "gnucashx::data::models::guid.dart::_$_GUID"
+
+abstract class "gnucashx::data::models::guid.dart::_GUID" {
+  +String value
+  +_$GUIDCopyWith<_GUID> copyWith
+}
+
+"gnucashx::data::models::guid.dart::_GUID" o-- "gnucashx::data::models::guid.dart::_$GUIDCopyWith<_GUID>"
+"gnucashx::data::models::guid.dart::GUID" <|-- "gnucashx::data::models::guid.dart::_GUID"
+
+abstract class "gnucashx::data::models::guid.dart::_$GUID" {
+  +String value
+  +$GUIDCopyWith<GUID> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::guid.dart::_$GUID" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<GUID>"
+
+abstract class "gnucashx::data::repositories::interface_repo.dart::Repository" {
+  +Persistence source
+}
+
+"gnucashx::data::repositories::interface_repo.dart::Repository" o-- "gnucashx::data::models::persistence.dart::Persistence"
+
+abstract class "gnucashx::data::repositories::settings_repo.dart::SettingsRepo" {
+  +Future<Settings> read()
+  +Future<bool> write()
+  +Future<bool> backup()
+  +Future<bool> restore()
+  +Future<bool> reset()
+  +Future<bool> sync()
+}
+
+"gnucashx::data::repositories::interface_repo.dart::Repository" <|-- "gnucashx::data::repositories::settings_repo.dart::SettingsRepo"
+
+class "gnucashx::data::repositories::local::local_settings.dart::LocalSettingsRepo" {
+  +Persistence source
+  +Future<bool> reset()
+  +Future<bool> write()
+  +Future<Settings> read()
+  +Future<bool> backup()
+  +Future<bool> restore()
+  +Future<bool> sync()
+}
+
+"gnucashx::data::repositories::local::local_settings.dart::LocalSettingsRepo" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::repositories::settings_repo.dart::SettingsRepo" <|-- "gnucashx::data::repositories::local::local_settings.dart::LocalSettingsRepo"
+
+class "gnucashx::data::models::account.dart::AccountType" {
+}
+
+"gnucashx::data::models::account.dart::_$AccountType" <|-- "gnucashx::data::models::account.dart::AccountType"
+
+class "gnucashx::data::models::account.dart::Account" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::account.dart::Account"
+"gnucashx::data::models::account.dart::_$Account" <|-- "gnucashx::data::models::account.dart::Account"
+
+abstract class "gnucashx::data::models::account.dart::$AccountTypeCopyWith" {
+  +$Res call()
+}
+
+class "gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" {
+  -AccountType _value
+  -$Res Function(AccountType) _then
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" o-- "null::$Res Function(AccountType)"
+"gnucashx::data::models::account.dart::$AccountTypeCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl"
+
+abstract class "gnucashx::data::models::account.dart::_$AccountTypeCopyWith" {
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::$AccountTypeCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWith"
+
+class "gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl" {
+  -_AccountType _value
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl" o-- "gnucashx::data::models::account.dart::_AccountType"
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWithImpl" <|-- "gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl"
+"gnucashx::data::models::account.dart::_$AccountTypeCopyWith" <|-- "gnucashx::data::models::account.dart::__$AccountTypeCopyWithImpl"
+
+class "gnucashx::data::models::account.dart::_$_AccountType" {
+  +String name
+  +String type
+  +int hashCode
+  +_$AccountTypeCopyWith<_AccountType> copyWith
+  +String toString()
+  +void debugFillProperties()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$_AccountType" o-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWith<_AccountType>"
+"flutter::src::foundation::diagnostics.dart::DiagnosticableTreeMixin" <|-- "gnucashx::data::models::account.dart::_$_AccountType"
+"gnucashx::data::models::account.dart::_AccountType" <|-- "gnucashx::data::models::account.dart::_$_AccountType"
+
+abstract class "gnucashx::data::models::account.dart::_AccountType" {
+  +String name
+  +String type
+  +_$AccountTypeCopyWith<_AccountType> copyWith
+}
+
+"gnucashx::data::models::account.dart::_AccountType" o-- "gnucashx::data::models::account.dart::_$AccountTypeCopyWith<_AccountType>"
+"gnucashx::data::models::account.dart::AccountType" <|-- "gnucashx::data::models::account.dart::_AccountType"
+
+abstract class "gnucashx::data::models::account.dart::$AccountCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$AccountTypeCopyWith<$Res> type
+  +$GUIDCopyWith<$Res> commodityGuid
+  +$GUIDCopyWith<$Res>? parentGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::$AccountCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::account.dart::$AccountCopyWith" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<$Res>"
+
+class "gnucashx::data::models::account.dart::_$AccountCopyWithImpl" {
+  -Account _value
+  -$Res Function(Account) _then
+  +$GUIDCopyWith<$Res> guid
+  +$AccountTypeCopyWith<$Res> type
+  +$GUIDCopyWith<$Res> commodityGuid
+  +$GUIDCopyWith<$Res>? parentGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "gnucashx::data::models::account.dart::Account"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "null::$Res Function(Account)"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<$Res>"
+"gnucashx::data::models::account.dart::$AccountCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountCopyWithImpl"
+
+abstract class "gnucashx::data::models::account.dart::_$AccountCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$AccountTypeCopyWith<$Res> type
+  +$GUIDCopyWith<$Res> commodityGuid
+  +$GUIDCopyWith<$Res>? parentGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::_$AccountCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::account.dart::_$AccountCopyWith" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<$Res>"
+"gnucashx::data::models::account.dart::$AccountCopyWith" <|-- "gnucashx::data::models::account.dart::_$AccountCopyWith"
+
+class "gnucashx::data::models::account.dart::__$AccountCopyWithImpl" {
+  -_Account _value
+  +$Res call()
+}
+
+"gnucashx::data::models::account.dart::__$AccountCopyWithImpl" o-- "gnucashx::data::models::account.dart::_Account"
+"gnucashx::data::models::account.dart::_$AccountCopyWithImpl" <|-- "gnucashx::data::models::account.dart::__$AccountCopyWithImpl"
+"gnucashx::data::models::account.dart::_$AccountCopyWith" <|-- "gnucashx::data::models::account.dart::__$AccountCopyWithImpl"
+
+class "gnucashx::data::models::account.dart::_$_Account" {
+  +GUID guid
+  +AccountType type
+  +String name
+  +GUID commodityGuid
+  +GUID? parentGuid
+  +int commodityScu
+  +int nonStdScu
+  +String code
+  +String description
+  +bool hidden
+  +bool placeholder
+  +int hashCode
+  +_$AccountCopyWith<_Account> copyWith
+  +String toString()
+  +void debugFillProperties()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$_Account" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::account.dart::_$_Account" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_$_Account" o-- "gnucashx::data::models::account.dart::_$AccountCopyWith<_Account>"
+"flutter::src::foundation::diagnostics.dart::DiagnosticableTreeMixin" <|-- "gnucashx::data::models::account.dart::_$_Account"
+"gnucashx::data::models::account.dart::_Account" <|-- "gnucashx::data::models::account.dart::_$_Account"
+
+abstract class "gnucashx::data::models::account.dart::_Account" {
+  +GUID guid
+  +AccountType type
+  +String name
+  +GUID commodityGuid
+  +GUID? parentGuid
+  +int commodityScu
+  +int nonStdScu
+  +String code
+  +String description
+  +bool hidden
+  +bool placeholder
+  +_$AccountCopyWith<_Account> copyWith
+}
+
+"gnucashx::data::models::account.dart::_Account" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::account.dart::_Account" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_Account" o-- "gnucashx::data::models::account.dart::_$AccountCopyWith<_Account>"
+"gnucashx::data::models::account.dart::Account" <|-- "gnucashx::data::models::account.dart::_Account"
+
+abstract class "gnucashx::data::models::account.dart::_$AccountType" {
+  +String name
+  +String type
+  +$AccountTypeCopyWith<AccountType> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$AccountType" o-- "gnucashx::data::models::account.dart::$AccountTypeCopyWith<AccountType>"
+
+abstract class "gnucashx::data::models::account.dart::_$Account" {
+  +GUID guid
+  +AccountType type
+  +String name
+  +GUID commodityGuid
+  +GUID? parentGuid
+  +int commodityScu
+  +int nonStdScu
+  +String code
+  +String description
+  +bool hidden
+  +bool placeholder
+  +$AccountCopyWith<Account> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::account.dart::_$Account" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::account.dart::_$Account" o-- "gnucashx::data::models::account.dart::AccountType"
+"gnucashx::data::models::account.dart::_$Account" o-- "gnucashx::data::models::account.dart::$AccountCopyWith<Account>"
+
+class "gnucashx::data::models::book.dart::Book" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::book.dart::Book"
+"gnucashx::data::models::book.dart::_$Book" <|-- "gnucashx::data::models::book.dart::Book"
+
+abstract class "gnucashx::data::models::book.dart::$BookCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> rootAccountGuid
+  +$GUIDCopyWith<$Res> templateAccountGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::$BookCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::book.dart::_$BookCopyWithImpl" {
+  -Book _value
+  -$Res Function(Book) _then
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> rootAccountGuid
+  +$GUIDCopyWith<$Res> templateAccountGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" o-- "gnucashx::data::models::book.dart::Book"
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" o-- "null::$Res Function(Book)"
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::book.dart::$BookCopyWith" <|-- "gnucashx::data::models::book.dart::_$BookCopyWithImpl"
+
+abstract class "gnucashx::data::models::book.dart::_$BookCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> rootAccountGuid
+  +$GUIDCopyWith<$Res> templateAccountGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::_$BookCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::book.dart::$BookCopyWith" <|-- "gnucashx::data::models::book.dart::_$BookCopyWith"
+
+class "gnucashx::data::models::book.dart::__$BookCopyWithImpl" {
+  -_Book _value
+  +$Res call()
+}
+
+"gnucashx::data::models::book.dart::__$BookCopyWithImpl" o-- "gnucashx::data::models::book.dart::_Book"
+"gnucashx::data::models::book.dart::_$BookCopyWithImpl" <|-- "gnucashx::data::models::book.dart::__$BookCopyWithImpl"
+"gnucashx::data::models::book.dart::_$BookCopyWith" <|-- "gnucashx::data::models::book.dart::__$BookCopyWithImpl"
+
+class "gnucashx::data::models::book.dart::_$_Book" {
+  +GUID guid
+  +GUID rootAccountGuid
+  +GUID templateAccountGuid
+  +int hashCode
+  +_$BookCopyWith<_Book> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::book.dart::_$_Book" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::book.dart::_$_Book" o-- "gnucashx::data::models::book.dart::_$BookCopyWith<_Book>"
+"gnucashx::data::models::book.dart::_Book" <|-- "gnucashx::data::models::book.dart::_$_Book"
+
+abstract class "gnucashx::data::models::book.dart::_Book" {
+  +GUID guid
+  +GUID rootAccountGuid
+  +GUID templateAccountGuid
+  +_$BookCopyWith<_Book> copyWith
+}
+
+"gnucashx::data::models::book.dart::_Book" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::book.dart::_Book" o-- "gnucashx::data::models::book.dart::_$BookCopyWith<_Book>"
+"gnucashx::data::models::book.dart::Book" <|-- "gnucashx::data::models::book.dart::_Book"
+
+abstract class "gnucashx::data::models::book.dart::_$Book" {
+  +GUID guid
+  +GUID rootAccountGuid
+  +GUID templateAccountGuid
+  +$BookCopyWith<Book> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::book.dart::_$Book" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::book.dart::_$Book" o-- "gnucashx::data::models::book.dart::$BookCopyWith<Book>"
+
+class "gnucashx::data::models::commodity.dart::Commodity" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::commodity.dart::Commodity"
+"gnucashx::data::models::commodity.dart::_$Commodity" <|-- "gnucashx::data::models::commodity.dart::Commodity"
+
+class "gnucashx::data::models::commodity.dart::CommodityNamespace" {
+  +int index
+  {static} +List<CommodityNamespace> values
+  {static} +CommodityNamespace currency
+  {static} +CommodityNamespace single
+  {static} +CommodityNamespace multi
+  {static} +CommodityNamespace unknown
+}
+
+"gnucashx::data::models::commodity.dart::CommodityNamespace" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"dart::core::Enum" <|-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+
+class "gnucashx::data::models::commodity.dart::QuoteSource" {
+  +int index
+  {static} +List<QuoteSource> values
+  {static} +QuoteSource currency
+}
+
+"gnucashx::data::models::commodity.dart::QuoteSource" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"dart::core::Enum" <|-- "gnucashx::data::models::commodity.dart::QuoteSource"
+
+abstract class "gnucashx::data::models::commodity.dart::$CommodityCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::$CommodityCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" {
+  -Commodity _value
+  -$Res Function(Commodity) _then
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" o-- "gnucashx::data::models::commodity.dart::Commodity"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" o-- "null::$Res Function(Commodity)"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::commodity.dart::$CommodityCopyWith" <|-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl"
+
+abstract class "gnucashx::data::models::commodity.dart::_$CommodityCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::commodity.dart::$CommodityCopyWith" <|-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWith"
+
+class "gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl" {
+  -_Commodity _value
+  +$Res call()
+}
+
+"gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl" o-- "gnucashx::data::models::commodity.dart::_Commodity"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWithImpl" <|-- "gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl"
+"gnucashx::data::models::commodity.dart::_$CommodityCopyWith" <|-- "gnucashx::data::models::commodity.dart::__$CommodityCopyWithImpl"
+
+class "gnucashx::data::models::commodity.dart::_$_Commodity" {
+  +GUID guid
+  +CommodityNamespace namespace
+  +String mnemonic
+  +String fullname
+  +int fraction
+  +String cusip
+  +bool quoteFlag
+  +QuoteSource quoteSource
+  +int hashCode
+  +_$CommodityCopyWith<_Commodity> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"gnucashx::data::models::commodity.dart::_$_Commodity" o-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWith<_Commodity>"
+"gnucashx::data::models::commodity.dart::_Commodity" <|-- "gnucashx::data::models::commodity.dart::_$_Commodity"
+
+abstract class "gnucashx::data::models::commodity.dart::_Commodity" {
+  +GUID guid
+  +CommodityNamespace namespace
+  +String mnemonic
+  +String fullname
+  +int fraction
+  +String cusip
+  +bool quoteFlag
+  +QuoteSource quoteSource
+  +_$CommodityCopyWith<_Commodity> copyWith
+}
+
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"gnucashx::data::models::commodity.dart::_Commodity" o-- "gnucashx::data::models::commodity.dart::_$CommodityCopyWith<_Commodity>"
+"gnucashx::data::models::commodity.dart::Commodity" <|-- "gnucashx::data::models::commodity.dart::_Commodity"
+
+abstract class "gnucashx::data::models::commodity.dart::_$Commodity" {
+  +GUID guid
+  +CommodityNamespace namespace
+  +String mnemonic
+  +String fullname
+  +int fraction
+  +String cusip
+  +bool quoteFlag
+  +QuoteSource quoteSource
+  +$CommodityCopyWith<Commodity> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::commodity.dart::CommodityNamespace"
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::commodity.dart::QuoteSource"
+"gnucashx::data::models::commodity.dart::_$Commodity" o-- "gnucashx::data::models::commodity.dart::$CommodityCopyWith<Commodity>"
+
+class "gnucashx::data::models::guid.dart::GUID" {
+  {static} -String _generate()
+}
+
+"gnucashx::data::models::guid.dart::_$GUID" <|-- "gnucashx::data::models::guid.dart::GUID"
+
+abstract class "gnucashx::data::models::guid.dart::$GUIDCopyWith" {
+  +$Res call()
+}
+
+class "gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" {
+  -GUID _value
+  -$Res Function(GUID) _then
+  +$Res call()
+}
+
+"gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" o-- "null::$Res Function(GUID)"
+"gnucashx::data::models::guid.dart::$GUIDCopyWith" <|-- "gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl"
+
+abstract class "gnucashx::data::models::guid.dart::_$GUIDCopyWith" {
+  +$Res call()
+}
+
+"gnucashx::data::models::guid.dart::$GUIDCopyWith" <|-- "gnucashx::data::models::guid.dart::_$GUIDCopyWith"
+
+class "gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl" {
+  -_GUID _value
+  +$Res call()
+}
+
+"gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl" o-- "gnucashx::data::models::guid.dart::_GUID"
+"gnucashx::data::models::guid.dart::_$GUIDCopyWithImpl" <|-- "gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl"
+"gnucashx::data::models::guid.dart::_$GUIDCopyWith" <|-- "gnucashx::data::models::guid.dart::__$GUIDCopyWithImpl"
+
+class "gnucashx::data::models::guid.dart::_$_GUID" {
+  +String value
+  +int hashCode
+  +_$GUIDCopyWith<_GUID> copyWith
+  +String toString()
+  +void debugFillProperties()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::guid.dart::_$_GUID" o-- "gnucashx::data::models::guid.dart::_$GUIDCopyWith<_GUID>"
+"flutter::src::foundation::diagnostics.dart::DiagnosticableTreeMixin" <|-- "gnucashx::data::models::guid.dart::_$_GUID"
+"gnucashx::data::models::guid.dart::_GUID" <|-- "gnucashx::data::models::guid.dart::_$_GUID"
+
+abstract class "gnucashx::data::models::guid.dart::_GUID" {
+  +String value
+  +_$GUIDCopyWith<_GUID> copyWith
+}
+
+"gnucashx::data::models::guid.dart::_GUID" o-- "gnucashx::data::models::guid.dart::_$GUIDCopyWith<_GUID>"
+"gnucashx::data::models::guid.dart::GUID" <|-- "gnucashx::data::models::guid.dart::_GUID"
+
+abstract class "gnucashx::data::models::guid.dart::_$GUID" {
+  +String value
+  +$GUIDCopyWith<GUID> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::guid.dart::_$GUID" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<GUID>"
+
+abstract class "gnucashx::data::models::base.dart::Base" {
+}
+
+class "gnucashx::data::models::settings.dart::Settings" {
+  {static} +String fileName
+  {static} -Settings? _instance
+}
+
+"gnucashx::data::models::settings.dart::Settings" o-- "gnucashx::data::models::settings.dart::Settings"
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::settings.dart::Settings"
+"gnucashx::data::models::settings.dart::_$Settings" <|-- "gnucashx::data::models::settings.dart::Settings"
+
+abstract class "gnucashx::data::models::settings.dart::$SettingsCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$PersistenceCopyWith<$Res>? recent
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<$Res>"
+
+class "gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" {
+  -Settings _value
+  -$Res Function(Settings) _then
+  +$GUIDCopyWith<$Res> guid
+  +$PersistenceCopyWith<$Res>? recent
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "gnucashx::data::models::settings.dart::Settings"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "null::$Res Function(Settings)"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" <|-- "gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl"
+
+abstract class "gnucashx::data::models::settings.dart::_$SettingsCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$PersistenceCopyWith<$Res>? recent
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::_$SettingsCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWith" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<$Res>"
+"gnucashx::data::models::settings.dart::$SettingsCopyWith" <|-- "gnucashx::data::models::settings.dart::_$SettingsCopyWith"
+
+class "gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl" {
+  -_Settings _value
+  +$Res call()
+}
+
+"gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl" o-- "gnucashx::data::models::settings.dart::_Settings"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWithImpl" <|-- "gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl"
+"gnucashx::data::models::settings.dart::_$SettingsCopyWith" <|-- "gnucashx::data::models::settings.dart::__$SettingsCopyWithImpl"
+
+class "gnucashx::data::models::settings.dart::_$_Settings" {
+  +GUID guid
+  +Theme theme
+  +String locale
+  -List<Persistence> _sources
+  +Persistence? recent
+  +List<Persistence> sources
+  +int hashCode
+  +_$SettingsCopyWith<_Settings> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::utils::theme.dart::Theme"
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::settings.dart::_$_Settings" o-- "gnucashx::data::models::settings.dart::_$SettingsCopyWith<_Settings>"
+"gnucashx::data::models::settings.dart::_Settings" <|-- "gnucashx::data::models::settings.dart::_$_Settings"
+
+abstract class "gnucashx::data::models::settings.dart::_Settings" {
+  +GUID guid
+  +Theme theme
+  +String locale
+  +List<Persistence> sources
+  +Persistence? recent
+  +_$SettingsCopyWith<_Settings> copyWith
+}
+
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::utils::theme.dart::Theme"
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::settings.dart::_Settings" o-- "gnucashx::data::models::settings.dart::_$SettingsCopyWith<_Settings>"
+"gnucashx::data::models::settings.dart::Settings" <|-- "gnucashx::data::models::settings.dart::_Settings"
+
+abstract class "gnucashx::data::models::settings.dart::_$Settings" {
+  +GUID guid
+  +Theme theme
+  +String locale
+  +List<Persistence> sources
+  +Persistence? recent
+  +$SettingsCopyWith<Settings> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::utils::theme.dart::Theme"
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::settings.dart::_$Settings" o-- "gnucashx::data::models::settings.dart::$SettingsCopyWith<Settings>"
+
+class "gnucashx::data::models::slot.dart::SlotType" {
+}
+
+"gnucashx::data::models::slot.dart::_$SlotType" <|-- "gnucashx::data::models::slot.dart::SlotType"
+
+class "gnucashx::data::models::slot.dart::Slot" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::slot.dart::Slot"
+"gnucashx::data::models::slot.dart::_$Slot" <|-- "gnucashx::data::models::slot.dart::Slot"
+
+abstract class "gnucashx::data::models::slot.dart::$SlotTypeCopyWith" {
+  +$Res call()
+}
+
+class "gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" {
+  -SlotType _value
+  -$Res Function(SlotType) _then
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" o-- "null::$Res Function(SlotType)"
+"gnucashx::data::models::slot.dart::$SlotTypeCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl"
+
+abstract class "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith" {
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::$SlotTypeCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith"
+
+class "gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl" {
+  -_SlotType _value
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl" o-- "gnucashx::data::models::slot.dart::_SlotType"
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWithImpl" <|-- "gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl"
+"gnucashx::data::models::slot.dart::_$SlotTypeCopyWith" <|-- "gnucashx::data::models::slot.dart::__$SlotTypeCopyWithImpl"
+
+class "gnucashx::data::models::slot.dart::_$_SlotType" {
+  +String name
+  +int value
+  +int hashCode
+  +_$SlotTypeCopyWith<_SlotType> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::slot.dart::_$_SlotType" o-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith<_SlotType>"
+"gnucashx::data::models::slot.dart::_SlotType" <|-- "gnucashx::data::models::slot.dart::_$_SlotType"
+
+abstract class "gnucashx::data::models::slot.dart::_SlotType" {
+  +String name
+  +int value
+  +_$SlotTypeCopyWith<_SlotType> copyWith
+}
+
+"gnucashx::data::models::slot.dart::_SlotType" o-- "gnucashx::data::models::slot.dart::_$SlotTypeCopyWith<_SlotType>"
+"gnucashx::data::models::slot.dart::SlotType" <|-- "gnucashx::data::models::slot.dart::_SlotType"
+
+abstract class "gnucashx::data::models::slot.dart::$SlotCopyWith" {
+  +$GUIDCopyWith<$Res> objGuid
+  +$SlotTypeCopyWith<$Res> type
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::$SlotCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::$SlotCopyWith" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<$Res>"
+
+class "gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" {
+  -Slot _value
+  -$Res Function(Slot) _then
+  +$GUIDCopyWith<$Res> objGuid
+  +$SlotTypeCopyWith<$Res> type
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "gnucashx::data::models::slot.dart::Slot"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "null::$Res Function(Slot)"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::$SlotCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotCopyWithImpl"
+
+abstract class "gnucashx::data::models::slot.dart::_$SlotCopyWith" {
+  +$GUIDCopyWith<$Res> objGuid
+  +$SlotTypeCopyWith<$Res> type
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::_$SlotCopyWith" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<$Res>"
+"gnucashx::data::models::slot.dart::$SlotCopyWith" <|-- "gnucashx::data::models::slot.dart::_$SlotCopyWith"
+
+class "gnucashx::data::models::slot.dart::__$SlotCopyWithImpl" {
+  -_Slot _value
+  +$Res call()
+}
+
+"gnucashx::data::models::slot.dart::__$SlotCopyWithImpl" o-- "gnucashx::data::models::slot.dart::_Slot"
+"gnucashx::data::models::slot.dart::_$SlotCopyWithImpl" <|-- "gnucashx::data::models::slot.dart::__$SlotCopyWithImpl"
+"gnucashx::data::models::slot.dart::_$SlotCopyWith" <|-- "gnucashx::data::models::slot.dart::__$SlotCopyWithImpl"
+
+class "gnucashx::data::models::slot.dart::_$_Slot" {
+  +GUID objGuid
+  +String name
+  +dynamic value
+  +SlotType type
+  +int hashCode
+  +_$SlotCopyWith<_Slot> copyWith
+  +String toString()
+  +bool ==()
+}
+
+"gnucashx::data::models::slot.dart::_$_Slot" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::slot.dart::_$_Slot" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_$_Slot" o-- "gnucashx::data::models::slot.dart::_$SlotCopyWith<_Slot>"
+"gnucashx::data::models::slot.dart::_Slot" <|-- "gnucashx::data::models::slot.dart::_$_Slot"
+
+abstract class "gnucashx::data::models::slot.dart::_Slot" {
+  +GUID objGuid
+  +String name
+  +dynamic value
+  +SlotType type
+  +_$SlotCopyWith<_Slot> copyWith
+}
+
+"gnucashx::data::models::slot.dart::_Slot" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::slot.dart::_Slot" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_Slot" o-- "gnucashx::data::models::slot.dart::_$SlotCopyWith<_Slot>"
+"gnucashx::data::models::slot.dart::Slot" <|-- "gnucashx::data::models::slot.dart::_Slot"
+
+abstract class "gnucashx::data::models::slot.dart::_$SlotType" {
+  +String name
+  +int value
+  +$SlotTypeCopyWith<SlotType> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::slot.dart::_$SlotType" o-- "gnucashx::data::models::slot.dart::$SlotTypeCopyWith<SlotType>"
+
+abstract class "gnucashx::data::models::slot.dart::_$Slot" {
+  +GUID objGuid
+  +String name
+  +dynamic value
+  +SlotType type
+  +$SlotCopyWith<Slot> copyWith
+}
+
+"gnucashx::data::models::slot.dart::_$Slot" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::slot.dart::_$Slot" o-- "gnucashx::data::models::slot.dart::SlotType"
+"gnucashx::data::models::slot.dart::_$Slot" o-- "gnucashx::data::models::slot.dart::$SlotCopyWith<Slot>"
+
+class "gnucashx::data::models::persistence.dart::Persistence" {
+}
+
+"gnucashx::data::models::persistence.dart::_$Persistence" <|-- "gnucashx::data::models::persistence.dart::Persistence"
+
+class "gnucashx::data::models::persistence.dart::PersistenceType" {
+  +int index
+  {static} +List<PersistenceType> values
+  {static} +PersistenceType xml
+  {static} +PersistenceType sqlite
+  {static} +PersistenceType local
+}
+
+"gnucashx::data::models::persistence.dart::PersistenceType" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"dart::core::Enum" <|-- "gnucashx::data::models::persistence.dart::PersistenceType"
+
+abstract class "gnucashx::data::models::persistence.dart::$PersistenceCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" {
+  -Persistence _value
+  -$Res Function(Persistence) _then
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::Persistence"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" o-- "null::$Res Function(Persistence)"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl"
+
+abstract class "gnucashx::data::models::persistence.dart::$LocalCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$LocalCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::$LocalCopyWith"
+
+class "gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl" {
+  -Local _value
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::Local"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" <|-- "gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl"
+"gnucashx::data::models::persistence.dart::$LocalCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$LocalCopyWithImpl"
+
+class "gnucashx::data::models::persistence.dart::_$Local" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +String key
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +String $type
+  +int hashCode
+  +$LocalCopyWith<Local> copyWith
+  +String toString()
+  +bool ==()
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$Local" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$Local" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$Local" o-- "gnucashx::data::models::persistence.dart::$LocalCopyWith<Local>"
+"gnucashx::data::models::persistence.dart::Local" <|-- "gnucashx::data::models::persistence.dart::_$Local"
+
+abstract class "gnucashx::data::models::persistence.dart::Local" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +String key
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$LocalCopyWith<Local> copyWith
+}
+
+"gnucashx::data::models::persistence.dart::Local" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::Local" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::Local" o-- "gnucashx::data::models::persistence.dart::$LocalCopyWith<Local>"
+"gnucashx::data::models::persistence.dart::Persistence" <|-- "gnucashx::data::models::persistence.dart::Local"
+
+abstract class "gnucashx::data::models::persistence.dart::$XMLCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$XMLCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::$XMLCopyWith"
+
+class "gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl" {
+  -XML _value
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::XML"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" <|-- "gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl"
+"gnucashx::data::models::persistence.dart::$XMLCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$XMLCopyWithImpl"
+
+class "gnucashx::data::models::persistence.dart::_$XML" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +String $type
+  +int hashCode
+  +$XMLCopyWith<XML> copyWith
+  +String toString()
+  +bool ==()
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$XML" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$XML" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$XML" o-- "gnucashx::data::models::persistence.dart::$XMLCopyWith<XML>"
+"gnucashx::data::models::persistence.dart::XML" <|-- "gnucashx::data::models::persistence.dart::_$XML"
+
+abstract class "gnucashx::data::models::persistence.dart::XML" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$XMLCopyWith<XML> copyWith
+}
+
+"gnucashx::data::models::persistence.dart::XML" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::XML" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::XML" o-- "gnucashx::data::models::persistence.dart::$XMLCopyWith<XML>"
+"gnucashx::data::models::persistence.dart::Persistence" <|-- "gnucashx::data::models::persistence.dart::XML"
+
+abstract class "gnucashx::data::models::persistence.dart::$SQLiteCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::$SQLiteCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::persistence.dart::$PersistenceCopyWith" <|-- "gnucashx::data::models::persistence.dart::$SQLiteCopyWith"
+
+class "gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl" {
+  -SQLite _value
+  +$Res call()
+}
+
+"gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl" o-- "gnucashx::data::models::persistence.dart::SQLite"
+"gnucashx::data::models::persistence.dart::_$PersistenceCopyWithImpl" <|-- "gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl"
+"gnucashx::data::models::persistence.dart::$SQLiteCopyWith" <|-- "gnucashx::data::models::persistence.dart::_$SQLiteCopyWithImpl"
+
+class "gnucashx::data::models::persistence.dart::_$SQLite" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +String $type
+  +int hashCode
+  +$SQLiteCopyWith<SQLite> copyWith
+  +String toString()
+  +bool ==()
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$SQLite" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$SQLite" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$SQLite" o-- "gnucashx::data::models::persistence.dart::$SQLiteCopyWith<SQLite>"
+"gnucashx::data::models::persistence.dart::SQLite" <|-- "gnucashx::data::models::persistence.dart::_$SQLite"
+
+abstract class "gnucashx::data::models::persistence.dart::SQLite" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +Uri uri
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$SQLiteCopyWith<SQLite> copyWith
+}
+
+"gnucashx::data::models::persistence.dart::SQLite" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::SQLite" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::SQLite" o-- "gnucashx::data::models::persistence.dart::$SQLiteCopyWith<SQLite>"
+"gnucashx::data::models::persistence.dart::Persistence" <|-- "gnucashx::data::models::persistence.dart::SQLite"
+
+abstract class "gnucashx::data::models::persistence.dart::_$Persistence" {
+  +PersistenceType type
+  +bool favourite
+  +bool hidden
+  +GUID guid
+  +DateTime created
+  +DateTime modified
+  +$PersistenceCopyWith<Persistence> copyWith
+  +TResult when()
+  +TResult? whenOrNull()
+  +TResult maybeWhen()
+  +TResult map()
+  +TResult? mapOrNull()
+  +TResult maybeMap()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::persistence.dart::_$Persistence" o-- "gnucashx::data::models::persistence.dart::PersistenceType"
+"gnucashx::data::models::persistence.dart::_$Persistence" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::persistence.dart::_$Persistence" o-- "gnucashx::data::models::persistence.dart::$PersistenceCopyWith<Persistence>"
+
+class "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" <|-- "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> templateAccountGUID
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" {
+  -ScheduledTransaction _value
+  -$Res Function(ScheduledTransaction) _then
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> templateAccountGUID
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" o-- "gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" o-- "null::$Res Function(ScheduledTransaction)"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" <|-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> templateAccountGUID
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith" <|-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith"
+
+class "gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl" {
+  -_ScheduledTransaction _value
+  +$Res call()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl" o-- "gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWithImpl" <|-- "gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith" <|-- "gnucashx::data::models::scheduled_transaction.dart::__$ScheduledTransactionCopyWithImpl"
+
+class "gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction" {
+  +GUID guid
+  +String name
+  +bool enabled
+  +DateTime startDate
+  +DateTime endDate
+  +DateTime lastOccur
+  +int numOccur
+  +int remOccur
+  +bool autoCreate
+  +bool autoNotify
+  +bool advCreation
+  +bool advNotify
+  +int instanceCount
+  +GUID templateAccountGUID
+  +int hashCode
+  +_$ScheduledTransactionCopyWith<_ScheduledTransaction> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction" o-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith<_ScheduledTransaction>"
+"gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" <|-- "gnucashx::data::models::scheduled_transaction.dart::_$_ScheduledTransaction"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" {
+  +GUID guid
+  +String name
+  +bool enabled
+  +DateTime startDate
+  +DateTime endDate
+  +DateTime lastOccur
+  +int numOccur
+  +int remOccur
+  +bool autoCreate
+  +bool autoNotify
+  +bool advCreation
+  +bool advNotify
+  +int instanceCount
+  +GUID templateAccountGUID
+  +_$ScheduledTransactionCopyWith<_ScheduledTransaction> copyWith
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction" o-- "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransactionCopyWith<_ScheduledTransaction>"
+"gnucashx::data::models::scheduled_transaction.dart::ScheduledTransaction" <|-- "gnucashx::data::models::scheduled_transaction.dart::_ScheduledTransaction"
+
+abstract class "gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" {
+  +GUID guid
+  +String name
+  +bool enabled
+  +DateTime startDate
+  +DateTime endDate
+  +DateTime lastOccur
+  +int numOccur
+  +int remOccur
+  +bool autoCreate
+  +bool autoNotify
+  +bool advCreation
+  +bool advNotify
+  +int instanceCount
+  +GUID templateAccountGUID
+  +$ScheduledTransactionCopyWith<ScheduledTransaction> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::scheduled_transaction.dart::_$ScheduledTransaction" o-- "gnucashx::data::models::scheduled_transaction.dart::$ScheduledTransactionCopyWith<ScheduledTransaction>"
+
+class "gnucashx::data::models::transaction.dart::Transaction" {
+}
+
+"gnucashx::data::models::base.dart::Base" <|-- "gnucashx::data::models::transaction.dart::Transaction"
+"gnucashx::data::models::transaction.dart::_$Transaction" <|-- "gnucashx::data::models::transaction.dart::Transaction"
+
+abstract class "gnucashx::data::models::transaction.dart::$TransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> currencyGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::$TransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+
+class "gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" {
+  -Transaction _value
+  -$Res Function(Transaction) _then
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> currencyGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" o-- "gnucashx::data::models::transaction.dart::Transaction"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" o-- "null::$Res Function(Transaction)"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::transaction.dart::$TransactionCopyWith" <|-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl"
+
+abstract class "gnucashx::data::models::transaction.dart::_$TransactionCopyWith" {
+  +$GUIDCopyWith<$Res> guid
+  +$GUIDCopyWith<$Res> currencyGuid
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWith" o-- "gnucashx::data::models::guid.dart::$GUIDCopyWith<$Res>"
+"gnucashx::data::models::transaction.dart::$TransactionCopyWith" <|-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWith"
+
+class "gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl" {
+  -_Transaction _value
+  +$Res call()
+}
+
+"gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl" o-- "gnucashx::data::models::transaction.dart::_Transaction"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWithImpl" <|-- "gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl"
+"gnucashx::data::models::transaction.dart::_$TransactionCopyWith" <|-- "gnucashx::data::models::transaction.dart::__$TransactionCopyWithImpl"
+
+class "gnucashx::data::models::transaction.dart::_$_Transaction" {
+  +GUID guid
+  +GUID currencyGuid
+  +DateTime postDate
+  +DateTime enterDate
+  +String description
+  +int hashCode
+  +_$TransactionCopyWith<_Transaction> copyWith
+  +String toString()
+  +bool ==()
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::transaction.dart::_$_Transaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::transaction.dart::_$_Transaction" o-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWith<_Transaction>"
+"gnucashx::data::models::transaction.dart::_Transaction" <|-- "gnucashx::data::models::transaction.dart::_$_Transaction"
+
+abstract class "gnucashx::data::models::transaction.dart::_Transaction" {
+  +GUID guid
+  +GUID currencyGuid
+  +DateTime postDate
+  +DateTime enterDate
+  +String description
+  +_$TransactionCopyWith<_Transaction> copyWith
+}
+
+"gnucashx::data::models::transaction.dart::_Transaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::transaction.dart::_Transaction" o-- "gnucashx::data::models::transaction.dart::_$TransactionCopyWith<_Transaction>"
+"gnucashx::data::models::transaction.dart::Transaction" <|-- "gnucashx::data::models::transaction.dart::_Transaction"
+
+abstract class "gnucashx::data::models::transaction.dart::_$Transaction" {
+  +GUID guid
+  +GUID currencyGuid
+  +DateTime postDate
+  +DateTime enterDate
+  +String description
+  +$TransactionCopyWith<Transaction> copyWith
+  +Map<String, dynamic> toJson()
+}
+
+"gnucashx::data::models::transaction.dart::_$Transaction" o-- "gnucashx::data::models::guid.dart::GUID"
+"gnucashx::data::models::transaction.dart::_$Transaction" o-- "gnucashx::data::models::transaction.dart::$TransactionCopyWith<Transaction>"
+
+class "gnucashx::provider::provider.dart::SettingsProvider" {
+  -SettingsRepo _settingsRepo
+  -Settings _settings
+  +Settings settings
+  +Future<bool> init()
+  -Future<bool> _commit()
+  +Future<bool> addSource()
+  +Future<bool> removeSource()
+}
+
+"gnucashx::provider::provider.dart::SettingsProvider" o-- "gnucashx::data::repositories::settings_repo.dart::SettingsRepo"
+"gnucashx::provider::provider.dart::SettingsProvider" o-- "gnucashx::data::models::settings.dart::Settings"
+"flutter::src::foundation::change_notifier.dart::ChangeNotifier" <|-- "gnucashx::provider::provider.dart::SettingsProvider"
+
+class "gnucashx::provider::provider.dart::GncProvider" {
+}
+
+"flutter::src::foundation::change_notifier.dart::ChangeNotifier" <|-- "gnucashx::provider::provider.dart::GncProvider"
+
+
+@enduml
