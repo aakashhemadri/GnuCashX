@@ -8,26 +8,23 @@ import 'package:gnucashx/utils/constants.dart';
 
 class LocalSettingsRepo implements SettingsRepo {
   @override
-  late Persistence source;
-
-  @override
   Future<bool> reset() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String settings = jsonEncode(Settings.local());
-    return pref.setString(kSettingsLocalKey, settings);
+    return pref.setString(kLocalSettingsKey, settings);
   }
 
   @override
   Future<bool> write(Settings settings) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
     String settingsJson = jsonEncode(settings.toJson());
-    return pref.setString(kSettingsLocalKey, settingsJson);
+    return pref.setString(kLocalSettingsKey, settingsJson);
   }
 
   @override
   Future<Settings> read() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    String? settingsJson = pref.getString(kSettingsLocalKey);
+    String? settingsJson = pref.getString(kLocalSettingsKey);
     if (settingsJson == null) {
       await reset();
       return Settings.local();

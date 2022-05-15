@@ -17,22 +17,15 @@ class Settings extends Base with _$Settings {
       {required GUID guid,
       required Theme theme,
       required String locale,
-      required List<Persistence> source,
-      required Persistence? recent}) = _Settings;
+      required List<Persistence> sources,
+      required Persistence? current}) = _Settings;
 
   factory Settings.local() => Settings._instance ??= Settings._(
       guid: GUID.generate(),
       theme: Theme.light,
       locale: Intl.systemLocale,
-      source: List<Persistence>.filled(
-          1,
-          Persistence.local(
-              key: kSettingsLocalKey,
-              favourite: true,
-              hidden: false,
-              created: DateTime.now(),
-              modified: DateTime.now())),
-      recent: null);
+      sources: List<Persistence>.empty(),
+      current: null);
 
   factory Settings.fromJson(Map<String, dynamic> json) =>
       _$SettingsFromJson(json);

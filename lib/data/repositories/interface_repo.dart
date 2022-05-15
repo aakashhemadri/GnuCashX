@@ -1,9 +1,9 @@
 import 'package:gnucashx/data/models/models.dart';
 
 abstract class Repository<T extends Base> {
-  late Persistence source;
-
   /// Possible specifics in sub classes
+  ///
+  /// late Persistence source;
   ///
   /// Future<T> getOne(GUID guid);
   /// Future<List<T>> getAll();

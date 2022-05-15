@@ -37,11 +37,18 @@ const kNamespace = {
 ///
 const int kGUIDEncodingLength = 32;
 
-/// Local Storeage Keys
+/// Local Storage Keys
 ///
-const String kSettingsLocalKey = 'settings';
-const String kSettingsPersistenceType = 'local';
+const String kLocalSettingsKey = 'settings';
+const String kLocalSettingsPersistenceTypeKey = 'local';
+const String kLocalGncKey = 'gnucash';
 
 /// Settings
 ///
 const String kSettingsFileName = 'gnucashx.config';
+
+/// Testing
+///
+const String kSampleRawXMLFile = 'resources/sample.xml';
+const String kSampleXMLFile = 'resources/sample.gnucash';
+const String kSampleSQLiteFile = 'resources/sample.sqlite.gnucash';

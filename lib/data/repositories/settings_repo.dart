@@ -10,12 +10,7 @@ abstract class SettingsRepo implements Repository<Settings> {
   // Sync between repositories
   Future<bool> sync(Settings settings);
 
-  factory SettingsRepo(PersistenceType source) {
-    switch (source) {
-      case PersistenceType.local:
-        return LocalSettingsRepo();
-      default:
-        return LocalSettingsRepo();
-    }
+  factory SettingsRepo() {
+    return LocalSettingsRepo();
   }
 }
