@@ -67,6 +67,7 @@ watch-code:
 activate-dcdg:
 	@dart pub global activate dcdg
 
-.PHONY: build-dcdg
+.PHONY: build-plantuml
 build-plantuml:
-	@dart pub global run dcdg -o resources/design/uml.plantuml
+	@mkdir -p resources/design
+	@dart pub global run dcdg --exported-only -o resources/design/uml.plantuml
