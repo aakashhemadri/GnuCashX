@@ -1,6 +1,10 @@
 /// App
 const String kAppTitle = 'GnuCashX';
 
+/// Styles
+///
+const double kStyleMinLeadingWidth = 10;
+
 /// GUID
 ///
 const int kGUIDEncodingLength = 32;
