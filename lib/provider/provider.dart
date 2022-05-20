@@ -1,8 +1,8 @@
 library provider;
 
-import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:gnucashx/data/data.dart';
-import 'package:gnucashx/utils/utils.dart';
 
+part 'ui_provider.dart';
 part 'settings_provider.dart';
-part 'gnucash_provider.dart';
+part 'account_provider.dart';

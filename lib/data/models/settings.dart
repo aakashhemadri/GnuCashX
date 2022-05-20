@@ -1,8 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+import 'package:intl/intl.dart';
+
 import 'package:gnucashx/data/models/models.dart';
 import 'package:gnucashx/utils/constants.dart';
-import 'package:gnucashx/utils/theme.dart';
-import 'package:intl/intl.dart';
 
 part 'settings.freezed.dart';
 part 'settings.g.dart';
@@ -15,14 +16,14 @@ class Settings extends Base with _$Settings {
   // Private Constructor
   const factory Settings._(
       {required GUID guid,
-      required Theme theme,
+      required ThemeMode theme,
       required String locale,
       required List<Persistence> sources,
       required Persistence? current}) = _Settings;
 
   factory Settings.local() => Settings._instance ??= Settings._(
       guid: GUID.generate(),
-      theme: Theme.light,
+      theme: ThemeMode.system,
       locale: Intl.systemLocale,
       sources: List<Persistence>.empty(),
       current: null);
