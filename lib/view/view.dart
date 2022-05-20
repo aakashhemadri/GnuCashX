@@ -5,3 +5,4 @@ export 'more_view.dart';
 
 export 'main_view.dart';
 export 'settings_view.dart';
+export 'about_view.dart';
