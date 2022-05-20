@@ -1,3 +1,26 @@
+/// App
+const String kAppTitle = 'GnuCashX';
+
+/// GUID
+///
+const int kGUIDEncodingLength = 32;
+
+/// Local Storage Keys
+///
+const String kLocalSettingsKey = 'settings';
+const String kLocalSettingsPersistenceTypeKey = 'local';
+const String kLocalGncKey = 'gnucash';
+
+/// Settings
+///
+const String kSettingsFileName = 'gnucashx.config';
+
+/// Testing
+///
+const String kSampleRawXMLFile = 'resources/sample.xml';
+const String kSampleXMLFile = 'resources/sample.gnucash';
+const String kSampleSQLiteFile = 'resources/sample.sqlite.gnucash';
+
 /// Namespaces
 ///
 /// Usage:
@@ -32,23 +55,3 @@ const kNamespace = {
   kTransaction: 'http://www.gnucash.org/XML/trn',
   kBudget: 'http://www.gnucash.org/XML/bgt',
 };
-
-/// GUID
-///
-const int kGUIDEncodingLength = 32;
-
-/// Local Storage Keys
-///
-const String kLocalSettingsKey = 'settings';
-const String kLocalSettingsPersistenceTypeKey = 'local';
-const String kLocalGncKey = 'gnucash';
-
-/// Settings
-///
-const String kSettingsFileName = 'gnucashx.config';
-
-/// Testing
-///
-const String kSampleRawXMLFile = 'resources/sample.xml';
-const String kSampleXMLFile = 'resources/sample.gnucash';
-const String kSampleSQLiteFile = 'resources/sample.sqlite.gnucash';
