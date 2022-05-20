@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.aakashhemadri.gnucashx.gnucashx">
+    package="com.aakashhemadri.gnucashx">
    <application
-        android:label="gnucashx"
+        android:label="GnuCashX"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

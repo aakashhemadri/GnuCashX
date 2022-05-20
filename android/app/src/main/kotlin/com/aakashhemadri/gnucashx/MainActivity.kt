@@ -1,4 +1,4 @@
-package com.aakashhemadri.gnucashx.gnucashx
+package com.aakashhemadri.gnucashx
 
 import io.flutter.embedding.android.FlutterActivity
 
