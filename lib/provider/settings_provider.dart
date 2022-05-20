@@ -1,6 +1,6 @@
 part of provider;
 
-class SettingsProvider extends ChangeNotifier {
+class SettingsProvider with ChangeNotifier {
   final SettingsRepo _settingsRepo = SettingsRepo();
   Settings _settings = Settings.local();
 
@@ -35,7 +35,7 @@ class SettingsProvider extends ChangeNotifier {
     return _commit();
   }
 
-  Future<bool> updateTheme(Theme theme) {
+  Future<bool> updateTheme(ThemeMode theme) {
     _settings = settings.copyWith(theme: theme);
     notifyListeners();
     return _commit();

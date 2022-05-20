@@ -1,4 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:gnucashx/data/data.dart';
 import 'package:gnucashx/provider/provider.dart';
 import 'package:gnucashx/utils/utils.dart';
@@ -60,10 +62,9 @@ void main() {
     });
 
     test('.updateTheme(): Check for correct theme', () async {
-      Theme dark = Theme.dark;
-      await settingsProvider.updateTheme(dark);
+      await settingsProvider.updateTheme(ThemeMode.dark);
 
-      expect(settingsProvider.settings.theme, dark);
+      expect(settingsProvider.settings.theme, ThemeMode.dark);
     });
 
     test('_commit(): Compare local storage with in-memory object', () async {

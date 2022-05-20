@@ -1,6 +1,6 @@
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:gnucashx/utils/constants.dart';
-import 'package:gnucashx/utils/theme.dart';
 import 'package:gnucashx/data/data.dart';
 
 import 'package:intl/intl.dart';
@@ -21,7 +21,7 @@ void main() {
                   modified: DateTime.now())));
     });
     test('.local(): Check default Theme', () {
-      expect(settings.theme, Theme.light);
+      expect(settings.theme, ThemeMode.system);
     });
 
     test('.local(): Check if default locale is system locale', () {
