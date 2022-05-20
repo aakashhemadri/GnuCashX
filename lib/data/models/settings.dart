@@ -16,6 +16,8 @@ class Settings extends Base with _$Settings {
   // Private Constructor
   const factory Settings._(
       {required GUID guid,
+      required bool useMaterial3,
+      required bool isDynamic,
       required ThemeMode theme,
       required String locale,
       required List<Persistence> sources,
@@ -23,6 +25,8 @@ class Settings extends Base with _$Settings {
 
   factory Settings.local() => Settings._instance ??= Settings._(
       guid: GUID.generate(),
+      useMaterial3: false,
+      isDynamic: false,
       theme: ThemeMode.system,
       locale: Intl.systemLocale,
       sources: List<Persistence>.empty(),
