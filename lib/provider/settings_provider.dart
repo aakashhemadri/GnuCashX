@@ -5,15 +5,14 @@ class SettingsProvider with ChangeNotifier {
   Settings _settings = Settings.local();
 
   Future<bool> init() {
-    // ignore: unnecessary_null_comparison
-    if (_settings == null) {
-      return _settingsRepo
-          .read()
-          .then((settings) => _settings = settings)
-          .then((value) => Future.value(true));
-    } else {
-      return Future.value(true);
-    }
+    return _settingsRepo
+        .read()
+        .then((settings) => _settings = settings)
+        .then((value) => Future.value(true));
+  }
+
+  Future<bool> reset() {
+    return _settingsRepo.reset();
   }
 
   Future<bool> _commit() {
