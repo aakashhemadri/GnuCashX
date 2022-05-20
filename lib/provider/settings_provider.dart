@@ -40,4 +40,16 @@ class SettingsProvider with ChangeNotifier {
     notifyListeners();
     return _commit();
   }
+
+  Future<bool> switchDynamicTheme(bool isDynamic) {
+    _settings = settings.copyWith(isDynamic: isDynamic);
+    notifyListeners();
+    return _commit();
+  }
+
+  Future<bool> switchMaterialVersion(bool useMaterial3) {
+    _settings = settings.copyWith(useMaterial3: useMaterial3);
+    notifyListeners();
+    return _commit();
+  }
 }
