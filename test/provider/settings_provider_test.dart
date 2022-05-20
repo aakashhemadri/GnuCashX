@@ -14,6 +14,7 @@ void main() {
 
     setUp(() async {
       settingsProvider = SettingsProvider();
+      await settingsProvider.reset();
       await settingsProvider.init();
 
       localSource = Persistence.local(
