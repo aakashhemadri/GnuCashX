@@ -10,19 +10,23 @@ class MoreView extends StatelessWidget {
   Widget build(BuildContext context) {
     return CustomScrollView(
       slivers: <Widget>[
-        const SliverAppBar(
+        SliverAppBar(
           pinned: true,
           expandedHeight: 200,
           flexibleSpace: FlexibleSpaceBar(
-            title: Text('More'),
+            background: Icon(
+              Icons.attach_money_rounded,
+              size: 100,
+              color: Theme.of(context).colorScheme.secondaryContainer,
+            ),
           ),
         ),
         SliverList(
           delegate: SliverChildListDelegate([
-            kWidgetDivider,
             ListTile(
               title: const Text('Settings'),
               leading: const Icon(Icons.settings),
+              trailing: const Icon(Icons.arrow_forward_rounded),
               enableFeedback: true,
               onTap: () =>
                   Navigator.of(context).pushNamed(RouteManager.settingsPage),
@@ -30,6 +34,7 @@ class MoreView extends StatelessWidget {
             ListTile(
               title: const Text('About'),
               leading: const Icon(Icons.help),
+              trailing: const Icon(Icons.arrow_forward_rounded),
               enableFeedback: true,
               onTap: () =>
                   Navigator.of(context).pushNamed(RouteManager.aboutPage),
