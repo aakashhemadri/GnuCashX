@@ -1,4 +1,4 @@
-BINARY := gnucashx
+ANDROID_PACKAGE := com.aakashhemadri.gnucashx
 NAME := GnuCashX 
 
 # Run app in debug mode with hot-reload
@@ -26,6 +26,10 @@ lint: format
 build-web: generate-code test
 	@flutter build web
 
+.PHONY: build-apk
+build-apk: generate-code test
+	@flutter build apk
+
 # Build api docs @ docs/api
 .PHONY: generate-code build-docs
 build-docs: lint
@@ -42,6 +46,21 @@ docs: lint build-docs
 .PHONY: web
 web: build-web
 	@python -m http.server --directory build/web --bind localhost 10000 2> /dev/null
+
+.PHONY: apk-uninstall
+apk-uninstall:
+	@adb uninstall ${ANDROID_PACKAGE}
+
+.PHONY: apk-install
+apk-install: build-apk
+	@adb install build/app/outputs/flutter-apk/app-release.apk
+
+.PHONY: clean
+clean:
+	@flutter clean
+	@rm -rf $HOME/.gradle/caches
+	@adb uninstall ${ANDROID_PACKAGE}
+	@flutter pub get
 
 # Make dartdoc available as a global package, flutter needs this.
 .PHONY: activate-docs
