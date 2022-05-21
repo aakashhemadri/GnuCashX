@@ -109,7 +109,7 @@ jobs:
         shell: bash
 
       - name: Tar files
-        run: tar -cvf gnucashx-web.tar build/web/
+        run: tar -cvf gnucashx-web.tar -C build/web/ .
         shell: bash
 
       - name: Upload artifacts
@@ -166,6 +166,44 @@ jobs:
         with:
           name: iOS
           path: gnucashx-ios.tar
+  deploy:
+    name: Deployments
+    runs-on: ubuntu-latest
+    needs: [build]
+    steps:
+      - name: Get Commit SHA
+        run: |
+          set -x
+          echo "GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_ENV
+
+      - name: Create artifact directory
+        run: mkdir -p artifacts
+        shell: bash
+
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          path: artifacts
+
+      - name: Deploy Web
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          path: gh-pages
+        env:
+          TARGET_BRANCH: 'gh-pages'
+        run: |
+          cd gh-pages
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git fetch
+          git checkout $TARGET_BRANCH
+          rm -rf app/latest/
+          mkdir -p app/latest/
+          7zip x artifacts/Android_Web/gnucashx-web.tar -oapp/latest/
+          git add app/latest
+          git diff-index --quiet HEAD || git commit -am "ci: deploy web(${{ env.GIT_HASH }})"
+          git push origin $TARGET_BRANCH
 
   release:
     name: Create Release
@@ -177,6 +215,7 @@ jobs:
         run: |
           set -x
           echo "VERSION_TAG=${GITHUB_REF/refs\/tags\//}" >> $GITHUB_ENV
+          echo "GIT_HASH=$(git rev-parse --short "$GITHUB_SHA")" >> $GITHUB_ENV
         shell: bash
 
       - name: Create artifact directory
@@ -187,7 +226,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           path: artifacts
-
+ 
       - name: Clean up artifacts
         run: |
           set -e
@@ -207,7 +246,28 @@ jobs:
           sha=`sha256sum gnucashx-web-${{ env.VERSION_TAG }}.tar | awk '{ print $1 }'`
           echo "WEB_TAR_SHA=$sha" >> $GITHUB_ENV
         shell: bash
-          
+
+      - name: Deploy Web
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+          path: gh-pages
+        env:
+          TARGET_BRANCH: 'gh-pages'
+        run: |
+          cd gh-pages
+          git config --global user.name 'GitHub Action'
+          git config --global user.email 'action@github.com'
+          git fetch
+          git checkout $TARGET_BRANCH
+          rm -rf app/stable
+          mkdir -p app/tag/${{ env.VERSION_TAG }} app/stable
+          7zip x ../gnucashx-web-${{ env.VERSION_TAG }}.tar -oapp/tag/${{ env.VERSION_TAG }}/
+          7zip x ../gnucashx-web-${{ env.VERSION_TAG }}.tar -oapp/stable/
+          git add app/tag app/stable
+          git diff-index --quiet HEAD || git commit -am "ci: deploy web(${{ env.GIT_HASH }}) as v${{ env.VERSION_TAG }}"
+          git push origin $TARGET_BRANCH
+
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
@@ -215,15 +275,23 @@ jobs:
           name: GnuCashX ${{ env.VERSION_TAG }}
           body: |
             ---
+            
+            ### Deployments
 
-            ### Checksums
+            | Variant |
+            | ------- |
+            | [Web @ latest](https://gnucashx.aakashhemadri.com/app/latest) |
+            | [Web @ stable](https://gnucashx.aakashhemadri.com/app/stable) |
+            | [Web @ v${{ env.VERSION_TAG }}](https://gnucashx.aakashhemadri.com/app/tag/${{ env.VERSION_TAG}}) |
+
+            ### Downloads
 
             | Variant | SHA-256 |
             | ------- | ------- |
-            | Android APK | ${{ env.APK_SHA }} |
-            | Android Bundle | ${{ env.AAB_SHA }} |
-            | iOS | ${{ env.IOS_SHA }} |
-            | Web | ${{ env.WEB_TAR_SHA }} |
+            | [Android APK](https://github.com/aakashhemadri/GnuCashX/releases/download/${{ env.VERSION_TAG }}/gnucashx-${{ env.VERSION_TAG }}.apk) | ${{ env.APK_SHA }} |
+            | [Android Bundle](https://github.com/aakashhemadri/GnuCashX/releases/download/${{ env.VERSION_TAG }}/gnucashx-${{ env.VERSION_TAG }}.aab) | ${{ env.AAB_SHA }} |
+            | [iOS](https://github.com/aakashhemadri/GnuCashX/releases/download/${{ env.VERSION_TAG }}/gnucashx-ios-${{ env.VERSION_TAG }}.tar) | ${{ env.IOS_SHA }} |
+            | [Web](https://github.com/aakashhemadri/GnuCashX/releases/download/${{ env.VERSION_TAG }}/gnucashx-web-${{ env.VERSION_TAG }}.apk) | ${{ env.WEB_TAR_SHA }} |
           files: |
             gnucashx-${{ env.VERSION_TAG }}.apk
             gnucashx-${{ env.VERSION_TAG }}.aab
