@@ -201,7 +201,7 @@ jobs:
           git checkout $TARGET_BRANCH
           rm -rf app/latest/
           mkdir -p app/latest/
-          7zip x artifacts/Android_Web/gnucashx-web.tar -oapp/latest/
+          7z x artifacts/Android_Web/gnucashx-web.tar -oapp/latest/
           git add app/latest
           git diff-index --quiet HEAD || git commit -am "ci: deploy web(${{ env.GIT_HASH }})"
           git push origin $TARGET_BRANCH
@@ -264,8 +264,8 @@ jobs:
           git checkout $TARGET_BRANCH
           rm -rf app/stable
           mkdir -p app/tag/${{ env.VERSION_TAG }} app/stable
-          7zip x ../gnucashx-web-${{ env.VERSION_TAG }}.tar -oapp/tag/${{ env.VERSION_TAG }}/
-          7zip x ../gnucashx-web-${{ env.VERSION_TAG }}.tar -oapp/stable/
+          7z x ../gnucashx-web-${{ env.VERSION_TAG }}.tar -oapp/tag/${{ env.VERSION_TAG }}/
+          7z x ../gnucashx-web-${{ env.VERSION_TAG }}.tar -oapp/stable/
           git add app/tag app/stable
           git diff-index --quiet HEAD || git commit -am "ci: deploy web(${{ env.GIT_HASH }}) as v${{ env.VERSION_TAG }}"
           git push origin $TARGET_BRANCH
