@@ -184,12 +184,13 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           path: artifacts
-
-      - name: Deploy Web
-        uses: actions/checkout@v3
+      
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
           path: gh-pages
+      
+      - name: Deploy Web
         env:
           TARGET_BRANCH: 'gh-pages'
         run: |
@@ -247,11 +248,12 @@ jobs:
           echo "WEB_TAR_SHA=$sha" >> $GITHUB_ENV
         shell: bash
 
-      - name: Deploy Web
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 1
           path: gh-pages
+        
+      - name: Deploy Web
         env:
           TARGET_BRANCH: 'gh-pages'
         run: |
