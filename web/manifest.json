@@ -1,11 +1,11 @@
 {
-    "name": "gnucashx",
-    "short_name": "gnucashx",
+    "name": "GnuCashX",
+    "short_name": "GnuCashX",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "GnuCashX Mobile",
+    "description": "GnuCashX is a Cross-Platform App for GnuCash",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
