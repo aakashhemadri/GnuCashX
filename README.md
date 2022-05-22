@@ -16,10 +16,21 @@
 
 - [Introduction](#introduction)
 - [Installation](#installation)
+  - [GitHub Releases](#github-releases)
+  - [Web App](#web-app)
+  - [Android & iOS App Stores](#android--ios-app-stores)
+- [Contributing to GnuCashX!](#contributing-to-gnucashx)
 - [Development](#development)
   - [Setup your environment](#setup-your-environment)
+  - [Setup git hooks](#setup-git-hooks)
+  - [Prepare flutter](#prepare-flutter)
+  - [Generate freezed code](#generate-freezed-code)
   - [Run all tests](#run-all-tests)
-  - [Build the application](#build-the-application)
+  - [Developing with hot-reload](#developing-with-hot-reload)
+  - [Debug with performance profiling](#debug-with-performance-profiling)
+  - [Build the application for different platforms](#build-the-application-for-different-platforms)
+  - [Build API documentation](#build-api-documentation)
+  - [Makefile & Helpers](#makefile--helpers)
 - [Contributors](#contributors)
 - [License](#license)
 
@@ -29,7 +40,21 @@ The purpose of GnuCashX is to be true to the exisiting [GnuCash](https://www.gnu
 
 ## Installation
 
+### GitHub Releases
+
 You can visit [releases](https://github.com/aakashhemadri/GnuCashX/releases) to download the latest built binaries.
+
+### Web App
+
+Visit the  [stable](https://gnucashx.aakashhemadri.com/app/stable) version of the app built against the latest tagged release or the [latest](https://gnucashx.aakashhemadri.com/app/latest) version of the app built against the `master` branch.
+
+### Android & iOS App Stores
+
+In the works, not a priority until we have a decent app. Help us get there by [contributing](CONTRIBUTING.md).
+
+## Contributing to GnuCashX!
+
+Check out [CONTRIBUTING.md](CONTRIBUTING.md) to help this project
 
 ## Development
 
@@ -39,10 +64,14 @@ You may open this project on your favourite IDE that supports Flutter through a 
 
 If you are confused you can pick using VSCode with the flutter extension or use Android Studio with Flutter plugin installed. If you have the flutter-sdk and dart-sdk you can directly run the below commands to build this app.
 
+### Setup git hooks
+
 ```bash
 # Setup git hooks
 git config core.hooksPath hooks/
 ```
+
+### Prepare flutter
 
 ```bash
 # Disable analytics
@@ -54,13 +83,34 @@ flutter config --no-analytics
 flutter pub get
 ```
 
+### Generate freezed code
+
+```bash
+# Generate freezed code
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
 ### Run all tests
 
 ```bash
 flutter test
 ```
 
-### Build the application
+### Developing with hot-reload
+
+```bash
+# Runs you're app on debug mode on a connected device
+flutter run 
+```
+
+### Debug with performance profiling
+
+```bash
+# Runs you're app in profile mode on a connected device
+flutter run --profile
+```
+
+### Build the application for different platforms
 
 ```bash
 # Android APK
@@ -77,6 +127,22 @@ flutter build web
 flutter build ios --release --no-codesign
 ```
 
+### Build API documentation
+
+```bash
+# Allow dartdoc to be run globally 
+flutter pub global activate dartdoc 
+```
+
+```bash
+# Render docs to doc/api
+flutter pub global run dartdoc .
+```
+
+### Makefile & Helpers
+
+A lot of the above steps have been implemented in this [Makefile](Makefile). You'll need to have `make` installed on your machine. To know more visit [GNU Make](https://www.gnu.org/software/make/)
+
 ## Contributors
 
 - [Aakash Hemadri](https://portal.aakashhemadri.com)
@@ -85,4 +151,4 @@ flutter build ios --release --no-codesign
 
 ## License
 
-GnuCash is licensed under the MIT License. See [LICENSE](LICENSE) for more information.
+GnuCashX is licensed under the GPLv2 License. See [LICENSE](LICENSE) for more information.
