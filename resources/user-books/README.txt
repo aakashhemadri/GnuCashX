@@ -1,0 +1,1 @@
+Name your file as <username>.<xml/sqlite>.gnucash
