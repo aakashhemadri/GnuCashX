@@ -5,7 +5,7 @@
 <p align="center">
   <a href="https://github.com/aakashhemadri/GnuCashX/releases"><img src="https://img.shields.io/github/release/aakashhemadri/GnuCashX.svg"></a>
   <a href="https://github.com/aakashhemadri/GnuCashX/releases"><img alt="GitHub All Releases" src="https://img.shields.io/github/downloads/aakashhemadri/GnuCashX/total" /></a>
-  <a href="https://github.com/aakashhemadri/GnuCashX/blob/master/LICENSE"><img src="https://img.shields.io/github/license/aakashhemadri/GnuCashX.svg"></a>
+  <a href="https://github.com/aakashhemadri/GnuCashX/blob/master/LICENSE"><img src="https://img.shields.io/static/v1?label=license&message=GPLv2&color=9cf"></a>
   <a href="https://github.com/aakashhemadri/GnuCashX/actions/workflows/ci.yml"><img src="https://github.com/aakashhemadri/GnuCashX/workflows/CI/badge.svg?branch=master&event=push" /></a>
   <a href="https://github.com/aakashhemadri/GnuCashX/actions/workflows/linter.yml"><img src="https://github.com/aakashhemadri/GnuCashX/workflows/Linter/badge.svg" /></a>
 </p>
