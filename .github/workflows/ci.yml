@@ -304,7 +304,7 @@ jobs:
           git config --global user.email 'action@github.com'
           git fetch
           git checkout $TARGET_BRANCH
-          rm -rf app/stable
+          rm -rf app/stable app/tag/${{ env.VERSION_TAG }}
           mkdir -p app/tag/${{ env.VERSION_TAG }} app/stable
           7z x ${GITHUB_WORKSPACE}/artifacts/Web/gnucashx-web-${{ env.VERSION_TAG }}.tar -oapp/tag/${{ env.VERSION_TAG }}/
           7z x ${GITHUB_WORKSPACE}/artifacts/Web/gnucashx-web-stable.tar -oapp/stable/
