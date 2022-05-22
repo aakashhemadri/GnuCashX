@@ -366,7 +366,7 @@ jobs:
             | ------- |
             | [Web @ stable](https://gnucashx.aakashhemadri.com/app/stable) |
             | [Web @ latest](https://gnucashx.aakashhemadri.com/app/latest) |
-            | [Web @ v${{ env.VERSION_TAG }}](https://gnucashx.aakashhemadri.com/app/tag/${{ env.VERSION_TAG}}) |
+            | [Web @ ${{ env.VERSION_TAG }}](https://gnucashx.aakashhemadri.com/app/tag/${{ env.VERSION_TAG}}) |
 
             ### Downloads
 
