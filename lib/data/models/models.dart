@@ -8,3 +8,4 @@ export 'package:gnucashx/data/models/slot.dart';
 export 'package:gnucashx/data/models/persistence.dart';
 export 'package:gnucashx/data/models/scheduled_transaction.dart';
 export 'package:gnucashx/data/models/transaction.dart';
+export 'package:gnucashx/data/models/split.dart';
