@@ -1,3 +1,3 @@
-part of 'provider.dart';
+part of 'providers.dart';
 
 class GncAccountProvider with ChangeNotifier {}

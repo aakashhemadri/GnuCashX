@@ -1,0 +1,80 @@
+{
+    "@@locale": "en",
+
+    "title": "GnuCashX",
+    "@title": {
+        "description": "GnuCashX is the app wide title, if unsure use as is"
+    },
+
+    "mainBookNav": "Book",
+    "bookTitle": "Accounts",
+
+    "mainBudgetNav": "Budget",
+    "budgetTitle": "Budgeting",
+    
+    "mainReportNav": "Report",
+    "reportTitle": "Reports",
+
+    "mainMoreNav": "More",
+
+    "morePingMe": "Ping Me!",
+    "moreSettingsTile": "Settings",
+    "moreAboutTile": "About",
+    "aboutTitle": "About",
+
+    "settingsTitle": "Settings",
+    "@settingsTitle": {
+        "description": "SettingsView AppBar title"
+    },
+
+    "settingsIntlHeader": "Internationalization",
+    "@settingsIntlHeader": {
+        "description": "Header to the internationalization section in settings"
+    },
+    
+    "settingsIntlSystemLocaleTitle": "Use System Locale",
+    "@settingsIntlSystemLocaleTitle": {
+        "description": "Switch for using system's locale"
+    },
+
+    "settingsIntlSystemLocaleSubtitle": "Set correct currency and numeric formats",
+    "@settingsIntlSystemLocaleSubtitle": {
+        "description": "Explanation to the Title"
+    },
+    
+    "settingsIntlLanguageTitle": "Language",
+    "@settingsIntlLanguageTitle": {
+        "description": "Dropdown to select language"
+    },
+
+    "settingsIntlLanguageSubtitle": "Select language code",
+    "@settingsIntlLanguageSubtitle": {
+        "description": "Currently selected languageCode"
+    },
+
+    "settingsIntlCountryTitle": "Country",
+    "settingsIntlCountrySubtitle": "Select country code",
+    "@settingsIntlCountrySubtitle": {
+        "description": "Currently selected countryCode"
+    },
+
+    "settingsSourcesHeader": "Sources",
+    "settingsSourcesTitle": "Current GnuCash Book",
+    "settingsSourcesSubtitle": "No sources available, tap to create",
+
+    "settingsAppearenceHeader": "Appearance",
+    "settingsAppearenceThemeModeTitle": "Dark Mode",
+    "settingsAppearenceDialogTitle": "Select Theme",
+    "settingsAppearenceThemeModeSystem": "Follow system",
+    "settingsAppearenceThemeModeLight": "Light", 
+    "settingsAppearenceThemeModeDark": "Dark",
+    "settingsAppearenceDynamicTheme": "Dynamic Theme",
+
+    "settingsExperimentalHeader": "EXPERIMENTAL",
+    "settingsExperimentalHeaderSubtitle": "Unstable options, use with discretion",
+
+    "settingsExperimentalMaterial3Title": "MaterialYou",
+    "settingsExperimentalMaterial3Subtitle": "Enable Android S+ Theming",
+    
+    "placeholder": "Placeholder"
+}

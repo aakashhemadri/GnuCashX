@@ -25,7 +25,8 @@ void main() {
     });
 
     test('.local(): Check if default locale is system locale', () {
-      expect(settings.locale, Intl.systemLocale);
+      expect(settings.localeLanguageCode, Intl.systemLocale.split('_')[0]);
+      expect(settings.localeCountryCode, Intl.systemLocale.split('_')[1]);
     });
   });
 }

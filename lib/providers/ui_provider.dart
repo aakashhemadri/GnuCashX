@@ -1,4 +1,4 @@
-part of provider;
+part of providers;
 
 enum BottomNav { book, budget, report, more }
 

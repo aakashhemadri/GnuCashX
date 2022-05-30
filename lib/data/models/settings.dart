@@ -19,7 +19,9 @@ class Settings extends Base with _$Settings {
       required bool useMaterial3,
       required bool isDynamic,
       required ThemeMode theme,
-      required String locale,
+      required bool useSystemLocale,
+      required String localeLanguageCode,
+      required String localeCountryCode,
       required List<Persistence> sources,
       required Persistence? current}) = _Settings;
 
@@ -28,7 +30,9 @@ class Settings extends Base with _$Settings {
       useMaterial3: false,
       isDynamic: false,
       theme: ThemeMode.system,
-      locale: Intl.systemLocale,
+      useSystemLocale: true,
+      localeLanguageCode: Intl.systemLocale.split('_')[0],
+      localeCountryCode: Intl.systemLocale.split('_')[1],
       sources: List<Persistence>.empty(),
       current: null);
 
