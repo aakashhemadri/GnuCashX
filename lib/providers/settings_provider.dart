@@ -1,14 +1,14 @@
-part of provider;
+part of providers;
 
 class SettingsProvider with ChangeNotifier {
   final SettingsRepo _settingsRepo = SettingsRepo();
   Settings _settings = Settings.local();
 
   Future<bool> init() {
-    return _settingsRepo
+    return findSystemLocale().then((locale) => _settingsRepo
         .read()
         .then((settings) => _settings = settings)
-        .then((value) => Future.value(true));
+        .then((value) => Future.value(true)));
   }
 
   Future<bool> reset() {
@@ -48,6 +48,20 @@ class SettingsProvider with ChangeNotifier {
 
   Future<bool> switchMaterialVersion(bool useMaterial3) {
     _settings = settings.copyWith(useMaterial3: useMaterial3);
+    notifyListeners();
+    return _commit();
+  }
+
+  Future<bool> switchSystemLocale(bool useSystemLocale) {
+    if (useSystemLocale == true) {
+      _settings = settings.copyWith(
+        useSystemLocale: useSystemLocale,
+        localeLanguageCode: Intl.systemLocale.split('_')[0],
+        localeCountryCode: Intl.systemLocale.split('_')[1],
+      );
+    } else {
+      _settings = settings.copyWith(useSystemLocale: useSystemLocale);
+    }
     notifyListeners();
     return _commit();
   }

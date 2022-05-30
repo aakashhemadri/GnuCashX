@@ -2,10 +2,9 @@ import 'package:dynamic_color/dynamic_color.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:gnucashx/provider/provider.dart';
-import 'package:gnucashx/utils/constants.dart';
+import 'package:gnucashx/providers/providers.dart';
+import 'package:gnucashx/utils/utils.dart';
 import 'package:gnucashx/routes/routes.dart';
-import 'package:gnucashx/utils/theme.dart';
 
 final SettingsProvider settings = SettingsProvider();
 Future<void> main() async {

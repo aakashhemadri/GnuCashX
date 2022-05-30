@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:gnucashx/provider/provider.dart';
+import 'package:gnucashx/providers/providers.dart';
 import 'package:gnucashx/view/view.dart';
+import 'package:gnucashx/utils/utils.dart';
 
 class MainView extends StatelessWidget {
   const MainView({Key? key}) : super(key: key);
