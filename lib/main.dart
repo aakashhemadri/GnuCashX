@@ -27,9 +27,9 @@ class GncApp extends StatelessWidget {
               ColorScheme lightColorScheme;
               ColorScheme darkColorScheme;
 
-              if (lightDynamic != null &&
-                  darkDynamic != null &&
-                  settingsProvider.settings.isDynamic) {
+              if (settingsProvider.settings.isDynamic &&
+                  lightDynamic != null &&
+                  darkDynamic != null) {
                 lightColorScheme = lightDynamic.harmonized();
                 darkColorScheme = darkDynamic.harmonized();
               } else {
@@ -38,7 +38,7 @@ class GncApp extends StatelessWidget {
               }
 
               return MaterialApp(
-                title: kAppTitle,
+                onGenerateTitle: (context) => G.of(context)!.title,
                 initialRoute: RouteManager.mainPage,
                 onGenerateRoute: RouteManager.generateRoute,
                 theme: ThemeData(
@@ -48,6 +48,14 @@ class GncApp extends StatelessWidget {
                     colorScheme: darkColorScheme,
                     useMaterial3: settingsProvider.settings.useMaterial3),
                 themeMode: settingsProvider.settings.theme,
+                locale: Locale.fromSubtags(
+                    languageCode: settingsProvider.settings.localeLanguageCode,
+                    countryCode: settingsProvider.settings.localeCountryCode),
+                localizationsDelegates: G.localizationsDelegates,
+                supportedLocales: const [
+                  ...G.supportedLocales,
+                  Locale('en', 'IN'),
+                ],
               );
             }));
   }
