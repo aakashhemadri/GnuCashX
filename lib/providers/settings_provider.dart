@@ -5,7 +5,7 @@ class SettingsProvider with ChangeNotifier {
   Settings _settings = Settings.local();
 
   Future<bool> init() {
-    return findSystemLocale().then((locale) => _settingsRepo
+    return findSystemLocale().then((value) => _settingsRepo
         .read()
         .then((settings) => _settings = settings)
         .then((value) => Future.value(true)));

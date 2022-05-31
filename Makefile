@@ -6,6 +6,10 @@ NAME := GnuCashX
 run:
 	@flutter run
 
+.PHONY: run-web
+run-web:
+	@flutter run -d web-server
+
 # Format dart
 .PHONY: format
 format:
