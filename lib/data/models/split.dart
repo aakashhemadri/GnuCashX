@@ -20,5 +20,15 @@ class Split with _$Split {
       required int quantityDenom,
       @Default(null) GUID? lotGuid}) = _Split;
 
+  const Split._();
+
   factory Split.fromJson(Map<String, dynamic> json) => _$SplitFromJson(json);
+
+  double get value {
+    return valueNum / valueDenom;
+  }
+
+  double get quantity {
+    return quantityNum / quantityDenom;
+  }
 }
