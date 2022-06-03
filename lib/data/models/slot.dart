@@ -31,7 +31,7 @@ class SlotType with _$SlotType {
 /// [objGuid] refers to an instance of another unique object whose data is attached
 /// [name] is key path of slot.
 @Freezed()
-class Slot extends Base with _$Slot {
+class Slot with _$Slot {
   const factory Slot(
       {required GUID objGuid,
       required String name,

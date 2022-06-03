@@ -9,7 +9,7 @@ part 'settings.freezed.dart';
 part 'settings.g.dart';
 
 @Freezed()
-class Settings extends Base with _$Settings {
+class Settings with _$Settings {
   static const fileName = kSettingsFileName;
   static Settings? _instance;
 

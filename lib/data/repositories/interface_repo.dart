@@ -1,6 +1,4 @@
-import 'package:gnucashx/data/models/models.dart';
-
-abstract class Repository<T extends Base> {
+abstract class Repository<T> {
   /// Possible specifics in sub classes
   ///
   /// late Persistence source;

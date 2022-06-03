@@ -5,7 +5,7 @@ part 'transaction.freezed.dart';
 part 'transaction.g.dart';
 
 @Freezed()
-class Transaction extends Base with _$Transaction {
+class Transaction with _$Transaction {
   const factory Transaction(
       {required GUID guid,
       required GUID currencyGuid,

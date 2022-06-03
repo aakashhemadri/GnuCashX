@@ -5,7 +5,7 @@ part 'scheduled_transaction.freezed.dart';
 part 'scheduled_transaction.g.dart';
 
 @Freezed()
-class ScheduledTransaction extends Base with _$ScheduledTransaction {
+class ScheduledTransaction with _$ScheduledTransaction {
   const factory ScheduledTransaction(
       {required GUID guid,
       required String name,

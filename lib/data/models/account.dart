@@ -39,7 +39,7 @@ class AccountType with _$AccountType {
 }
 
 @Freezed()
-class Account extends Base with _$Account {
+class Account with _$Account {
   const factory Account(
       {required GUID guid,
       required AccountType type,

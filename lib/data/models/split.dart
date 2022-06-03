@@ -5,7 +5,7 @@ part 'split.freezed.dart';
 part 'split.g.dart';
 
 @Freezed()
-class Split extends Base with _$Split {
+class Split with _$Split {
   const factory Split(
       {required GUID guid,
       required GUID txGuid,
