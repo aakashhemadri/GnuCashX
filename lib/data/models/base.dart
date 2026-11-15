@@ -1,1 +1,4 @@
-abstract class Base {}
+abstract class Base {
+  const Base();
+}
+

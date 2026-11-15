@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gnucashx/utils/utils.dart';
 
 class BudgetView extends StatelessWidget {
-  const BudgetView({Key? key}) : super(key: key);
+  const BudgetView({super.key});
 
   @override
   Widget build(BuildContext context) {

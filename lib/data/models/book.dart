@@ -5,7 +5,9 @@ part 'book.freezed.dart';
 part 'book.g.dart';
 
 @Freezed()
-class Book extends Base with _$Book {
+abstract class Book extends Base with _$Book {
+  const Book._();
+
   const factory Book({
     required GUID guid,
     required GUID rootAccountGuid,

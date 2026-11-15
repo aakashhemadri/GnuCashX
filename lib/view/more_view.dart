@@ -5,7 +5,7 @@ import 'package:gnucashx/widget/widget.dart';
 import 'package:gnucashx/utils/utils.dart';
 
 class MoreView extends StatelessWidget {
-  const MoreView({Key? key}) : super(key: key);
+  const MoreView({super.key});
 
   @override
   Widget build(BuildContext context) {

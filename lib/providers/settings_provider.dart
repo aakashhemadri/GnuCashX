@@ -1,4 +1,4 @@
-part of providers;
+part of 'providers.dart';
 
 class SettingsProvider with ChangeNotifier {
   final SettingsRepo _settingsRepo = SettingsRepo();

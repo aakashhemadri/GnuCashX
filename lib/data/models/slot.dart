@@ -5,7 +5,9 @@ part 'slot.freezed.dart';
 part 'slot.g.dart';
 
 @Freezed()
-class SlotType with _$SlotType {
+abstract class SlotType with _$SlotType {
+  const SlotType._();
+
   const factory SlotType({required String name, required int value}) =
       _SlotType;
 
@@ -31,7 +33,9 @@ class SlotType with _$SlotType {
 /// [objGuid] refers to an instance of another unique object whose data is attached
 /// [name] is key path of slot.
 @Freezed()
-class Slot extends Base with _$Slot {
+abstract class Slot extends Base with _$Slot {
+  const Slot._();
+
   const factory Slot(
       {required GUID objGuid,
       required String name,

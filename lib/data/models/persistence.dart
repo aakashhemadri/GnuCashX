@@ -15,7 +15,9 @@ enum PersistenceType {
 }
 
 @Freezed()
-class Persistence with _$Persistence {
+abstract class Persistence with _$Persistence {
+  const Persistence._();
+
   @Assert('type == PersistenceType.local')
   const factory Persistence.local(
       {@Default(PersistenceType.local) PersistenceType type,

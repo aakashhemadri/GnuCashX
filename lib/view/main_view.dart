@@ -6,14 +6,14 @@ import 'package:gnucashx/view/view.dart';
 import 'package:gnucashx/utils/utils.dart';
 
 class MainView extends StatelessWidget {
-  const MainView({Key? key}) : super(key: key);
+  const MainView({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
           child: Consumer<UIProvider>(
-              builder: (_, value, __) => <Widget>[
+              builder: (_, value, _) => <Widget>[
                     const BookView(),
                     const BudgetView(),
                     const ReportView(),

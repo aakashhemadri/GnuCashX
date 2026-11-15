@@ -6,40 +6,44 @@ part 'account.freezed.dart';
 part 'account.g.dart';
 
 @Freezed()
-class AccountType with _$AccountType {
-  const factory AccountType._({
+abstract class AccountType with _$AccountType {
+  const AccountType._();
+
+  const factory AccountType({
     required String name,
     required String type,
   }) = _AccountType;
 
-  factory AccountType.root() => const AccountType._(name: 'Root', type: 'ROOT');
-  factory AccountType.bank() => const AccountType._(name: 'Bank', type: 'BANK');
-  factory AccountType.cash() => const AccountType._(name: 'Cash', type: 'CASH');
+  factory AccountType.root() => const AccountType(name: 'Root', type: 'ROOT');
+  factory AccountType.bank() => const AccountType(name: 'Bank', type: 'BANK');
+  factory AccountType.cash() => const AccountType(name: 'Cash', type: 'CASH');
   factory AccountType.asset() =>
-      const AccountType._(name: 'Asset', type: 'ASSET');
+      const AccountType(name: 'Asset', type: 'ASSET');
   factory AccountType.credit() =>
-      const AccountType._(name: 'Credit Card', type: 'CREDIT');
+      const AccountType(name: 'Credit Card', type: 'CREDIT');
   factory AccountType.stock() =>
-      const AccountType._(name: 'Stock', type: 'STOCK');
+      const AccountType(name: 'Stock', type: 'STOCK');
   factory AccountType.mutual() =>
-      const AccountType._(name: 'Mutal Fund', type: 'MUTUAL');
+      const AccountType(name: 'Mutal Fund', type: 'MUTUAL');
   factory AccountType.income() =>
-      const AccountType._(name: 'Income', type: 'INCOME');
+      const AccountType(name: 'Income', type: 'INCOME');
   factory AccountType.expense() =>
-      const AccountType._(name: 'Expense', type: 'EXPENSE');
+      const AccountType(name: 'Expense', type: 'EXPENSE');
   factory AccountType.equity() =>
-      const AccountType._(name: 'Equity', type: 'EQUITY');
+      const AccountType(name: 'Equity', type: 'EQUITY');
   factory AccountType.receivable() =>
-      const AccountType._(name: 'A/Receivable', type: 'RECEIVABLE');
+      const AccountType(name: 'A/Receivable', type: 'RECEIVABLE');
   factory AccountType.payable() =>
-      const AccountType._(name: 'A/Payable', type: 'PAYABLE');
+      const AccountType(name: 'A/Payable', type: 'PAYABLE');
 
   factory AccountType.fromJson(Map<String, dynamic> json) =>
       _$AccountTypeFromJson(json);
 }
 
 @Freezed()
-class Account extends Base with _$Account {
+abstract class Account extends Base with _$Account {
+  const Account._();
+
   const factory Account(
       {required GUID guid,
       required AccountType type,

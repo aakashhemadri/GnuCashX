@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gnucashx/utils/utils.dart';
 
 class AboutView extends StatelessWidget {
-  const AboutView({Key? key}) : super(key: key);
+  const AboutView({super.key});
 
   @override
   Widget build(BuildContext context) {

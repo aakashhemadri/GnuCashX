@@ -6,7 +6,9 @@ part 'guid.freezed.dart';
 part 'guid.g.dart';
 
 @Freezed()
-class GUID with _$GUID {
+abstract class GUID with _$GUID {
+  const GUID._();
+
   const factory GUID({required String value}) = _GUID;
   factory GUID.generate() => GUID(value: GUID._generate());
   factory GUID.fromJson(Map<String, dynamic> json) => _$GUIDFromJson(json);

@@ -7,7 +7,7 @@ import 'package:gnucashx/data/data.dart';
 import 'package:gnucashx/utils/utils.dart';
 
 class SettingsView extends StatelessWidget {
-  const SettingsView({Key? key}) : super(key: key);
+  const SettingsView({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -9,12 +9,14 @@ part 'settings.freezed.dart';
 part 'settings.g.dart';
 
 @Freezed()
-class Settings extends Base with _$Settings {
+abstract class Settings extends Base with _$Settings {
+  const Settings._();
+
   static const fileName = kSettingsFileName;
   static Settings? _instance;
 
-  // Private Constructor
-  const factory Settings._(
+  // Factory Constructor
+  const factory Settings(
       {required GUID guid,
       required bool useMaterial3,
       required bool isDynamic,
@@ -25,7 +27,7 @@ class Settings extends Base with _$Settings {
       required List<Persistence> sources,
       required Persistence? current}) = _Settings;
 
-  factory Settings.local() => Settings._instance ??= Settings._(
+  factory Settings.local() => Settings._instance ??= Settings(
       guid: GUID.generate(),
       useMaterial3: false,
       isDynamic: false,

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:gnucashx/utils/utils.dart';
 
 class BookView extends StatelessWidget {
-  const BookView({Key? key}) : super(key: key);
+  const BookView({super.key});
 
   @override
   Widget build(BuildContext context) {

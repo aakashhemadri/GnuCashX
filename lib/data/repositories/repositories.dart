@@ -1,4 +1,6 @@
 /// Repository Interface
+library;
+
 export 'package:gnucashx/data/repositories/interface_repo.dart';
 export 'package:gnucashx/data/repositories/settings_repo.dart';
 

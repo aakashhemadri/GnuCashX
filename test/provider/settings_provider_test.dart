@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:gnucashx/data/data.dart';
 import 'package:gnucashx/providers/providers.dart';
 import 'package:gnucashx/utils/utils.dart';
 
 void main() {
+  TestWidgetsFlutterBinding.ensureInitialized();
+
   group('SettingsProvider:', () {
     late SettingsProvider settingsProvider;
     late Persistence localSource;
@@ -13,6 +16,7 @@ void main() {
     late Persistence sqliteSource;
 
     setUp(() async {
+      SharedPreferences.setMockInitialValues({});
       settingsProvider = SettingsProvider();
       await settingsProvider.reset();
       await settingsProvider.init();

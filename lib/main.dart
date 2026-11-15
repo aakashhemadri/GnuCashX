@@ -17,7 +17,7 @@ Future<void> main() async {
 }
 
 class GncApp extends StatelessWidget {
-  const GncApp({Key? key}) : super(key: key);
+  const GncApp({super.key});
 
   @override
   Widget build(BuildContext context) {

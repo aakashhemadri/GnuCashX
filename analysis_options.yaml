@@ -11,10 +11,15 @@
 include: package:flutter_lints/flutter.yaml
 
 analyzer:
+  errors:
+    deprecated_member_use: ignore
   exclude: 
     - 'build/**'
     - '**/*.freezed.dart'
     - '**/*.g.dart' 
+    - android/**
+    - ios/**
+    - web/**
   language:
     strict-casts: true
     strict-inference: true

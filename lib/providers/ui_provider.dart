@@ -1,4 +1,4 @@
-part of providers;
+part of 'providers.dart';
 
 enum BottomNav { book, budget, report, more }
 

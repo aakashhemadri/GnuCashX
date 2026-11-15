@@ -9,7 +9,9 @@ enum CommodityNamespace { currency, single, multi, unknown }
 enum QuoteSource { currency }
 
 @Freezed()
-class Commodity extends Base with _$Commodity {
+abstract class Commodity extends Base with _$Commodity {
+  const Commodity._();
+
   const factory Commodity({
     required GUID guid,
     required CommodityNamespace
