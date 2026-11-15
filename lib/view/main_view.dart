@@ -29,20 +29,20 @@ class MainView extends StatelessWidget {
                 NavigationDestination(
                     icon: const Icon(Icons.book_outlined),
                     selectedIcon: const Icon(Icons.book_rounded),
-                    label: G.of(context)!.mainBookNav),
+                    label: context.l10n.mainBookNav),
                 NavigationDestination(
                     icon: const Icon(Icons.account_balance_wallet_outlined),
                     selectedIcon:
                         const Icon(Icons.account_balance_wallet_rounded),
-                    label: G.of(context)!.mainBudgetNav),
+                    label: context.l10n.mainBudgetNav),
                 NavigationDestination(
                     icon: const Icon(Icons.pie_chart_outline),
                     selectedIcon: const Icon(Icons.pie_chart_rounded),
-                    label: G.of(context)!.mainReportNav),
+                    label: context.l10n.mainReportNav),
                 NavigationDestination(
                     icon: const Icon(Icons.more_horiz_outlined),
                     selectedIcon: const Icon(Icons.pets_rounded),
-                    label: G.of(context)!.mainMoreNav)
+                    label: context.l10n.mainMoreNav)
               ]);
         }));
   }

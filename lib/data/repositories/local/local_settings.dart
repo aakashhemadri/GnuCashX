@@ -9,27 +9,27 @@ import 'package:gnucashx/utils/constants.dart';
 class LocalSettingsRepo implements SettingsRepo {
   @override
   Future<bool> reset() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    String settings = jsonEncode(Settings.local());
+    final pref = await SharedPreferences.getInstance();
+    final settings = jsonEncode(Settings.local());
     return pref.setString(kLocalSettingsKey, settings);
   }
 
   @override
   Future<bool> write(Settings settings) async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    String settingsJson = jsonEncode(settings.toJson());
+    final pref = await SharedPreferences.getInstance();
+    final settingsJson = jsonEncode(settings.toJson());
     return pref.setString(kLocalSettingsKey, settingsJson);
   }
 
   @override
   Future<Settings> read() async {
-    SharedPreferences pref = await SharedPreferences.getInstance();
-    String? settingsJson = pref.getString(kLocalSettingsKey);
+    final pref = await SharedPreferences.getInstance();
+    final settingsJson = pref.getString(kLocalSettingsKey);
     if (settingsJson == null) {
       await reset();
       return Settings.local();
     }
-    Map<String, dynamic> json =
+    final json =
         jsonDecode(settingsJson) as Map<String, dynamic>;
     return Settings.fromJson(json);
   }

@@ -51,9 +51,9 @@ void main() {
 
     test('.removeSource(): Check behaviour when deleting empty sources',
         () async {
-      await settingsProvider.removeSource(xmlSource);
+      await settingsProvider.removeSource(localSource);
 
-      expect(settingsProvider.settings, SettingsProvider().settings);
+      expect(settingsProvider.settings.sources, <Persistence>[]);
     });
 
     test('.removeSource(): Check if correct source is removed', () async {
@@ -73,12 +73,11 @@ void main() {
     });
 
     test('_commit(): Compare local storage with in-memory object', () async {
-      settingsProvider.addSource(localSource);
-      SettingsRepo repo = SettingsRepo();
+      await settingsProvider.addSource(localSource);
+      final repo = SettingsRepo();
 
-      await repo.read().then((settings) {
-        expect(settingsProvider.settings, settings);
-      });
+      final settings = await repo.read();
+      expect(settingsProvider.settings, settings);
     });
   });
 }

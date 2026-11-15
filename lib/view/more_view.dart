@@ -25,7 +25,7 @@ class MoreView extends StatelessWidget {
         SliverList(
           delegate: SliverChildListDelegate([
             ListTile(
-              title: Text(G.of(context)!.moreSettingsTile),
+              title: Text(context.l10n.moreSettingsTile),
               leading: const Icon(Icons.settings),
               trailing: const Icon(Icons.arrow_forward_rounded),
               enableFeedback: true,
@@ -33,7 +33,7 @@ class MoreView extends StatelessWidget {
                   Navigator.of(context).pushNamed(RouteManager.settingsPage),
             ),
             ListTile(
-              title: Text(G.of(context)!.moreAboutTile),
+              title: Text(context.l10n.moreAboutTile),
               leading: const Icon(Icons.help),
               trailing: const Icon(Icons.arrow_forward_rounded),
               enableFeedback: true,
@@ -42,7 +42,7 @@ class MoreView extends StatelessWidget {
             ),
             kWidgetDivider,
             ListTile(
-                title: Text(G.of(context)!.morePingMe),
+                title: Text(context.l10n.morePingMe),
                 leading: const Icon(Icons.notifications_rounded),
                 onTap: () => ScaffoldMessenger.of(context)
                     .showSnackBar(kWidgetSnackBarPing)),

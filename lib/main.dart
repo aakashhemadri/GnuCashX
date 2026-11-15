@@ -38,7 +38,7 @@ class GncApp extends StatelessWidget {
               }
 
               return MaterialApp(
-                onGenerateTitle: (context) => G.of(context)!.title,
+                onGenerateTitle: (context) => context.l10n.title,
                 initialRoute: RouteManager.mainPage,
                 onGenerateRoute: RouteManager.generateRoute,
                 theme: ThemeData(

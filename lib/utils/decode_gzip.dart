@@ -8,12 +8,12 @@ void main() {
   if (user.existsSync()) {
     final inStream = InputFileStream('resources/user.gnucash');
     final outStream = OutputFileStream('resources/user.xml');
-    GZipDecoder().decodeStream(inStream, outStream);
+    const GZipDecoder().decodeStream(inStream, outStream);
   }
 
   if (sample.existsSync()) {
     final inStream = InputFileStream('resources/sample.gnucash');
     final outStream = OutputFileStream('resources/sample.xml');
-    GZipDecoder().decodeStream(inStream, outStream);
+    const GZipDecoder().decodeStream(inStream, outStream);
   }
 }

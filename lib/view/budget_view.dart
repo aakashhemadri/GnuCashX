@@ -8,7 +8,7 @@ class BudgetView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(G.of(context)!.budgetTitle)),
+      appBar: AppBar(title: Text(context.l10n.budgetTitle)),
       body: Center(
         child: Icon(
           Icons.cloudy_snowing,

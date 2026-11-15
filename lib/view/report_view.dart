@@ -8,7 +8,7 @@ class ReportView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(G.of(context)!.reportTitle)),
+      appBar: AppBar(title: Text(context.l10n.reportTitle)),
       body: Center(
         child: Icon(
           Icons.thunderstorm_rounded,

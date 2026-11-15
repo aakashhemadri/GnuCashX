@@ -5,7 +5,7 @@ void main() {
   group('Persistence:', () {
     test('.local(): Check key', () {
       const String kSomeKey = 'SomeKey';
-      Persistence persist = Persistence.local(
+      final persist = Persistence.local(
           key: kSomeKey,
           guid: GUID.generate(),
           created: DateTime.now(),

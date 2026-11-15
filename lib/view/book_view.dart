@@ -8,7 +8,7 @@ class BookView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(G.of(context)!.bookTitle)),
+      appBar: AppBar(title: Text(context.l10n.bookTitle)),
       body: Center(
         child: Icon(
           Icons.pets_rounded,

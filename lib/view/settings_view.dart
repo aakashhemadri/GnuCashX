@@ -12,21 +12,21 @@ class SettingsView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(G.of(context)!.settingsTitle)),
+      appBar: AppBar(title: Text(context.l10n.settingsTitle)),
       body: Consumer<SettingsProvider>(
         builder: (context, settingsProvider, child) => ListView(
           children: [
             ListTile(
-              title: Text(G.of(context)!.settingsSourcesHeader),
+              title: Text(context.l10n.settingsSourcesHeader),
               enabled: false,
               dense: true,
             ),
             ListTile(
               enabled: false,
-              title: Text(G.of(context)!.settingsSourcesTitle),
+              title: Text(context.l10n.settingsSourcesTitle),
               subtitle: Builder(builder: (context) {
                 if (settingsProvider.settings.current == null) {
-                  return Text(G.of(context)!.settingsSourcesSubtitle);
+                  return Text(context.l10n.settingsSourcesSubtitle);
                 } else {
                   return Text(settingsProvider.settings.current!.map(
                       local: (Local value) => value.key,
@@ -40,20 +40,20 @@ class SettingsView extends StatelessWidget {
             ),
             kWidgetDivider,
             ListTile(
-              title: Text(G.of(context)!.settingsIntlHeader),
+              title: Text(context.l10n.settingsIntlHeader),
               enabled: false,
               dense: true,
             ),
             SwitchListTile(
-                title: Text(G.of(context)!.settingsIntlSystemLocaleTitle),
-                subtitle: Text(G.of(context)!.settingsIntlSystemLocaleSubtitle),
+                title: Text(context.l10n.settingsIntlSystemLocaleTitle),
+                subtitle: Text(context.l10n.settingsIntlSystemLocaleSubtitle),
                 value: settingsProvider.settings.useSystemLocale,
                 onChanged: (toggle) =>
                     settingsProvider.switchSystemLocale(toggle)),
             ListTile(
                 enabled: !settingsProvider.settings.useSystemLocale,
-                title: Text(G.of(context)!.settingsIntlLanguageTitle),
-                subtitle: Text(G.of(context)!.settingsIntlLanguageSubtitle),
+                title: Text(context.l10n.settingsIntlLanguageTitle),
+                subtitle: Text(context.l10n.settingsIntlLanguageSubtitle),
                 minLeadingWidth: kStyleMinLeadingWidth,
                 leading: const SizedBox(
                     height: double.infinity,
@@ -61,8 +61,8 @@ class SettingsView extends StatelessWidget {
                 trailing: Text(settingsProvider.settings.localeLanguageCode)),
             ListTile(
               enabled: !settingsProvider.settings.useSystemLocale,
-              title: Text(G.of(context)!.settingsIntlCountryTitle),
-              subtitle: Text(G.of(context)!.settingsIntlCountrySubtitle),
+              title: Text(context.l10n.settingsIntlCountryTitle),
+              subtitle: Text(context.l10n.settingsIntlCountrySubtitle),
               minLeadingWidth: kStyleMinLeadingWidth,
               leading: const SizedBox(
                   height: double.infinity,
@@ -71,46 +71,46 @@ class SettingsView extends StatelessWidget {
             ),
             kWidgetDivider,
             ListTile(
-              title: Text(G.of(context)!.settingsAppearenceHeader),
+              title: Text(context.l10n.settingsAppearenceHeader),
               enabled: false,
               dense: true,
             ),
             ListTile(
-              title: Text(G.of(context)!.settingsAppearenceThemeModeTitle),
+              title: Text(context.l10n.settingsAppearenceThemeModeTitle),
               subtitle: Builder(builder: (context) {
                 switch (settingsProvider.settings.theme) {
                   case ThemeMode.system:
                     return Text(
-                        G.of(context)!.settingsAppearenceThemeModeSystem);
+                        context.l10n.settingsAppearenceThemeModeSystem);
                   case ThemeMode.light:
                     return Text(
-                        G.of(context)!.settingsAppearenceThemeModeLight);
+                        context.l10n.settingsAppearenceThemeModeLight);
                   case ThemeMode.dark:
-                    return Text(G.of(context)!.settingsAppearenceThemeModeDark);
+                    return Text(context.l10n.settingsAppearenceThemeModeDark);
                 }
               }),
-              onTap: () async => await showDialog(
+              onTap: () => showDialog<void>(
                   context: context,
-                  builder: (BuildContext context) {
+                  builder: (BuildContext dialogContext) {
                     return SimpleDialog(
-                      title: Text(G.of(context)!.settingsAppearenceDialogTitle),
+                      title: Text(dialogContext.l10n.settingsAppearenceDialogTitle),
                       children: <Widget>[
                         SimpleDialogOption(
                           child: Text(
-                              G.of(context)!.settingsAppearenceThemeModeSystem),
-                          onPressed: () => Navigator.pop(context,
+                              dialogContext.l10n.settingsAppearenceThemeModeSystem),
+                          onPressed: () => Navigator.pop(dialogContext,
                               settingsProvider.updateTheme(ThemeMode.system)),
                         ),
                         SimpleDialogOption(
                           child: Text(
-                              G.of(context)!.settingsAppearenceThemeModeLight),
-                          onPressed: () => Navigator.pop(context,
+                              dialogContext.l10n.settingsAppearenceThemeModeLight),
+                          onPressed: () => Navigator.pop(dialogContext,
                               settingsProvider.updateTheme(ThemeMode.light)),
                         ),
                         SimpleDialogOption(
                           child: Text(
-                              G.of(context)!.settingsAppearenceThemeModeDark),
-                          onPressed: () => Navigator.pop(context,
+                              dialogContext.l10n.settingsAppearenceThemeModeDark),
+                          onPressed: () => Navigator.pop(dialogContext,
                               settingsProvider.updateTheme(ThemeMode.dark)),
                         ),
                       ],
@@ -118,21 +118,21 @@ class SettingsView extends StatelessWidget {
                   }),
             ),
             SwitchListTile(
-                title: Text(G.of(context)!.settingsAppearenceDynamicTheme),
+                title: Text(context.l10n.settingsAppearenceDynamicTheme),
                 value: settingsProvider.settings.isDynamic,
                 onChanged: (toggle) =>
                     settingsProvider.switchDynamicTheme(toggle)),
             kWidgetDivider,
             ListTile(
-              title: Text(G.of(context)!.settingsExperimentalHeader),
-              subtitle: Text(G.of(context)!.settingsExperimentalHeaderSubtitle),
+              title: Text(context.l10n.settingsExperimentalHeader),
+              subtitle: Text(context.l10n.settingsExperimentalHeaderSubtitle),
               enabled: false,
               dense: true,
             ),
             SwitchListTile(
-                title: Text(G.of(context)!.settingsExperimentalMaterial3Title),
+                title: Text(context.l10n.settingsExperimentalMaterial3Title),
                 subtitle:
-                    Text(G.of(context)!.settingsExperimentalMaterial3Subtitle),
+                    Text(context.l10n.settingsExperimentalMaterial3Subtitle),
                 value: settingsProvider.settings.useMaterial3,
                 onChanged: (toggle) =>
                     settingsProvider.switchMaterialVersion(toggle)),

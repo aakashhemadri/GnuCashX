@@ -8,7 +8,7 @@ class AboutView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(G.of(context)!.aboutTitle)),
+      appBar: AppBar(title: Text(context.l10n.aboutTitle)),
       body: Center(
         child: Icon(
           Icons.help_rounded,
